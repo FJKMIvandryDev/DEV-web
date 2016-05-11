@@ -9,3 +9,10 @@ zana_tsampana_onglet:
 zana_tsampana_containt:
     path:     /zana-tsampana-containt
     defaults: { _controller: frontBundle:sampana:zanaTsampanaContaint }
+    
+
+
+#article Controller
+article_test:
+    path:     /article
+    defaults: { _controller: frontBundle:Article:index }
