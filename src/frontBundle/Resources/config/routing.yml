@@ -1,0 +1,11 @@
+front_homepage:
+    path:     /
+    defaults: { _controller: frontBundle:Default:index }
+
+zana_tsampana_onglet:
+    path:     /zana-tsampana
+    defaults: { _controller: frontBundle:sampana:zanaTsampanaGet }
+    
+zana_tsampana_containt:
+    path:     /zana-tsampana-containt
+    defaults: { _controller: frontBundle:sampana:zanaTsampanaContaint }

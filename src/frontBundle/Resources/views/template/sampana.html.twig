@@ -1,0 +1,149 @@
+{# empty Twig template #}
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sampana</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/framework/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+            <link href="{{ asset('bundles/framework/css/bootstrap-responsive.min.css') }}" rel="stylesheet" type="text/css">
+            <link href="{{ asset('bundles/framework/css/ivandry.css') }}" rel="stylesheet" type="text/css">
+        {% endblock %}
+        
+    </head>
+    <body>
+        <div class="container">
+            <!-- header row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="head_banner">
+
+                        <div class="row">
+                            <div class="sampana_logo">SAMPANA</div>
+                        </div>
+                        
+                        <!-- menu -->
+                        <div class="row">
+                            
+                                <ul class="nav nav-tabs">
+                                    <li><a data-toggle="tab" href="#DORKASY" onclick="return onglet.clickO('DORKASY')">DORKASY</a></li>
+                                    <li><a data-toggle="tab" href="#FIFOHAZANA" onclick="return onglet.clickO('FIFOHAZANA')">FIFOHAZANA</a></li>
+                                    <li><a data-toggle="tab" href="#LEHILAHY_KRISTIANINA" onclick="return onglet.clickO('LEHILAHY_KRISTIANINA')">LEHILAHY KRISTIANINA</a></li>
+                                    <li><a data-toggle="tab" href="#SEKOLY_ALAHADY" onclick="return onglet.clickO('SEKOLY_ALAHADY')">SEKOLY ALAHADY</a></li>
+                                    <li><a data-toggle="tab" href="#TANORA_KRISTIANINA" onclick="return onglet.clickO('TANORA_KRISTIANINA')">TANORA KRISTIANINA</a></li>
+                                    <li><a data-toggle="tab" href="#VOKOVOKOMANGA" onclick="return onglet.clickO('VOKOVOKOMANGA')">VOKOVOKOMANGA</a></li>
+                                    <li><a data-toggle="tab" href="#VONDRONA_FOTOTRA_LAIKA" onclick="return onglet.clickO('VONDRONA_FOTOTRA_LAIKA')">VONDRONA FOTOTRA LAIKA</a></li>
+                                    <li><a data-toggle="tab" href="#FITORIANA_NY_FILAZAN_TSARA" onclick="return onglet.clickO('FITORIANA_NY_FILAZAN_TSARA')">FITORIANA NY FILAZAN-TSARA</a></li>
+                                </ul>
+                            
+                        </div>
+                        <!-- fin menu -->
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- end header row -->
+            
+            
+            <!--contenu des onglets -->
+            <div class="row">
+                <div class="tab-content">
+                    <!-- onglet 1-->
+                    <div id="DORKASY" class="tab-pane fade in active">
+                        
+                    </div>
+                    
+                    <!-- onglet 2-->
+                    <div id="FIFOHAZANA" class="tab-pane fade">
+                                    
+                    </div>
+                    <!-- end onglet 2-->
+
+
+                    <!-- onglet 3-->
+                    <div id="LEHILAHY_KRISTIANINA" class="tab-pane fade">
+
+                    </div>
+                    <!-- end onglet 3-->
+                    
+                    <!-- onglet 4-->
+                    <div id="SEKOLY_ALAHADY" class="tab-pane fade">
+
+                    </div>
+                    <!-- end onglet 4-->
+                    
+                    <!-- onglet 5-->
+                    <div id="TANORA_KRISTIANINA" class="tab-pane fade">
+
+                    </div>
+                    <!-- end onglet 5-->
+                    
+                    <!-- onglet 6-->
+                    <div id="VOKOVOKOMANGA" class="tab-pane fade">
+
+                    </div>
+                    <!-- end onglet 6-->
+                    
+                    <!-- onglet 7-->
+                    <div id="VONDRONA_FOTOTRA_LAIKA" class="tab-pane fade">
+
+                    </div>
+                    <!-- end onglet 7-->
+                    
+                    <!-- onglet 8-->
+                    <div id="FITORIANA_NY_FILAZAN_TSARA" class="tab-pane fade">
+
+                    </div>
+                    <!-- end onglet 8-->
+                   
+                
+                </div>
+            </div>
+        
+        </div>
+
+                                                    
+        {% block javascript %} 
+            
+            <script src="{{ asset('bundles/framework/js/jquery-2.1.0.min.js') }}"></script>
+            <script src="{{ asset('bundles/framework/js/bootstrap.min.js') }}"></script>
+
+            
+            
+            
+            <script>
+                onglet = {
+                        clickO: function(ongletName) 
+                        {
+                            var url = 'zana-tsampana-containt?ongletName=';
+                            
+                            if ( $("#".concat(ongletName)).children().length <= 0 ) 
+                            {
+                                $.get(url.concat(ongletName),function(data)
+                                {
+
+                                        $("#".concat(ongletName)).append(data);
+
+
+                                });
+                            }
+                        }
+                    }
+            </script>
+            
+            <script>
+                $(document).ready(function () {
+                        onglet.clickO("DORKASY");
+                  });
+            </script>
+        {% endblock %}
+             
+    </body>
+</html>

@@ -1,2 +1,4 @@
-# DEV-web
-developpement site web FJKM Ivandry Firaisana avec Symfony2
+FJKM_Ivandry
+============
+
+A Symfony project created on April 18, 2016, 7:48 am.

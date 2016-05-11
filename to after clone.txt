@@ -1,0 +1,7 @@
+/* pour telecharger les dependance */
+
+
+ouvrir cmd
+aller dans le repertoir du projet
+faire la commande suivant : 
+	php composer.phar update
