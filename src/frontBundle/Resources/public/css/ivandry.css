@@ -1,0 +1,312 @@
+body {
+
+  padding-top: 10px;
+
+}
+
+@ivandry_gris: #3f3f37;
+@ivandry_vert: #b2cd3e;
+@ivandry_vert_kely: #bfd13f;
+@ivandry_jaune: #eeecd7;
+
+
+[class*="col-"], footer {
+
+  background-color: @ivandry_gris;
+
+  text-align: center;    
+  
+  /*border: 1px solid black;*/
+
+}
+
+img{ width:100%; }
+
+.container {
+padding-left:0px;
+padding-right:0px;
+
+}
+
+@media (min-width: 768px) {
+
+  .container {
+
+    width: 100%;
+	padding-left:0px;
+	padding-right:0px;
+  }
+
+}
+
+@media (min-width: 992px) {
+
+  .container {
+
+    width: 100%;
+	padding-left:0px;
+	padding-right:0px;
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  .container {
+
+        width: 100%;
+	padding-left:0px;
+	padding-right:0px;
+  }
+
+}
+
+#map-container { 
+    width: auto;
+	margin-left:5px;
+	margin-right:5px;
+	margin-left:5px;
+	height: 300px;
+	border: 2px solid #BED13E;
+	
+	
+ }
+
+.scrollpan {
+	
+	
+} 
+
+.row-list {
+	height:300px;
+	text-align:left;
+	padding-left:15px;
+	overflow: scroll;
+} 
+
+dl {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+dt{
+color:#BED13E;	
+	
+}
+.img_fampianarana{
+
+}
+.elan{
+	padding-top:30px;
+}
+t1{
+color:#1E1E1A;
+font-weight:bold;
+font-size:20px;
+}
+t1a{
+color:#1E1E1A;
+font-weight:bold;
+font-size:20px;
+float:left;
+}
+
+.fampianarana{
+	height:390px;
+	background-color: #BED13E;
+
+
+}
+.fampianarana_ligne{
+	height:147px;
+		background-color: #BED13E;
+}
+.fampianarana_sep_v{
+	border-left:1px solid rgba(255, 255, 255, 1);
+	height:147px;
+}
+.fampianarana_sep_h{
+	border-bottom:1px solid rgba(255, 255, 255, 1);
+}
+.fampianarana_txt{
+	height:147px;
+	background-color: #BED13E;
+}
+.fampianarana_content{
+	padding-top:30px;
+	padding-bottom:10px;
+	text-align:left;
+	overflow:hidden;
+}
+.titre_t1a{
+height:60px;	
+padding-top:18px;
+padding-left:32px;
+	
+}
+.sary1{
+	height:147px;
+	padding-top:30px;
+}
+t2{
+color:#1E1E1A;
+font-weight:bold;
+font-size:16px;
+}
+t2a{
+	color:#fff;
+	font-size:14px;
+}
+.img_logo{
+	width:100%;
+	max-width:86px;
+}
+.img_illu{
+	width:100%;
+	max-width:320px;
+}
+.head_banner{
+	height:90px;
+	background-color:#1E1E1A;
+}
+.head_logo{
+	width:100%;
+	max-width:130px;
+}
+.navbar-form{
+	padding-top:22px;
+}
+.input-sm{
+	height:25px;
+	width: 100px;
+	border:2px solid #BED13E;
+	border-radius:0px;
+	background-color:#1E1E1A;
+	color:#fff;
+	}
+.btn-primary{
+	border-color:#fff;
+	margin:-6px;
+}
+
+
+
+
+/*onja*/
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.sampana_logo
+{
+    padding-top: 8px;
+    padding-left: 72px;
+    font-size: 180%;
+    font-weight: bold;
+    text-align: left;
+    color: #b2cd3e;
+}
+
+.menu_sampana
+{
+    font-weight: bold;
+    text-align: left;
+    color: #b2cd3e;
+}
+
+ul.menu_horizontal li 
+{ 
+    display : inline;
+    padding : 0 0.5em;
+    font-weight: bold;
+    text-align: left;
+    color: #eeecd7;
+}
+ul#menu_horizontal 
+{
+    list-style-type : none;
+}
+
+ul.nav li
+{
+    display : inline;
+    padding : 0 0.5em;
+    font-weight: bold;
+    text-align: left;
+    color: #eeecd7;
+}
+
+ul.nav
+{
+    padding-left: 100px;
+    list-style-type : none;
+}
+
+.img-zana-tsampana
+{
+    /*width: 612px;
+    height: 377px;*/
+    /*margin-left: -145px;*/
+    padding-top: 50px;
+    /*padding-left: 50px;*/
+}
+
+
+.list-birao
+{
+    text-align: left;
+    list-style-type:disc;
+    padding-top: 120px;
+    vertical-align: middle;
+}
+
+li.birao-description
+{
+    line-height: 1.8;
+}
+
+
+.vcenter 
+{
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+
+.paragraphe-zana-tsampana
+{
+    text-align: left;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    /*padding-left: 50px;*/
+}
+
+.sampana-article
+{
+    height: 350px;
+    margin-right: 30px;
+    background-color: #1E1E1A;
+}
+
+.image-sampana-article
+{
+    height: 280px
+}
+
+
+.gras-article-zanatsampana
+{
+    margin-top: 10px;
+    color: #b2cd3e;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    
+}
+
+/*onja*/

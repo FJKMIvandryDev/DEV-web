@@ -63,4 +63,3 @@ class Type_info
         return $this->libelle;
     }
 }
-

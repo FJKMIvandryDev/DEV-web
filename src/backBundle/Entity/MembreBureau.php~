@@ -1,0 +1,172 @@
+<?php
+
+namespace backBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MembreBureau
+ *
+ * @ORM\Table(name="membre_bureau")
+ * @ORM\Entity(repositoryClass="backBundle\Repository\MembreBureauRepository")
+ */
+class MembreBureau
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $filoha;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $filohaMpanampy;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $mpitanTsoratra;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $mpitamBola;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateDebut", type="date")
+     */
+    private $dateDebut;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateFin", type="date")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $dateFin;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="status", type="integer")
+     */
+    private $status;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="membreBureau")
+     * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $sokajinAsa;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="ZanaTsampana", cascade={"persist"}, inversedBy="membreBureau")
+     * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $zanaTsampana;
+
+    public function __construct()
+    {
+      $this->dateDebut = new \Datetime();
+    }
+    
+    
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set dateDebut
+     *
+     * @param \DateTime $dateDebut
+     *
+     * @return MembreBureau
+     */
+    public function setDateDebut($dateDebut)
+    {
+        $this->dateDebut = $dateDebut;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDebut
+     *
+     * @return \DateTime
+     */
+    public function getDateDebut()
+    {
+        return $this->dateDebut;
+    }
+
+    /**
+     * Set dateFin
+     *
+     * @param \DateTime $dateFin
+     *
+     * @return MembreBureau
+     */
+    public function setDateFin($dateFin)
+    {
+        $this->dateFin = $dateFin;
+
+        return $this;
+    }
+
+    /**
+     * Get dateFin
+     *
+     * @return \DateTime
+     */
+    public function getDateFin()
+    {
+        return $this->dateFin;
+    }
+
+    /**
+     * Set status
+     *
+     * @param integer $status
+     *
+     * @return MembreBureau
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+}
+

@@ -34,7 +34,7 @@ class Video
      * @ORM\Column(name="date", type="date")
      */
     private $date;
-
+    
 
     public function __construct()
     {
@@ -98,5 +98,6 @@ class Video
     {
         return $this->date;
     }
-}
 
+
+}

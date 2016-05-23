@@ -34,6 +34,7 @@ class Image
      * @ORM\Column(name="date", type="date")
      */
     private $date;
+    
 
 
     public function __construct()
@@ -99,4 +100,3 @@ class Image
         return $this->date;
     }
 }
-

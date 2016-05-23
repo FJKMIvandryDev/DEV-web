@@ -94,4 +94,3 @@ class Categorie
         return $this->description;
     }
 }
-

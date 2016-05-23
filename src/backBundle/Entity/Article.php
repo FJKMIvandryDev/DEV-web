@@ -2,6 +2,7 @@
 
 namespace backBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -67,22 +68,37 @@ class Article
     private $videos;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Audio")
+     * @ORM\ManyToMany(targetEntity="Audio", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
     */
     private $audios;
     
     /**
-     * @ORM\OneToOne(targetEntity="Type_Article", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Type_Article", cascade={"persist"})
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      * @ORM\JoinColumn(nullable=false)
     */
     private $type;
     
     /**
-     * @ORM\OneToOne(targetEntity="Categorie", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Categorie", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
     */
     private $categorie;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="articles")
+     * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $sokajinAsa;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="ZanaTsampana", cascade={"persist"}, inversedBy="articles")
+     * @ORM\JoinColumn(name="zanaTsampana_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $zanaTsampana;
     
     
     public function __construct()
@@ -373,5 +389,77 @@ class Article
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Add categorie
+     *
+     * @param \backBundle\Entity\Categorie $categorie
+     *
+     * @return Article
+     */
+    public function addCategorie(\backBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie[] = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Remove categorie
+     *
+     * @param \backBundle\Entity\Categorie $categorie
+     */
+    public function removeCategorie(\backBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie->removeElement($categorie);
+    }
+
+    /**
+     * Set sokajinAsa
+     *
+     * @param \backBundle\Entity\SokajinAsa $sokajinAsa
+     *
+     * @return Article
+     */
+    public function setSokajinAsa(\backBundle\Entity\SokajinAsa $sokajinAsa = null)
+    {
+        $this->sokajinAsa = $sokajinAsa;
+
+        return $this;
+    }
+
+    /**
+     * Get sokajinAsa
+     *
+     * @return \backBundle\Entity\SokajinAsa
+     */
+    public function getSokajinAsa()
+    {
+        return $this->sokajinAsa;
+    }
+
+    /**
+     * Set zanaTsampana
+     *
+     * @param \backBundle\Entity\ZanaTsampana $zanaTsampana
+     *
+     * @return Article
+     */
+    public function setZanaTsampana(\backBundle\Entity\ZanaTsampana $zanaTsampana = null)
+    {
+        $this->zanaTsampana = $zanaTsampana;
+
+        return $this;
+    }
+
+    /**
+     * Get zanaTsampana
+     *
+     * @return \backBundle\Entity\ZanaTsampana
+     */
+    public function getZanaTsampana()
+    {
+        return $this->zanaTsampana;
     }
 }

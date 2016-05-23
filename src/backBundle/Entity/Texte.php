@@ -63,4 +63,3 @@ class Texte
         return $this->contenu;
     }
 }
-

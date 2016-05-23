@@ -11,11 +11,19 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        {% block stylesheets %}
-            <link href="{{ asset('bundles/framework/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
-            <link href="{{ asset('bundles/framework/css/bootstrap-responsive.min.css') }}" rel="stylesheet" type="text/css">
-            <link href="{{ asset('bundles/framework/css/ivandry.css') }}" rel="stylesheet" type="text/css">
-        {% endblock %}
+        {% stylesheets output="css/compiled/main.css" filter="cssrewrite"
+            '@frontBundle/Resources/public/css/bootstrap.css'
+            '@frontBundle/Resources/public/css/bootstrap-responsive.min.css'
+            '@frontBundle/Resources/public/css/ivandry.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+        
+{#        {% block stylesheets %}
+            <link href="{{ asset('bundles/front/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+            <link href="{{ asset('bundles/front/css/bootstrap-responsive.min.css') }}" rel="stylesheet" type="text/css">
+            <link href="{{ asset('bundles/front/css/ivandry.css') }}" rel="stylesheet" type="text/css">
+        {% endblock %}#}
         
     </head>
     <body>
@@ -112,8 +120,15 @@ and open the template in the editor.
                                                     
         {% block javascript %} 
             
-            <script src="{{ asset('bundles/framework/js/jquery-2.1.0.min.js') }}"></script>
-            <script src="{{ asset('bundles/framework/js/bootstrap.min.js') }}"></script>
+            {% javascripts output="js/compiled/core.js"
+                "@frontBundle/Resources/public/js/jquery-2.1.0.min.js"
+                "@frontBundle/Resources/public/js/bootstrap.min.js"
+            %}
+                <script src="{{ asset_url }}" charset="utf-8"></script>
+            {% endjavascripts %}
+                
+ {#           <script src="{{ asset('frontBundle/Resources/public/js/jquery-2.1.0.min.js') }}"></script>
+            <script src="{{ asset('frontBundle/Resources/public/js/bootstrap.min.js') }}"></script>#}
 
             
             

@@ -136,5 +136,28 @@ class Info
     {
         return $this->date;
     }
-}
 
+    /**
+     * Set type
+     *
+     * @param \backBundle\Entity\Type_info $type
+     *
+     * @return Info
+     */
+    public function setType(\backBundle\Entity\Type_info $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \backBundle\Entity\Type_info
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+}

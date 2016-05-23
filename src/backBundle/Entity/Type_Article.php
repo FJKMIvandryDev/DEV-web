@@ -63,4 +63,3 @@ class Type_Article
         return $this->libelle;
     }
 }
-
