@@ -25,6 +25,7 @@ class Type_info
      * @var string
      *
      * @ORM\Column(name="libelle", type="string", length=255)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $libelle;
 

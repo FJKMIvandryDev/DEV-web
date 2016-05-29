@@ -40,6 +40,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="auteur", type="string", length=100)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $auteur;
 
@@ -57,19 +58,19 @@ class Article
 
     /**
      * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $images;
     
     /**
      * @ORM\ManyToMany(targetEntity="Video", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $videos;
     
     /**
      * @ORM\ManyToMany(targetEntity="Audio", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $audios;
     
@@ -82,21 +83,21 @@ class Article
     
     /**
      * @ORM\ManyToMany(targetEntity="Categorie", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $categorie;
     
     /**
      * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="articles")
      * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $sokajinAsa;
     
     /**
      * @ORM\ManyToOne(targetEntity="ZanaTsampana", cascade={"persist"}, inversedBy="articles")
      * @ORM\JoinColumn(name="zanaTsampana_id", referencedColumnName="id")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $zanaTsampana;
     

@@ -25,6 +25,7 @@ class ZanaTsampana
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $nom;
 
@@ -39,6 +40,7 @@ class ZanaTsampana
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $description;
 
@@ -51,19 +53,25 @@ class ZanaTsampana
     
     /**
      * @ORM\ManyToMany(targetEntity="Article", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $articles;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
+    */
+    private $imageJacket;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
     */
     private $images;
     
     /**
      * @ORM\ManyToMany(targetEntity="Video", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $videos;
     
@@ -165,5 +173,164 @@ class ZanaTsampana
     {
         return $this->description;
     }
-}
 
+    /**
+     * Set sokajinAsa
+     *
+     * @param \backBundle\Entity\SokajinAsa $sokajinAsa
+     *
+     * @return ZanaTsampana
+     */
+    public function setSokajinAsa(\backBundle\Entity\SokajinAsa $sokajinAsa = null)
+    {
+        $this->sokajinAsa = $sokajinAsa;
+
+        return $this;
+    }
+
+    /**
+     * Get sokajinAsa
+     *
+     * @return \backBundle\Entity\SokajinAsa
+     */
+    public function getSokajinAsa()
+    {
+        return $this->sokajinAsa;
+    }
+
+    /**
+     * Add article
+     *
+     * @param \backBundle\Entity\Article $article
+     *
+     * @return ZanaTsampana
+     */
+    public function addArticle(\backBundle\Entity\Article $article)
+    {
+        $this->articles[] = $article;
+
+        return $this;
+    }
+
+    /**
+     * Remove article
+     *
+     * @param \backBundle\Entity\Article $article
+     */
+    public function removeArticle(\backBundle\Entity\Article $article)
+    {
+        $this->articles->removeElement($article);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \backBundle\Entity\Image $image
+     *
+     * @return ZanaTsampana
+     */
+    public function addImage(\backBundle\Entity\Image $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \backBundle\Entity\Image $image
+     */
+    public function removeImage(\backBundle\Entity\Image $image)
+    {
+        $this->images->removeElement($image);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Add video
+     *
+     * @param \backBundle\Entity\Video $video
+     *
+     * @return ZanaTsampana
+     */
+    public function addVideo(\backBundle\Entity\Video $video)
+    {
+        $this->videos[] = $video;
+
+        return $this;
+    }
+
+    /**
+     * Remove video
+     *
+     * @param \backBundle\Entity\Video $video
+     */
+    public function removeVideo(\backBundle\Entity\Video $video)
+    {
+        $this->videos->removeElement($video);
+    }
+
+    /**
+     * Get videos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVideos()
+    {
+        return $this->videos;
+    }
+
+    /**
+     * Add membreBureau
+     *
+     * @param \backBundle\Entity\MembreBureau $membreBureau
+     *
+     * @return ZanaTsampana
+     */
+    public function addMembreBureau(\backBundle\Entity\MembreBureau $membreBureau)
+    {
+        $this->membreBureau[] = $membreBureau;
+
+        return $this;
+    }
+
+    /**
+     * Remove membreBureau
+     *
+     * @param \backBundle\Entity\MembreBureau $membreBureau
+     */
+    public function removeMembreBureau(\backBundle\Entity\MembreBureau $membreBureau)
+    {
+        $this->membreBureau->removeElement($membreBureau);
+    }
+
+    /**
+     * Get membreBureau
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMembreBureau()
+    {
+        return $this->membreBureau;
+    }
+}

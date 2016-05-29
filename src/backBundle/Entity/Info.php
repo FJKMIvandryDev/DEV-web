@@ -25,6 +25,7 @@ class Info
      * @var string
      *
      * @ORM\Column(name="texte", type="text")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $texte;
 
@@ -32,6 +33,7 @@ class Info
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $titre;
 

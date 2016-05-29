@@ -25,6 +25,7 @@ class Video
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=500)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $url;
 
@@ -34,13 +35,6 @@ class Video
      * @ORM\Column(name="date", type="date")
      */
     private $date;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="videos")
-     * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
-     * @ORM\JoinColumn(nullable=false)
-    */
-    private $sokajinAsa;
     
 
     public function __construct()
@@ -105,5 +99,6 @@ class Video
     {
         return $this->date;
     }
-}
 
+
+}

@@ -64,20 +64,21 @@ class MembreBureau
      * @var int
      *
      * @ORM\Column(name="status", type="integer")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $status;
 
     /**
      * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="membreBureau")
      * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $sokajinAsa;
     
     /**
      * @ORM\ManyToOne(targetEntity="ZanaTsampana", cascade={"persist"}, inversedBy="membreBureau")
      * @ORM\JoinColumn(name="zanaTsampana_id", referencedColumnName="id")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $zanaTsampana;
 

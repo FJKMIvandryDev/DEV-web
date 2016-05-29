@@ -25,6 +25,7 @@ class Texte
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $contenu;
 

@@ -25,6 +25,7 @@ class Categorie
      * @var string
      *
      * @ORM\Column(name="libelle", type="string", length=255)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $libelle;
 
@@ -32,6 +33,7 @@ class Categorie
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $description;
 

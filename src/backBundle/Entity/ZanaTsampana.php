@@ -25,6 +25,7 @@ class ZanaTsampana
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $nom;
 
@@ -39,6 +40,7 @@ class ZanaTsampana
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $description;
 
@@ -51,19 +53,25 @@ class ZanaTsampana
     
     /**
      * @ORM\ManyToMany(targetEntity="Article", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $articles;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
+    */
+    private $imageJacket;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
     */
     private $images;
     
     /**
      * @ORM\ManyToMany(targetEntity="Video", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $videos;
     
@@ -324,5 +332,29 @@ class ZanaTsampana
     public function getMembreBureau()
     {
         return $this->membreBureau;
+    }
+
+    /**
+     * Set imageJacket
+     *
+     * @param \backBundle\Entity\Image $imageJacket
+     *
+     * @return ZanaTsampana
+     */
+    public function setImageJacket(\backBundle\Entity\Image $imageJacket)
+    {
+        $this->imageJacket = $imageJacket;
+
+        return $this;
+    }
+
+    /**
+     * Get imageJacket
+     *
+     * @return \backBundle\Entity\Image
+     */
+    public function getImageJacket()
+    {
+        return $this->imageJacket;
     }
 }

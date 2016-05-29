@@ -25,6 +25,7 @@ class Personne
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $nom;
 
@@ -32,12 +33,13 @@ class Personne
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $prenom;
 
     /**
      * @ORM\OneToOne(targetEntity="Image", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $photo;
     

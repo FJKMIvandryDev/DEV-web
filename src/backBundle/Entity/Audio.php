@@ -25,6 +25,7 @@ class Audio
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=500)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $url;
 
