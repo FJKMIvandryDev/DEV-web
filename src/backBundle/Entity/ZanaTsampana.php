@@ -45,11 +45,16 @@ class ZanaTsampana
     private $description;
 
     /**
+     * @ORM\Column(name="sokajinAsa_id", type="integer")
+     */
+    private $sampanaId;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="zanaTsampana")
      * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
      * @ORM\JoinColumn(nullable=false)
     */
-    private $sokajinAsa;
+    private $sampana;
     
     /**
      * @ORM\ManyToMany(targetEntity="Article", cascade={"persist"})
@@ -172,30 +177,6 @@ class ZanaTsampana
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set sokajinAsa
-     *
-     * @param \backBundle\Entity\SokajinAsa $sokajinAsa
-     *
-     * @return ZanaTsampana
-     */
-    public function setSokajinAsa(\backBundle\Entity\SokajinAsa $sokajinAsa = null)
-    {
-        $this->sokajinAsa = $sokajinAsa;
-
-        return $this;
-    }
-
-    /**
-     * Get sokajinAsa
-     *
-     * @return \backBundle\Entity\SokajinAsa
-     */
-    public function getSokajinAsa()
-    {
-        return $this->sokajinAsa;
     }
 
     /**
@@ -356,5 +337,53 @@ class ZanaTsampana
     public function getImageJacket()
     {
         return $this->imageJacket;
+    }
+
+    /**
+     * Set sampanaId
+     *
+     * @param integer $sampanaId
+     *
+     * @return ZanaTsampana
+     */
+    public function setSampanaId($sampanaId)
+    {
+        $this->sampanaId = $sampanaId;
+
+        return $this;
+    }
+
+    /**
+     * Get sampanaId
+     *
+     * @return integer
+     */
+    public function getSampanaId()
+    {
+        return $this->sampanaId;
+    }
+
+    /**
+     * Set sampana
+     *
+     * @param \backBundle\Entity\SokajinAsa $sampana
+     *
+     * @return ZanaTsampana
+     */
+    public function setSampana(\backBundle\Entity\SokajinAsa $sampana = null)
+    {
+        $this->sampana = $sampana;
+
+        return $this;
+    }
+
+    /**
+     * Get sampana
+     *
+     * @return \backBundle\Entity\SokajinAsa
+     */
+    public function getSampana()
+    {
+        return $this->sampana;
     }
 }

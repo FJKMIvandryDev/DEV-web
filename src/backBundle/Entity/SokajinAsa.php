@@ -47,6 +47,11 @@ class SokajinAsa
     private $description;
     
     /**
+     * @ORM\Column(name="type_id", type="integer")
+     */
+    private $typeId;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="Type_SokajinAsa", cascade={"persist"})
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      * @ORM\JoinColumn(nullable=false)
@@ -399,5 +404,29 @@ class SokajinAsa
     public function getImageJacket()
     {
         return $this->imageJacket;
+    }
+
+    /**
+     * Set typeId
+     *
+     * @param integer $typeId
+     *
+     * @return SokajinAsa
+     */
+    public function setTypeId($typeId)
+    {
+        $this->typeId = $typeId;
+
+        return $this;
+    }
+
+    /**
+     * Get typeId
+     *
+     * @return integer
+     */
+    public function getTypeId()
+    {
+        return $this->typeId;
     }
 }

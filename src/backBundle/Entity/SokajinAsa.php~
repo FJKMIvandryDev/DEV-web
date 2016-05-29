@@ -47,6 +47,11 @@ class SokajinAsa
     private $description;
     
     /**
+     * @ORM\Column(name="type_id", type="integer")
+     */
+    private $typeId;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="Type_SokajinAsa", cascade={"persist"})
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      * @ORM\JoinColumn(nullable=false)
@@ -375,5 +380,29 @@ class SokajinAsa
     public function getMembreBureau()
     {
         return $this->membreBureau;
+    }
+
+    /**
+     * Set imageJacket
+     *
+     * @param \backBundle\Entity\Image $imageJacket
+     *
+     * @return SokajinAsa
+     */
+    public function setImageJacket(\backBundle\Entity\Image $imageJacket)
+    {
+        $this->imageJacket = $imageJacket;
+
+        return $this;
+    }
+
+    /**
+     * Get imageJacket
+     *
+     * @return \backBundle\Entity\Image
+     */
+    public function getImageJacket()
+    {
+        return $this->imageJacket;
     }
 }

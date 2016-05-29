@@ -1,3 +1,11 @@
+back_personne:
+    resource: "@backBundle/Controller/PersonneController.php"
+    type:     annotation
+
+back_membre_bureau:
+    resource: "@backBundle/Controller/MembreBureauController.php"
+    type:     annotation
+
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation

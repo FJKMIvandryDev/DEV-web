@@ -88,11 +88,21 @@ class Article
     private $categorie;
     
     /**
+     * @ORM\Column(name="sokajinAsa_id", type="integer", nullable=true)
+     */
+    private $sokajinAsaId;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="articles")
      * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
      * @ORM\JoinColumn(nullable=true)
     */
     private $sokajinAsa;
+    
+    /**
+     * @ORM\Column(name="zanaTsampana_id", type="integer", nullable=true)
+     */
+    private $zanaTsampanaId;
     
     /**
      * @ORM\ManyToOne(targetEntity="ZanaTsampana", cascade={"persist"}, inversedBy="articles")
@@ -462,5 +472,53 @@ class Article
     public function getZanaTsampana()
     {
         return $this->zanaTsampana;
+    }
+
+    /**
+     * Set sokajinAsaId
+     *
+     * @param integer $sokajinAsaId
+     *
+     * @return Article
+     */
+    public function setSokajinAsaId($sokajinAsaId)
+    {
+        $this->sokajinAsaId = $sokajinAsaId;
+
+        return $this;
+    }
+
+    /**
+     * Get sokajinAsaId
+     *
+     * @return integer
+     */
+    public function getSokajinAsaId()
+    {
+        return $this->sokajinAsaId;
+    }
+
+    /**
+     * Set zanaTsampanaId
+     *
+     * @param integer $zanaTsampanaId
+     *
+     * @return Article
+     */
+    public function setZanaTsampanaId($zanaTsampanaId)
+    {
+        $this->zanaTsampanaId = $zanaTsampanaId;
+
+        return $this;
+    }
+
+    /**
+     * Get zanaTsampanaId
+     *
+     * @return integer
+     */
+    public function getZanaTsampanaId()
+    {
+        return $this->zanaTsampanaId;
     }
 }

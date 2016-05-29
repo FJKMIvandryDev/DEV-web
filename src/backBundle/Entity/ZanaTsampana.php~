@@ -45,11 +45,16 @@ class ZanaTsampana
     private $description;
 
     /**
+     * @ORM\Column(name="sokajinAsa_id", type="integer")
+     */
+    private $sampanaId;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="zanaTsampana")
      * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
      * @ORM\JoinColumn(nullable=false)
     */
-    private $sokajinAsa;
+    private $sampana;
     
     /**
      * @ORM\ManyToMany(targetEntity="Article", cascade={"persist"})
@@ -172,30 +177,6 @@ class ZanaTsampana
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set sokajinAsa
-     *
-     * @param \backBundle\Entity\SokajinAsa $sokajinAsa
-     *
-     * @return ZanaTsampana
-     */
-    public function setSokajinAsa(\backBundle\Entity\SokajinAsa $sokajinAsa = null)
-    {
-        $this->sokajinAsa = $sokajinAsa;
-
-        return $this;
-    }
-
-    /**
-     * Get sokajinAsa
-     *
-     * @return \backBundle\Entity\SokajinAsa
-     */
-    public function getSokajinAsa()
-    {
-        return $this->sokajinAsa;
     }
 
     /**
@@ -332,5 +313,29 @@ class ZanaTsampana
     public function getMembreBureau()
     {
         return $this->membreBureau;
+    }
+
+    /**
+     * Set imageJacket
+     *
+     * @param \backBundle\Entity\Image $imageJacket
+     *
+     * @return ZanaTsampana
+     */
+    public function setImageJacket(\backBundle\Entity\Image $imageJacket)
+    {
+        $this->imageJacket = $imageJacket;
+
+        return $this;
+    }
+
+    /**
+     * Get imageJacket
+     *
+     * @return \backBundle\Entity\Image
+     */
+    public function getImageJacket()
+    {
+        return $this->imageJacket;
     }
 }

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>MembreBureau list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membreBureau in membreBureaus %}
+            <tr>
+                <td><a href="{{ path('membrebureau_show', { 'id': membreBureau.id }) }}">{{ membreBureau.id }}</a></td>
+                <td>{% if membreBureau.dateDebut %}{{ membreBureau.dateDebut|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if membreBureau.dateFin %}{{ membreBureau.dateFin|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ membreBureau.status }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('membrebureau_show', { 'id': membreBureau.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('membrebureau_edit', { 'id': membreBureau.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('membrebureau_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

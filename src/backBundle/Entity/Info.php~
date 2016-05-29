@@ -45,6 +45,13 @@ class Info
     private $date;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="type_id", type="integer")
+     */
+    private $type_id;
+    
+    /**
      * @ORM\OneToOne(targetEntity="Type_info", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
     */
@@ -161,5 +168,29 @@ class Info
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set typeId
+     *
+     * @param integer $typeId
+     *
+     * @return Info
+     */
+    public function setTypeId($typeId)
+    {
+        $this->type_id = $typeId;
+
+        return $this;
+    }
+
+    /**
+     * Get typeId
+     *
+     * @return integer
+     */
+    public function getTypeId()
+    {
+        return $this->type_id;
     }
 }
