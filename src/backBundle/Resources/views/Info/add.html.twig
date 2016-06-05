@@ -3,5 +3,39 @@
 {% block title %}backBundle:Info:add{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Info:add page</h1>
+    <h1>Ajouter info flash</h1>
+
+    <form action="{{ path("info_add") }}" name="info" method="post">
+        <div id="personne">
+            <div>
+                <label for="info_titre" class="required">Titre</label>
+                <input type="text" id="info_titre" name="info[titre]" required="required" maxlength="255">
+            </div>
+            <div>
+                <label for="info_text" class="required">Contenue</label>
+                <textarea id="info_text" name="info[texte]" required="required" maxlength="255"></textarea>
+            </div>
+            <div>
+                <label for="info_date" class="required">Date</label>
+                <input type="date" id="info_date" name="info[date]" required="required" maxlength="255">
+            </div>
+            <div>
+                <label for="info_type">Type</label>
+                <select id="info_type" name="info[type_id]">
+                    {% for type in types %}
+                        <option value = {{ type.id }} >{{ type.libelle }}</option>
+                        
+                    {% endfor %}
+                    
+                </select>
+            </div>
+            
+            
+
+        </div>
+        
+        <input type="submit" value="Create">
+        
+    </form>
+
 {% endblock %}

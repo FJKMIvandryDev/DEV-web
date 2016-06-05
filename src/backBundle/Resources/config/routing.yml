@@ -2,18 +2,6 @@ back_homepage:
     path:     /
     defaults: { _controller: backBundle:Default:index }
 
-list_info:
-    path:     /info/lister
-    defaults: { _controller: backBundle:Info:list }
-
-add_info:
-    path:     /info/ajouter
-    defaults: { _controller: backBundle:Info:add }
-
-update_info:
-    path:     /info/modifier
-    defaults: { _controller: backBundle:Info:update }
-
-delete_info:
-    path:     /info/supprimer
-    defaults: { _controller: backBundle:Info:delete }
+back_info:
+    resource: "@backBundle/Controller/InfoController.php"
+    type:     annotation

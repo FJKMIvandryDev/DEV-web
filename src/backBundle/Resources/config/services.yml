@@ -6,3 +6,13 @@ services:
         class: backBundle\Services\Test
         arguments: 
             entityManager: "@doctrine.orm.entity_manager"
+            
+    typeInfoService:
+        class: backBundle\Services\TypeInfoService
+        arguments: 
+            entityManager: "@doctrine.orm.entity_manager"
+            
+    infoService:
+        class: backBundle\Services\InfoService
+        arguments: 
+            entityManager: "@doctrine.orm.entity_manager"
