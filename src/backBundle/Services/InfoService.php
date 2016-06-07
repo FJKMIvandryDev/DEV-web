@@ -30,9 +30,22 @@ class InfoService {
         return $infos;
     }
     
-    public function saveOrUpdate($info)
+    public function findById($id)
+    {
+        $info = $this->em->getRepository('backBundle:Info')->find($id);  
+        
+        return $info;
+    }
+    
+    public function save($info)
     { 
         $this->em->persist($info);
+        $this->em->flush();
+    }
+    
+    public function update($info)
+    { 
+        $this->em->merge($info);
         $this->em->flush();
     }
     

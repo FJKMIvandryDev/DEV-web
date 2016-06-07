@@ -29,7 +29,12 @@ class Type_info
      */
     private $libelle;
 
-
+    
+    public function __construct()
+    {
+        
+    }
+    
     /**
      * Get id
      *
@@ -37,6 +42,13 @@ class Type_info
      */
     public function getId()
     {
+        return $this->id;
+    }
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+        
         return $this->id;
     }
 

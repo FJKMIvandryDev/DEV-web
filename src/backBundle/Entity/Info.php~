@@ -49,10 +49,10 @@ class Info
      *
      * @ORM\Column(name="type_id", type="integer")
      */
-    private $type_id;
+    private $typeId;
     
     /**
-     * @ORM\OneToOne(targetEntity="Type_info", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Type_info", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
     */
     private $type;
