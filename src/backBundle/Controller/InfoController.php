@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use backBundle\Entity\Info;
 use backBundle\Entity\Type_info;
+use \Symfony\Component\HttpFoundation\Response;
 use backBundle\Form\InfoType;
 
 /**
@@ -150,7 +151,40 @@ class InfoController extends Controller
         ));
     }
     
-       /**
+    /**
+     * @Route("/testAPI", name="testAPI")
+     * @Method({"GET", "POST"})
+     */
+    public function testAPI(Request $request)
+    {
+        $infoServ = $this->container->get('infoService');
+        $infos = $infoServ->findAll();
+        
+        $infoFact = array();
+
+        foreach ($infos as &$value) 
+        {        
+            $infoFact[] = new \backBundle\DataTable\InfoFactory($value);
+        }
+        
+        $data = new \backBundle\DataTable\DTresponse();
+        
+        $data->setDraw(1);
+        $data->setRecordsFiltered(10);
+        $data->setRecordsTotal(10);
+        $data->setData($infoFact);
+        
+        $serializer = $this->get('serializer');
+        
+        $jsonContent = $serializer->serialize($data, 'json');
+        
+        $response = new Response($jsonContent);
+        $response->headers->set('Content-Type', 'application/json');
+        
+        return $response;
+    }
+    
+    /**
      * @Route("/test", name="test")
      * @Method({"GET", "POST"})
      */
@@ -164,6 +198,6 @@ class InfoController extends Controller
         
         $jsonContent = $serializer->serialize($i, 'json');
         
-        return new \Symfony\Component\HttpFoundation\Response($jsonContent);
+        return $this->render('backBundle:Info:test.html.twig', array());
     }
 }
