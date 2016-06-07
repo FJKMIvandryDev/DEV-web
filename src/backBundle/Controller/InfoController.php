@@ -30,7 +30,8 @@ class InfoController extends Controller
         
         if (count($typeInfo) <= 0)
         {
-            $infoServ->save("Fiantsoana");
+            $typeInfoServ->save("Fiantsoana");
+            $typeInfoServ->save("Fahoriana");
         }
         
         $infos = $infoServ->findAll();
@@ -46,6 +47,21 @@ class InfoController extends Controller
      */
     public function addAction(Request $request)
     {
+//        ajouter dans me form : enctype="multipart/form-data"
+//        
+//        if ($request->getMethod() == 'POST')
+//        {
+//            $image = $request->files->get("fileToUpload");
+//            
+//            $fileName = $this->container->get('imageUploader')->upload($image);
+//            
+////            $image->move($this->container->getParameter('uploadDirectory'), "test.jpg");
+//            
+//            print_r($fileName);
+//            
+//            die;
+//        }
+   
         $typeInfoServ = $this->container->get('typeInfoService');
         $infoServ = $this->container->get('infoService');
         
@@ -55,11 +71,12 @@ class InfoController extends Controller
         $form = $this->createForm('backBundle\Form\InfoType', $info);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted()) {   
+
             $info->setType($typeInfoServ->find($info->getTypeId()));
             
             $infoServ->saveOrUpdate($info);
-
+            
             return $this->redirectToRoute('info_index');
         }
 

@@ -52,7 +52,7 @@ class Info
     private $type_id;
     
     /**
-     * @ORM\OneToOne(targetEntity="Type_info", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Type_info", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
     */
     private $type;
