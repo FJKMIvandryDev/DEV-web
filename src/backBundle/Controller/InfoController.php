@@ -102,7 +102,7 @@ class InfoController extends Controller
      */
     public function showAction()
     {
-        return $this->render('backBundle:Info:list.html.twig', array(
+        return $this->render('backBundle:Info:show.html.twig', array(
             // ...
         ));
     }
