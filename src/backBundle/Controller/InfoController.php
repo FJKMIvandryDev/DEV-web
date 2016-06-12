@@ -38,7 +38,7 @@ class InfoController extends Controller
         
         $infos = $infoServ->findAll();
         
-        return $this->render('backBundle:Info:index.html.twig', array(
+        return $this->render('backBundle:info:index.html.twig', array(
             'infos' => $infos,
         ));
     }
@@ -151,53 +151,53 @@ class InfoController extends Controller
         ));
     }
     
-    /**
-     * @Route("/testAPI", name="testAPI")
-     * @Method({"GET", "POST"})
-     */
-    public function testAPI(Request $request)
-    {
-        $infoServ = $this->container->get('infoService');
-        $infos = $infoServ->findAll();
-        
-        $infoFact = array();
-
-        foreach ($infos as &$value) 
-        {        
-            $infoFact[] = new \backBundle\DataTable\InfoFactory($value);
-        }
-        
-        $data = new \backBundle\DataTable\DTresponse();
-        
-        $data->setDraw(1);
-        $data->setRecordsFiltered(10);
-        $data->setRecordsTotal(10);
-        $data->setData($infoFact);
-        
-        $serializer = $this->get('serializer');
-        
-        $jsonContent = $serializer->serialize($data, 'json');
-        
-        $response = new Response($jsonContent);
-        $response->headers->set('Content-Type', 'application/json');
-        
-        return $response;
-    }
-    
-    /**
-     * @Route("/test", name="test")
-     * @Method({"GET", "POST"})
-     */
-    public function test(Request $request)
-    {
-        $i = new Type_info();
-        $i->setId(3);
-        $i->setLibelle("m");
-        
-        $serializer = $this->get('serializer');
-        
-        $jsonContent = $serializer->serialize($i, 'json');
-        
-        return $this->render('backBundle:Info:test.html.twig', array());
-    }
+//    /**
+//     * @Route("/testAPI", name="testAPI")
+//     * @Method({"GET", "POST"})
+//     */
+//    public function testAPI(Request $request)
+//    {
+//        $infoServ = $this->container->get('infoService');
+//        $infos = $infoServ->findAll();
+//        
+//        $infoFact = array();
+//
+//        foreach ($infos as &$value) 
+//        {        
+//            $infoFact[] = new \backBundle\DataTable\InfoFactory($value);
+//        }
+//        
+//        $data = new \backBundle\DataTable\DTresponse();
+//        
+//        $data->setDraw(1);
+//        $data->setRecordsFiltered(10);
+//        $data->setRecordsTotal(10);
+//        $data->setData($infoFact);
+//        
+//        $serializer = $this->get('serializer');
+//        
+//        $jsonContent = $serializer->serialize($data, 'json');
+//        
+//        $response = new Response($jsonContent);
+//        $response->headers->set('Content-Type', 'application/json');
+//        
+//        return $response;
+//    }
+//    
+//    /**
+//     * @Route("/test", name="test")
+//     * @Method({"GET", "POST"})
+//     */
+//    public function test(Request $request)
+//    {
+//        $i = new Type_info();
+//        $i->setId(3);
+//        $i->setLibelle("m");
+//        
+//        $serializer = $this->get('serializer');
+//        
+//        $jsonContent = $serializer->serialize($i, 'json');
+//        
+//        return $this->render('backBundle:Info:test.html.twig', array());
+//    }
 }
