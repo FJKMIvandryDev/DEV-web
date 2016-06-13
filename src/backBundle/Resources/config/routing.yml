@@ -5,3 +5,7 @@ back_homepage:
 back_info:
     resource: "@backBundle/Controller/InfoController.php"
     type:     annotation
+    
+back_sampana:
+    resource: "@backBundle/Controller/SampanaController.php"
+    type:     annotation
