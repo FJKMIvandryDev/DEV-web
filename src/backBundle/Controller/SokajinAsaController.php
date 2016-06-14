@@ -11,22 +11,22 @@ use \Symfony\Component\HttpFoundation\Response;
 /**
  * Sampana controller.
  *
- * @Route("/sampana")
+ * @Route("/sokajinAsa")
  */
-class SampanaController extends Controller
+class SokajinAsaController extends Controller
 {
     
     /**
-     * @Route("/", name="sampana_index")
+     * @Route("/{type}", name="sampana_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction($type)
     {
         
         
         
-        return $this->render('backBundle:Sampana:index.html.twig', array(
-
+        return $this->render('backBundle:SokajinAsa:index.html.twig', array(
+            "type" => $type,
         ));
     }
     

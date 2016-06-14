@@ -7,5 +7,5 @@ back_info:
     type:     annotation
     
 back_sampana:
-    resource: "@backBundle/Controller/SampanaController.php"
+    resource: "@backBundle/Controller/SokajinAsaController.php"
     type:     annotation
