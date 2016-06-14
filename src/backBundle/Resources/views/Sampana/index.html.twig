@@ -15,10 +15,11 @@
             "@backBundle/Resources/public/plugins/jQuery/jQuery-2.1.4.min.js"
             "@backBundle/Resources/public/bootstrap/js/bootstrap.min.js"
             "@backBundle/Resources/public/dist/js/app.min.js"
-            "@backBundle/Resources/public/ckeditor/ckeditor.js"
+            
     %}
         <script src="{{ asset_url }}" charset="utf-8"></script>
-        
+        <script src="{{ asset("bundles/back/ckeditor/ckeditor.js") }}"></script>
+      
         <script> 
             CKEDITOR.replace( 'editor1' ); 
         </script>
