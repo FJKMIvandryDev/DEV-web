@@ -45,6 +45,7 @@
 				<tr>
 					<td><label for="sary">Sary : </label></td>		
 					<td><input type="text" id="sary"></input></td>
+					<td><button id="findButton">find</button></td>
 				</tr>
 				<tr>
 					<td><label for="description">Description : </label></td>		
@@ -63,6 +64,25 @@
 			<input type="submit" value="Enregistrer"></input>
 
 		</form>
+
+
+		<script src="kcfinder/kcfinder.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		    function BrowseServer() {
+		        var finder = new KCFinder();
+		        finder.basePath = _finderBasePath;
+		        finder.selectActionFunction = SetFileField;
+		        finder.popup();
+		    }
+		    function SetFileField(fileUrl) {
+		        $("#sary").val(fileUrl); //ImageUrl is the Id of the input field
+		    }
+		    $(function () {
+		        $("#findButton").on("click", BrowseServer); //FileBrowse is the Id of the button
+		    });
+		</script>
+
+
 	</body>
 
 </html>
