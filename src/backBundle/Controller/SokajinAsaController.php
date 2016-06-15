@@ -30,4 +30,18 @@ class SokajinAsaController extends Controller
         ));
     }
     
+    /**
+     * @Route("/{type}/add", name="sokajy_add")
+     * @Method({"GET", "POST"})
+     */
+    public function addAction($type)
+    {
+        
+        
+        
+        return $this->render('backBundle:SokajinAsa:add.html.twig', array(
+            "type" => $type,
+        ));
+    }
+    
 }
