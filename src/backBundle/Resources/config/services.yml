@@ -16,6 +16,11 @@ services:
         class: backBundle\Services\InfoService
         arguments: 
             entityManager: "@doctrine.orm.entity_manager"
+    
+    sokajinAsaService:
+        class: backBundle\Services\SokajinAsaService
+        arguments: 
+            entityManager: "@doctrine.orm.entity_manager"
             
     imageUploader:
         class: backBundle\Services\UploadImages

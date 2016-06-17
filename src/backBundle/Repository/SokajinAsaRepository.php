@@ -10,4 +10,18 @@ namespace backBundle\Repository;
  */
 class SokajinAsaRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllByType($type)
+    {
+        $em = $this->_em;
+        $query = $em->createQuery(
+            "SELECT sokajy
+            FROM backBundle:SokajinAsa sokajy
+            WHERE sokajy.type = '$type'
+            "
+        );
+
+        $article = $query->getResult();
+        
+        return $article;
+    }
 }

@@ -4,25 +4,25 @@
 
 {% block body %}
     
-    <textarea name="editor1" id="editor1" rows="10" cols="80">
-        This is my textarea to be replaced with CKEditor.
-    </textarea>
+    <table style="width:100%" border="1">
+        
+        <tr align="center">
+            <th>Anarana</th>
+            <th>Description</th>
+            <th>Date creation</th>
+        </tr>
+        {% for sokajy in list %}
+            <tr align="center">
+                <td>{{ sokajy.nom }}</td>
+                <td>{{ sokajy.description }}</td>
+                <td>{{ sokajy.dateCreation|date('Y-m-d') }}</td>
+                <td><a href="{{ path('sokajy_delete', { 'type': type , 'id': sokajy.id }) }}">Supprimer</a></td> 
+                <td><a href="{{ path('sokajy_update_view', { 'type' : type, 'id': sokajy.id }) }}">Modifier</a></td> 
+            </tr>
+        {% endfor%}
+    </table>
     
-{% endblock %}
-
-{% block importJS %}
-    {% javascripts output="js/compiled/backOffice.js"
-            "@backBundle/Resources/public/plugins/jQuery/jQuery-2.1.4.min.js"
-            "@backBundle/Resources/public/bootstrap/js/bootstrap.min.js"
-            "@backBundle/Resources/public/dist/js/app.min.js"
-            
-    %}
-        <script src="{{ asset_url }}" charset="utf-8"></script>
-        <script src="{{ asset("bundles/back/ckeditor/ckeditor.js") }}" charset="utf-8"></script>
-      
-        <script> 
-            CKEDITOR.replace( 'editor1' ); 
-        </script>
-
-    {% endjavascripts %}
-{% endblock %}
+    </br>
+    <a href="{{ path('sokajy_add', { 'type' : type }) }}">Ajouter fil d'info</a>
+    
+{% endblock %} 

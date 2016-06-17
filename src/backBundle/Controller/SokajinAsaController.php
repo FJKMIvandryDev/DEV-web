@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use \Symfony\Component\HttpFoundation\Response;
+use backBundle\Entity\SokajinAsa;
 
 /**
  * Sampana controller.
@@ -17,24 +18,54 @@ class SokajinAsaController extends Controller
 {
     
     /**
-     * @Route("/{type}", name="sampana_index")
+     * @Route("/{type}", name="sokajy_index")
      * @Method("GET")
      */
     public function indexAction($type)
     {
+        $sokajyServ = $this->container->get('sokajinAsaService');
         
-        
+        $list = $sokajyServ->findAll($type);
         
         return $this->render('backBundle:SokajinAsa:index.html.twig', array(
             "type" => $type,
+            "list" => $list,
         ));
     }
     
     /**
-     * @Route("/{type}/add", name="sokajy_add")
+     * @Route("/{type}/ajouter", name="sokajy_add")
      * @Method({"GET", "POST"})
      */
-    public function addAction($type)
+    public function addAction(Request $request, $type)
+    {
+        
+        if ($request->isMethod('POST'))
+        {
+            $sokajyServ = $this->container->get('sokajinAsaService');
+            
+            $sokajyServ->save($request);
+            
+//            $info->setDate(new \DateTime($request->request->get("info")["date"]));
+//            $info->setType($typeInfoServ->find($info->getTypeId()));
+//            
+//            $infoServ->save($info);
+            
+            return $this->redirectToRoute('sokajy_index', array(
+                "type" => $type,
+            ));
+        }
+        
+        return $this->render('backBundle:SokajinAsa:add.html.twig', array(
+            "type" => $type,
+        ));
+    }
+    
+        /**
+     * @Route("/{type}/modifier/{id}", name="sokajy_update_view")
+     * @Method("GET")
+     */
+    public function updateViewAction($type, $id)
     {
         
         
@@ -44,4 +75,36 @@ class SokajinAsaController extends Controller
         ));
     }
     
+    
+    /**
+     * @Route("/{type}/modifier", name="sokajy_update")
+     * @Method("POST")
+     */
+    public function updateAction($type)
+    {
+        
+        
+        
+        return $this->render('backBundle:SokajinAsa:add.html.twig', array(
+            "type" => $type,
+        ));
+    }
+    
+    
+        /**
+     * @Route("/{type}/supprimer/{id}", name="sokajy_delete")
+     * @Method("GET")
+     */
+    public function deleteAction($type, $id)
+    {
+        $sokajyServ = $this->container->get('sokajinAsaService');
+        
+        $sokajyServ->delete($id);
+        
+        return $this->redirectToRoute('sokajy_index', array(
+                "type" => $type,
+        ));
+    }
+    
+
 }

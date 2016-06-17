@@ -47,29 +47,21 @@ class SokajinAsa
     private $description;
     
     /**
-     * @ORM\Column(name="type_id", type="integer")
+     * @ORM\Column(name="type", type="string", length=100)
      */
-    private $typeId;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Type_SokajinAsa", cascade={"persist"})
-     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
-     * @ORM\JoinColumn(nullable=false)
-    */
     private $type;
+
+    /**
+     * @ORM\Column(name="imageJacket", type="string", length=500)
+     */
+    private $imageJacket;
     
     /**
      * @ORM\ManyToMany(targetEntity="Article", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
     */
     private $articles;
-    
-    /**
-     * @ORM\OneToOne(targetEntity="Image", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-    */
-    private $imageJacket;
-    
+ 
     /**
      * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
@@ -191,11 +183,10 @@ class SokajinAsa
     /**
      * Set type
      *
-     * @param \backBundle\Entity\Type_SokajinAsa $type
      *
      * @return SokajinAsa
      */
-    public function setType(\backBundle\Entity\Type_SokajinAsa $type = null)
+    public function setType($type)
     {
         $this->type = $type;
 
@@ -205,7 +196,6 @@ class SokajinAsa
     /**
      * Get type
      *
-     * @return \backBundle\Entity\Type_SokajinAsa
      */
     public function getType()
     {
@@ -385,11 +375,10 @@ class SokajinAsa
     /**
      * Set imageJacket
      *
-     * @param \backBundle\Entity\Image $imageJacket
      *
      * @return SokajinAsa
      */
-    public function setImageJacket(\backBundle\Entity\Image $imageJacket)
+    public function setImageJacket($imageJacket)
     {
         $this->imageJacket = $imageJacket;
 
@@ -399,7 +388,6 @@ class SokajinAsa
     /**
      * Get imageJacket
      *
-     * @return \backBundle\Entity\Image
      */
     public function getImageJacket()
     {

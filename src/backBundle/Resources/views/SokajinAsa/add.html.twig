@@ -21,8 +21,8 @@
 
 {% block body %}
     
-    <form action="#" method="POST">
-        <h1>Birao</h1>
+    <form action="{{ path('sokajy_add', {'type': type}) }}" method="POST">
+        {#<h1>Birao</h1>
         
         <table>
             <tr>
@@ -49,14 +49,14 @@
                 <td><label for="mpanolo_tsaina">Mpanolo-tsaina : </label></td>		
                 <td><input type="text" id="mpanolo_tsaina" name="mpanolo_tsaina"></input></td>
             </tr>
-        </table>
+        </table>#}
 
         <h1>Mombamomba ny sampana</h1>
 
         <table>
             <tr>
                 <td><label for="anarana">Anarana : </label></td>		
-                <td><input type="text" id="anarana" name="anarana"></input></td>
+                <td><input type="text" id="anarana" name="nom"></input></td>
             </tr>
 
             <tr>
@@ -67,7 +67,9 @@
                 </td>
             </tr>
 
-            <td><input type="hidden" id="sary" value="" name="sary"></input></td>
+            <td><input type="hidden" id="sary" value="" name="imageJacket"></input></td>
+            
+            <td><input type="hidden" id="type" value="{{type}}" name="type"></input></td>
 
             <tr>
                 <td><label for="description">Description : </label></td>		
@@ -75,12 +77,12 @@
             </tr>
             <tr>
                 <td><label for="date">Daty niforonana : </label></td>		
-                <td><input type="date" id="date" name="date"></input></td>
+                <td><input type="date" id="date" name="dateCreation"></input></td>
             </tr>
-            <tr>
+{#            <tr>
                 <td><label for="isa">Isan'ny mpikambana : </label></td>		
                 <td><input type="number" id="isa" name="isa"></input></td>
-            </tr>
+            </tr>#}
         </table>
 
         <input type="submit" value="Enregistrer"></input>
