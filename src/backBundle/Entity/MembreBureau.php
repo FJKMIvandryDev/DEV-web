@@ -23,27 +23,39 @@ class MembreBureau
 
     /**
      * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $filoha;
     
     /**
      * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
-    private $filohaMpanampy;
+    private $filohaLefitra;
     
     /**
      * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $mpitanTsoratra;
     
     /**
      * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
-    private $mpitamBola;
+    private $mpitahiryVola;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpitanTsoratraVola;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpanoloTsaina;
     
     /**
      * @var \DateTime
@@ -85,6 +97,7 @@ class MembreBureau
     public function __construct()
     {
       $this->dateDebut = new \Datetime();
+      $this->dateFin = new \Datetime();
     }
     
     
@@ -312,5 +325,101 @@ class MembreBureau
     public function getZanaTsampana()
     {
         return $this->zanaTsampana;
+    }
+
+    /**
+     * Set filohaLefitra
+     *
+     * @param \backBundle\Entity\Personne $filohaLefitra
+     *
+     * @return MembreBureau
+     */
+    public function setFilohaLefitra(\backBundle\Entity\Personne $filohaLefitra = null)
+    {
+        $this->filohaLefitra = $filohaLefitra;
+
+        return $this;
+    }
+
+    /**
+     * Get filohaLefitra
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getFilohaLefitra()
+    {
+        return $this->filohaLefitra;
+    }
+
+    /**
+     * Set mpitahiryVola
+     *
+     * @param \backBundle\Entity\Personne $mpitahiryVola
+     *
+     * @return MembreBureau
+     */
+    public function setMpitahiryVola(\backBundle\Entity\Personne $mpitahiryVola = null)
+    {
+        $this->mpitahiryVola = $mpitahiryVola;
+
+        return $this;
+    }
+
+    /**
+     * Get mpitahiryVola
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getMpitahiryVola()
+    {
+        return $this->mpitahiryVola;
+    }
+
+    /**
+     * Set mpitanTsoratraVola
+     *
+     * @param \backBundle\Entity\Personne $mpitanTsoratraVola
+     *
+     * @return MembreBureau
+     */
+    public function setMpitanTsoratraVola(\backBundle\Entity\Personne $mpitanTsoratraVola = null)
+    {
+        $this->mpitanTsoratraVola = $mpitanTsoratraVola;
+
+        return $this;
+    }
+
+    /**
+     * Get mpitanTsoratraVola
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getMpitanTsoratraVola()
+    {
+        return $this->mpitanTsoratraVola;
+    }
+
+    /**
+     * Set mpanoloTsaina
+     *
+     * @param \backBundle\Entity\Personne $mpanoloTsaina
+     *
+     * @return MembreBureau
+     */
+    public function setMpanoloTsaina(\backBundle\Entity\Personne $mpanoloTsaina = null)
+    {
+        $this->mpanoloTsaina = $mpanoloTsaina;
+
+        return $this;
+    }
+
+    /**
+     * Get mpanoloTsaina
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getMpanoloTsaina()
+    {
+        return $this->mpanoloTsaina;
     }
 }

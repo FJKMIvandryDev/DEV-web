@@ -1,0 +1,57 @@
+{% extends "backBundle::principal.html.twig" %}
+
+{% block title %}modal{% endblock %}
+
+{% block body %}
+    
+    <table id="table" style="width:100%" border="1">
+        
+        <tr id="nonSelect" align="center">
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Photo</th>
+        </tr>
+        {% for personne in personnes %}
+            <tr align="center">
+                <td class="id" visibility: hidden>{{ personne.id }}</td>
+                <td class="nom">{{ personne.nom }}</td>
+                <td class="prenom">{{ personne.prenom }}</td>
+                <td class="photo">{{ personne.photo }}</td>
+            </tr>
+        {% endfor%}
+    </table>
+    
+    <button onClick="returnToParent()">button</button>
+
+{% endblock %}
+
+
+
+{% block personalJS %}
+    
+    <script>
+
+        var varTest;
+
+        function returnToParent()
+        {
+            var select = $(".selected");
+            
+{#            console.log(select.find(".lol").text());#}
+
+            window.opener.callBack(select, varTest);
+            window.close();
+        }
+
+        $("#table tr").click(function(){
+            if ($(this).id != "nonSelect")
+            {
+                $(this).addClass('selected').siblings().removeClass('selected'); 
+                $(this).siblings().css({"background" : "#FFFFFF"});
+                $(this).css({"background" : "#00FF00"});
+            }
+        });
+
+    </script>
+    
+{% endblock %}

@@ -52,7 +52,7 @@ class Info
     private $typeId;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Type_info", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Type_info")
      * @ORM\JoinColumn(nullable=false)
     */
     private $type;
@@ -60,7 +60,7 @@ class Info
     
     public function __construct()
     {
-      $this->date = new \Datetime();
+
     }
     
     
@@ -73,7 +73,14 @@ class Info
     {
         return $this->id;
     }
-
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+        
+        return $this->id;
+    }
+    
     /**
      * Set texte
      *
@@ -179,7 +186,7 @@ class Info
      */
     public function setTypeId($typeId)
     {
-        $this->type_id = $typeId;
+        $this->typeId = $typeId;
 
         return $this;
     }
@@ -191,6 +198,6 @@ class Info
      */
     public function getTypeId()
     {
-        return $this->type_id;
+        return $this->typeId;
     }
 }

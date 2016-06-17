@@ -39,6 +39,7 @@ class SokajinAsaController extends Controller
      */
     public function addAction(Request $request, $type)
     {
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
         
         if ($request->isMethod('POST'))
         {
@@ -53,25 +54,32 @@ class SokajinAsaController extends Controller
             
             return $this->redirectToRoute('sokajy_index', array(
                 "type" => $type,
+                
             ));
         }
         
         return $this->render('backBundle:SokajinAsa:add.html.twig', array(
             "type" => $type,
+            "baseUrl" => $baseurl,
         ));
     }
     
-        /**
+    /**
      * @Route("/{type}/modifier/{id}", name="sokajy_update_view")
      * @Method("GET")
      */
-    public function updateViewAction($type, $id)
+    public function updateViewAction(Request $request, $type, $id)
     {
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
+         
+        $sokajyServ = $this->container->get('sokajinAsaService');
         
-        
-        
-        return $this->render('backBundle:SokajinAsa:add.html.twig', array(
+        $sokajy = $sokajyServ->findById($id);
+ 
+        return $this->render('backBundle:SokajinAsa:update.html.twig', array(
             "type" => $type,
+            "sokajy" => $sokajy,
+            "baseUrl" => $baseurl,
         ));
     }
     
@@ -80,13 +88,14 @@ class SokajinAsaController extends Controller
      * @Route("/{type}/modifier", name="sokajy_update")
      * @Method("POST")
      */
-    public function updateAction($type)
+    public function updateAction(Request $request, $type)
     {
+        $sokajyServ = $this->container->get('sokajinAsaService');
         
+        $sokajyServ->update($request);
         
-        
-        return $this->render('backBundle:SokajinAsa:add.html.twig', array(
-            "type" => $type,
+        return $this->redirectToRoute('sokajy_index', array(
+                "type" => $type,     
         ));
     }
     

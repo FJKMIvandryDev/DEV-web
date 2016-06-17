@@ -23,27 +23,39 @@ class MembreBureau
 
     /**
      * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $filoha;
     
     /**
      * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
-    private $filohaMpanampy;
+    private $filohaLefitra;
     
     /**
      * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
     private $mpitanTsoratra;
     
     /**
      * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
     */
-    private $mpitamBola;
+    private $mpitahiryVola;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpitanTsoratraVola;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpanoloTsaina;
     
     /**
      * @var \DateTime

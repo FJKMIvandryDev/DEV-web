@@ -38,9 +38,11 @@ class Personne
     private $prenom;
 
     /**
-     * @ORM\OneToOne(targetEntity="Image", cascade={"persist"})
+     * @var string
+     *
+     * @ORM\Column(name="photo", type="string", length=500)
      * @ORM\JoinColumn(nullable=true)
-    */
+     */
     private $photo;
     
     
@@ -109,7 +111,7 @@ class Personne
      *
      * @return Personne
      */
-    public function setPhoto(\backBundle\Entity\Image $photo)
+    public function setPhoto($photo)
     {
         $this->photo = $photo;
 

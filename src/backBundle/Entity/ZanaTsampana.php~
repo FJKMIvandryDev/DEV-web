@@ -338,4 +338,52 @@ class ZanaTsampana
     {
         return $this->imageJacket;
     }
+
+    /**
+     * Set sampanaId
+     *
+     * @param integer $sampanaId
+     *
+     * @return ZanaTsampana
+     */
+    public function setSampanaId($sampanaId)
+    {
+        $this->sampanaId = $sampanaId;
+
+        return $this;
+    }
+
+    /**
+     * Get sampanaId
+     *
+     * @return integer
+     */
+    public function getSampanaId()
+    {
+        return $this->sampanaId;
+    }
+
+    /**
+     * Set sampana
+     *
+     * @param \backBundle\Entity\SokajinAsa $sampana
+     *
+     * @return ZanaTsampana
+     */
+    public function setSampana(\backBundle\Entity\SokajinAsa $sampana = null)
+    {
+        $this->sampana = $sampana;
+
+        return $this;
+    }
+
+    /**
+     * Get sampana
+     *
+     * @return \backBundle\Entity\SokajinAsa
+     */
+    public function getSampana()
+    {
+        return $this->sampana;
+    }
 }

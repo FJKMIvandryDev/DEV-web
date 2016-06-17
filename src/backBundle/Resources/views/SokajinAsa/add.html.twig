@@ -22,69 +22,86 @@
 {% block body %}
     
     <form action="{{ path('sokajy_add', {'type': type}) }}" method="POST">
-        {#<h1>Birao</h1>
-        
-        <table>
-            <tr>
-                <td><label for="filoha">Filoha : </label></td>		
-                <td><input type="text" id="filoha" name="filoha"></input></td>
-            </tr>
-            <tr>
-                <td><label for="filoha_mlefitra">Filoha lefitra : </label></td>		
-                <td><input type="text" id="filoha_mlefitra" name="filoha_mlefitra"></input></td>
-            </tr>
-            <tr>
-                <td><label for="mpitan_tsoratra">Mpitan-tsoratra : </label></td>		
-                <td><input type="text" id="mpitan_tsoratra" name="mpitan_tsoratra"></input></td>
-            </tr>
-            <tr>
-                <td><label for="mpitahiry_vola">Mpitahiry vola : </label></td>		
-                <td><input type="text" id="mpitahiry_vola" name="mpitahiry_vola"></input></td>
-            </tr>
-            <tr>
-                <td><label for="mpitantsoratra_vola">Mpitan-tsoratry ny vola : </label></td>		
-                <td><input type="text" id="mpitantsoratra_vola" name="mpitantsoratra_vola"></input></td>
-            </tr>
-            <tr>
-                <td><label for="mpanolo_tsaina">Mpanolo-tsaina : </label></td>		
-                <td><input type="text" id="mpanolo_tsaina" name="mpanolo_tsaina"></input></td>
-            </tr>
-        </table>#}
 
-        <h1>Mombamomba ny sampana</h1>
+        <div class="container">
+            <!-- header row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>Mombamomba ny sampana</h1>
+                    
+                    <table>
+                        <tr>
+                            <td colspan=2>
+                                <div id="image" onclick="openKCFinder(this)">
+                                    <div style="margin:5px">Click here to choose an image</div>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td><label for="nom">Nom : </label></td>		
+                            <td><input type="text" id="nom" name="nom" required></input></td>
+                        </tr>
+                        
+                        <td><input type="hidden" id="sary" value="" name="imageJacket"></input></td>
 
-        <table>
-            <tr>
-                <td><label for="anarana">Anarana : </label></td>		
-                <td><input type="text" id="anarana" name="nom"></input></td>
-            </tr>
+                        <td><input type="hidden" id="type" value="{{type}}" name="type" required></input></td>
 
-            <tr>
-                <td colspan=2>
-                    <div id="image" onclick="openKCFinder(this)">
-                        <div style="margin:5px">Click here to choose an image</div>
-                    </div>
-                </td>
-            </tr>
-
-            <td><input type="hidden" id="sary" value="" name="imageJacket"></input></td>
+                        <tr>
+                            <td><label for="description">Description : </label></td>		
+                            <td><textarea id="description" name="description"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="date">Daty niforonana : </label></td>		
+                            <td><input type="date" id="date" name="dateCreation"></input></td>
+                        </tr>
+            {#            <tr>
+                            <td><label for="isa">Isan'ny mpikambana : </label></td>		
+                            <td><input type="number" id="isa" name="isa"></input></td>
+                        </tr>#}
+                    </table>
+                </div>
+                
+                <div class="col-lg-6">
+                    <table class="openChild">
+                        <h1>Birao</h1>
+                        
+                       <tr>
+                            <td><label>Filoha : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="filoha" name="filoha" required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Filoha lefitra : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="filoha_mlefitra" name="filoha_lefitra" required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpitan-tsoratra : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpitan_tsoratra" name="mpitan_tsoratra" required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpitahiry vola : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpitahiry_vola" name="mpitahiry_vola" required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpitan-tsoratry ny vola : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpitantsoratra_vola" name="mpitantsoratra_vola" required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpanolo-tsaina : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpanolo_tsaina" name="mpanolo_tsaina" required></input></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
             
-            <td><input type="hidden" id="type" value="{{type}}" name="type"></input></td>
-
-            <tr>
-                <td><label for="description">Description : </label></td>		
-                <td><textarea id="description" name="description"></textarea></td>
-            </tr>
-            <tr>
-                <td><label for="date">Daty niforonana : </label></td>		
-                <td><input type="date" id="date" name="dateCreation"></input></td>
-            </tr>
-{#            <tr>
-                <td><label for="isa">Isan'ny mpikambana : </label></td>		
-                <td><input type="number" id="isa" name="isa"></input></td>
-            </tr>#}
-        </table>
-
+        </div>
+       
         <input type="submit" value="Enregistrer"></input>
 
     </form>
@@ -126,12 +143,35 @@
                     }
                 }
             };
-            window.open('../../../bundles/back/kcfinder/browse.php?type=files&dir=files/public', 'kcfinder_image',
+            window.open('{{ baseUrl }}/bundles/back/kcfinder/browse.php?type=files&dir=files/public', 'kcfinder_image',
                     'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
                     'resizable=1, scrollbars=0, width=800, height=600'
             );
         }
+    </script>
+    
+    <script>
 
+        var win;
+
+        window.callBack = function(value, caller)
+        {
+            caller.find(".toUpdate").text(value.find(".nom").text());
+            caller.find("input").val(value.find(".id").text());
+            console.log(value.find(".id").text());
+        }
+
+        $(".openChild tr").click(function(){
+
+            if (win != null)
+            {
+                win.close();
+            }
+
+            win = window.open('{{ path('personne_modal') }}', "Ratting", "width=550,height=300,left=150,top=200,toolbar=1,status=1");
+
+            win.varTest = $(this);
+        });
 
     </script>
 

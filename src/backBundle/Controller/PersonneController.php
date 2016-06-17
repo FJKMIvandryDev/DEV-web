@@ -17,6 +17,34 @@ use backBundle\Form\PersonneType;
 class PersonneController extends Controller
 {
     /**
+     *
+     * @Route("/modal", name="personne_modal")
+     * @Method({"GET", "POST"})
+     */
+    public function indexModalAction(Request $request)
+    {
+        $personneServ = $this->container->get('personneService');
+        
+        $personnes = NULL;
+        
+        if ($request->isMethod('POST'))
+        {
+            $valueParam = $request->request->get("param");
+            
+            $personnes = $personneServ->findByName($valueParam);
+        }
+        else
+        {
+           $personnes = $personneServ->findAll(); 
+        }
+
+        return $this->render('backBundle:Personne:modal.html.twig', array(
+            'personnes' => $personnes,
+        ));
+    }
+    
+    
+    /**
      * Lists all Personne entities.
      *
      * @Route("/", name="personne_index")
@@ -24,11 +52,11 @@ class PersonneController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $personneServ = $this->container->get('personneService');
+        
+        $personnes = $personneServ->findAll();
 
-        $personnes = $em->getRepository('backBundle:Personne')->findAll();
-
-        return $this->render('personne/index.html.twig', array(
+        return $this->render('backBundle:Personne:index.html.twig', array(
             'personnes' => $personnes,
         ));
     }
@@ -53,7 +81,7 @@ class PersonneController extends Controller
             return $this->redirectToRoute('personne_show', array('id' => $personne->getId()));
         }
 
-        return $this->render('personne/new.html.twig', array(
+        return $this->render('backBundle:Personne:new.html.twig', array(
             'personne' => $personne,
             'form' => $form->createView(),
         ));
@@ -69,7 +97,7 @@ class PersonneController extends Controller
     {
         $deleteForm = $this->createDeleteForm($personne);
 
-        return $this->render('personne/show.html.twig', array(
+        return $this->render('backBundle:Personne:show.html.twig', array(
             'personne' => $personne,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +123,7 @@ class PersonneController extends Controller
             return $this->redirectToRoute('personne_edit', array('id' => $personne->getId()));
         }
 
-        return $this->render('personne/edit.html.twig', array(
+        return $this->render('backBundle:Personne:edit.html.twig', array(
             'personne' => $personne,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -122,6 +150,9 @@ class PersonneController extends Controller
         return $this->redirectToRoute('personne_index');
     }
 
+    
+    
+    
     /**
      * Creates a form to delete a Personne entity.
      *
@@ -137,4 +168,8 @@ class PersonneController extends Controller
             ->getForm()
         ;
     }
+    
+    
+    
+    
 }
