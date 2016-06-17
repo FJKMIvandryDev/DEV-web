@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+
+<body>
+
+	<div id="demo">
+		test
+	</div>
+
+	<button onClick="openWindow()">button</button>
+
+
+	<script>
+		window.callTest = function(event)
+		{
+			//var demo = document.getElementById("demo");
+			//demo.innerText = 'via callBack';
+			alert(event.data);
+		}
+
+		function openWindow()
+		{
+			window.open('child.html', "Ratting", "width=550,height=300,left=150,top=200,toolbar=1,status=1");
+		}
+
+		function receiveMessage(event)
+		{
+		  alert(event.data);
+		}
+
+		addEventListener("message", receiveMessage, false);
+
+
+	</script>
+</body>
+</html>

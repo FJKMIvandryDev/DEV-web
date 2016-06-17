@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<style>
+		table, tr, td {
+	    	border : 2px solid black;
+		}
+		tr {
+			background: #FFFFFF;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+
+	
+	<table id="table" style="width:100%">
+
+		
+
+        <tr >
+            <td>ligne 1</td>
+            <td>a1</td>
+            <td>a2</td>
+
+        </tr>
+        <tr>
+            <td>ligne 2</td>
+            <td>b1</td>
+            <td>b2</td>
+
+        </tr>
+        <tr>
+            <td>ligne 3</td>
+            <td>c1</td>
+            <td>c2</td>
+
+        </tr>
+    </table>
+
+	<button onClick="returnToParent()">button</button>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+	<script>
+
+		var varTest;
+
+		function returnToParent()
+		{
+			var select = $(".selected");
+
+			var val = select.children().eq(0).text();
+
+			window.opener.callTest(val, varTest);
+			window.close();
+		}
+
+		$("#table tr").click(function(){
+		   $(this).addClass('selected').siblings().removeClass('selected'); 
+		   $(this).siblings().css({"background" : "#FFFFFF"});
+		   $(this).css({"background" : "#00FF00"});
+		});
+
+
+	</script>
+</body>
+</html>
