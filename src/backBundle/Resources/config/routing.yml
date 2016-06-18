@@ -9,3 +9,15 @@ back_info:
 back_sampana:
     resource: "@backBundle/Controller/SokajinAsaController.php"
     type:     annotation
+    
+back_personne:
+    resource: "@backBundle/Controller/PersonneController.php"
+    type:     annotation
+
+back_membre_bureau:
+    resource: "@backBundle/Controller/MembreBureauController.php"
+    type:     annotation
+    
+back_article:
+    resource: "@backBundle/Controller/ArticleController.php"
+    type:     annotation
