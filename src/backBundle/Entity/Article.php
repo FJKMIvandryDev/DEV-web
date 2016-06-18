@@ -43,24 +43,35 @@ class Article
      * @ORM\JoinColumn(nullable=true)
      */
     private $auteur;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imageJacket", type="string", length=500)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $imageJacket;
 
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=100)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $type;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Categorie", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $categorie;
+    
     /**
      * @ORM\OneToOne(targetEntity="Texte", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
     */
     private $texte;
-    
-    /**
-     * @ORM\OneToOne(targetEntity="Image", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-    */
-    private $imageJacket;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
-    */
-    private $images;
     
     /**
      * @ORM\ManyToMany(targetEntity="Video", cascade={"persist"})
@@ -73,19 +84,6 @@ class Article
      * @ORM\JoinColumn(nullable=true)
     */
     private $audios;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Type_Article", cascade={"persist"})
-     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
-     * @ORM\JoinColumn(nullable=false)
-    */
-    private $type;
-    
-    /**
-     * @ORM\ManyToMany(targetEntity="Categorie", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
-    */
-    private $categorie;
     
     /**
      * @ORM\Column(name="sokajinAsa_id", type="integer", nullable=true)
@@ -231,11 +229,10 @@ class Article
     /**
      * Set imageJacket
      *
-     * @param \backBundle\Entity\Image $imageJacket
      *
      * @return Article
      */
-    public function setImageJacket(\backBundle\Entity\Image $imageJacket)
+    public function setImageJacket($imageJacket)
     {
         $this->imageJacket = $imageJacket;
 
@@ -250,40 +247,6 @@ class Article
     public function getImageJacket()
     {
         return $this->imageJacket;
-    }
-
-    /**
-     * Add image
-     *
-     * @param \backBundle\Entity\Image $image
-     *
-     * @return Article
-     */
-    public function addImage(\backBundle\Entity\Image $image)
-    {
-        $this->images[] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Remove image
-     *
-     * @param \backBundle\Entity\Image $image
-     */
-    public function removeImage(\backBundle\Entity\Image $image)
-    {
-        $this->images->removeElement($image);
-    }
-
-    /**
-     * Get images
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getImages()
-    {
-        return $this->images;
     }
 
     /**
@@ -361,7 +324,7 @@ class Article
      *
      * @return Article
      */
-    public function setType(\backBundle\Entity\Type_Article $type)
+    public function setType($type)
     {
         $this->type = $type;
 

@@ -26,6 +26,11 @@ services:
         class: backBundle\Services\PersonneService
         arguments: 
             entityManager: "@doctrine.orm.entity_manager"
+    
+    articleService:
+        class: backBundle\Services\ArticleService
+        arguments: 
+            entityManager: "@doctrine.orm.entity_manager"
             
     imageUploader:
         class: backBundle\Services\UploadImages

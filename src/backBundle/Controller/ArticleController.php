@@ -21,8 +21,13 @@ class ArticleController extends Controller
      */
     public function indexAction($type)
     {
+        $articleServ = $this->container->get('articleService');
+        
+        $articles = $articleServ->findAll();
+        
         return $this->render('backBundle:Article:index.html.twig', array(
             "type" => $type,
+            "articles" => $articles,
         ));
     }
 
@@ -30,7 +35,7 @@ class ArticleController extends Controller
      * @Route("/{type}/ajouter", name="article_add")
      * @Method({"GET","POST"})
      */
-    public function saveAction(Request $request, $type)
+    public function addAction(Request $request, $type)
     {
         if ($request->isMethod('POST'))
         {
@@ -41,8 +46,11 @@ class ArticleController extends Controller
             ));
         }
         
-        return $this->render('backBundle:Article:save.html.twig', array(
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
+        
+        return $this->render('backBundle:Article:add.html.twig', array(
             "type" => $type,
+            "baseUrl" => $baseurl,
         ));
     }
 

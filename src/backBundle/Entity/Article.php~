@@ -43,19 +43,21 @@ class Article
      * @ORM\JoinColumn(nullable=true)
      */
     private $auteur;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imageJacket", type="string", length=500)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $imageJacket;
 
     /**
      * @ORM\OneToOne(targetEntity="Texte", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
     */
     private $texte;
-    
-    /**
-     * @ORM\OneToOne(targetEntity="Image", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-    */
-    private $imageJacket;
-
+ 
     /**
      * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
