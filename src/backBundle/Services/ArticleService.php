@@ -34,6 +34,13 @@ class ArticleService {
         return $article;
     }
     
+    public function findAllByType($type)
+    {
+        $article = $this->em->getRepository('backBundle:Article')->getAllByType($type);  
+        
+        return $article;
+    }
+    
     public function findById($id)
     {
         $article = $this->em->getRepository('backBundle:Article')->find($id);  

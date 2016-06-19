@@ -23,7 +23,7 @@ class ArticleController extends Controller
     {
         $articleServ = $this->container->get('articleService');
         
-        $articles = $articleServ->findAll();
+        $articles = $articleServ->findAllByType($type);
         
         return $this->render('backBundle:Article:index.html.twig', array(
             "type" => $type,

@@ -25,7 +25,7 @@ class SokajinAsaController extends Controller
     {
         $sokajyServ = $this->container->get('sokajinAsaService');
         
-        $list = $sokajyServ->findAll($type);
+        $list = $sokajyServ->findAllByType($type);
         
         return $this->render('backBundle:SokajinAsa:index.html.twig', array(
             "type" => $type,

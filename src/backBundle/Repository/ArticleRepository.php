@@ -10,4 +10,18 @@ namespace backBundle\Repository;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllByType($type)
+    {
+        $em = $this->_em;
+        $query = $em->createQuery(
+            "SELECT article
+            FROM backBundle:Article article
+            WHERE article.type = '$type'
+            "
+        );
+
+        $article = $query->getResult();
+        
+        return $article;
+    }
 }

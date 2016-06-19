@@ -27,7 +27,15 @@ class SokajinAsaService {
         $this->em = $entityManager;
     }
     
-    public function findAll($type)
+    public function findAll()
+    {
+        $list = $this->em->getRepository('backBundle:SokajinAsa')->findAll();
+        
+        return $list;
+    }
+
+
+    public function findAllByType($type)
     {
         $list = $this->em->getRepository('backBundle:SokajinAsa')->getAllByType($type);
         
