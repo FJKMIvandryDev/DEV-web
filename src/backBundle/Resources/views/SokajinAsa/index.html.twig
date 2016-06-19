@@ -2,6 +2,16 @@
 
 {% block title %}{{ type }}{% endblock %}
 
+{% block headPerso %}
+    <style type="text/css">
+        th {
+            text-align: center;
+        }
+        
+    </style>
+
+{% endblock %}
+
 {% block body %}
     <a href="{{ path('sokajy_add', { 'type' : type }) }}">Ajouter {{ type }}</a>
     

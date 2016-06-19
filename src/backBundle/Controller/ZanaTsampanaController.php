@@ -62,18 +62,20 @@ class ZanaTsampanaController extends Controller
      * @Route("/modifier/{id}", name="zana_tsampana_update_view")
      * @Method("GET")
     */
-    public function updateViewAction($id)
+    public function updateViewAction(Request $request, $id)
     {
         $sokajinAsaServ = $this->container->get('SokajinAsaService');
         $reninys = $sokajinAsaServ->findAll("sampana");
         
         $zanaTsampanaServ = $this->container->get('zanaTsampanaService');
         
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
         
         $zanaTsampana = $zanaTsampanaServ->findById($id);
         
         return $this->render('backBundle:ZanaTsampana:update.html.twig', array(
             "zanaTsampana" => $zanaTsampana,
+            "baseUrl" => $baseurl,
             "reninys" => $reninys,
         ));
     }

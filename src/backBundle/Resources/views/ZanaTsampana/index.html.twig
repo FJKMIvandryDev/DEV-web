@@ -2,6 +2,16 @@
 
 {% block title %} Zana-tsampana{% endblock %}
 
+{% block headPerso %}
+    <style type="text/css">
+        th {
+            text-align: center;
+        }
+        
+    </style>
+
+{% endblock %}
+
 {% block body %}
     <a href="{{ path('zana_tsampana_add') }}">Ajouter zanaTsampana</a>
     
@@ -11,12 +21,14 @@
             <th>Anarana</th>
             <th>Description</th>
             <th>Date creation</th>
+            <th>Sampana Reniny</th>
         </tr>
         {% for zanaTsampana in list %}
             <tr align="center">
                 <td>{{ zanaTsampana.nom }}</td>
                 <td>{{ zanaTsampana.description }}</td>
                 <td>{{ zanaTsampana.dateCreation|date('Y-m-d') }}</td>
+                <td>{{ zanaTsampana.sampana.nom }}</td>
                 <td><a href="{{ path('zana_tsampana_delete', {'id': zanaTsampana.id }) }}">Supprimer</a></td> 
                 <td><a href="{{ path('zana_tsampana_update_view', {'id': zanaTsampana.id }) }}">Modifier</a></td>
             </tr>
