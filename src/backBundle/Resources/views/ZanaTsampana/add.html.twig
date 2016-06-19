@@ -1,0 +1,186 @@
+{% extends "backBundle::principal.html.twig" %}
+
+{% block title %} Zana-tsampana{% endblock %}
+
+{% block headPerso %}
+    <style type="text/css">
+        #image {
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #000;
+            color: #fff;
+        }
+        #image img {
+            visibility: hidden;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+    
+    <form action="{{ path('zana_tsampana_add') }}" method="POST">
+
+        <div class="container">
+            <!-- header row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>Mombamomba ny sampana</h1>
+                    
+                    <table>
+                        <tr>
+                            <td colspan=2>
+                                <div id="image" onclick="openKCFinder(this);">
+                                    <div style="margin:5px">Click here to choose an image</div>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td><label for="nom">Nom : </label></td>		
+                            <td><input type="text" id="nom" name="nom" required></input></td>
+                        </tr>
+                        
+                        <td><input type="hidden" id="sary" value="" name="imageJacket"></input></td>
+
+                        <tr>
+                            <td><label for="description">Description : </label></td>		
+                            <td><textarea id="description" name="description"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="date">Daty niforonana : </label></td>		
+                            <td><input type="date" id="date" name="dateCreation"></input></td>
+                        </tr>
+            {#            <tr>
+                            <td><label for="isa">Isan'ny mpikambana : </label></td>		
+                            <td><input type="number" id="isa" name="isa"></input></td>
+                        </tr>#}
+                        <tr>
+                            <td><label for="reniny">Reniny : </label></td>		
+                            <td>
+                                <select id="reniny" name="reniny">
+                                    {% for reniny in reninys %}
+                                        <option value = {{ reniny.id }} >{{ reniny.nom }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="col-lg-6">
+                    <table class="openChild">
+                        <h1>Birao</h1>
+                        
+                       <tr>
+                            <td><label>Filoha : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="filoha" name="filoha" required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Filoha lefitra : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="filoha_mlefitra" name="filoha_lefitra" required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpitan-tsoratra : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpitan_tsoratra" name="mpitan_tsoratra" required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpitahiry vola : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpitahiry_vola" name="mpitahiry_vola" required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpitan-tsoratry ny vola : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpitantsoratra_vola" name="mpitantsoratra_vola" required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpanolo-tsaina : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpanolo_tsaina" name="mpanolo_tsaina" required></input></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+       
+        <input type="submit" value="Enregistrer"></input>
+
+    </form>
+    
+{% endblock %}
+
+{% block personalJS %}
+    <script type="text/javascript">
+        function openKCFinder(elmt) {
+            window.KCFinder = {
+                    callBack: function(url) {
+                        window.KCFinder = null;
+                elmt.innerHTML = '<div style="margin:5px">Loading...</div>';
+                var texte = document.getElementById('sary');
+                texte.value = url;
+                var img = new Image();
+                img.src = url;
+                img.onload = function() {
+                    elmt.innerHTML = '<img id="img" src="' + url + '" />';
+                    var img = document.getElementById('img');
+                    var o_w = img.offsetWidth;
+                    var o_h = img.offsetHeight;
+                    var f_w = elmt.offsetWidth;
+                    var f_h = elmt.offsetHeight;
+                    if ((o_w > f_w) || (o_h > f_h)) {
+                        if ((f_w / f_h) > (o_w / o_h))
+                            f_w = parseInt((o_w * f_h) / o_h);
+                        else if ((f_w / f_h) < (o_w / o_h))
+                            f_h = parseInt((o_h * f_w) / o_w);
+                        img.style.width = f_w + "px";
+                        img.style.height = f_h + "px";
+                    } else {
+                        f_w = o_w;
+                        f_h = o_h;
+                    }
+                    img.style.marginLeft = parseInt((elmt.offsetWidth - f_w) / 2) + 'px';
+                    img.style.marginTop = parseInt((elmt.offsetHeight - f_h) / 2) + 'px';
+                    img.style.visibility = "visible";
+                    }
+                }
+            };
+            window.open('{{ baseUrl }}/bundles/back/kcfinder/browse.php?type=files&dir=files/public', 'kcfinder_image',
+                    'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
+                    'resizable=1, scrollbars=0, width=800, height=600'
+            );
+        }
+    </script>
+    
+    <script>
+
+        var win;
+
+        window.callBack = function(value, caller)
+        {
+            caller.find(".toUpdate").text(value.find(".nom").text());
+            caller.find("input").val(value.find(".id").text());
+            console.log(value.find(".id").text());
+        }
+
+        $(".openChild tr").click(function(){
+
+            if (win != null)
+            {
+                win.close();
+            }
+
+            win = window.open('{{ path('personne_modal') }}', "Ratting", "width=550,height=300,left=150,top=200,toolbar=1,status=1");
+
+            win.varTest = $(this);
+        });
+
+    </script>
+
+{% endblock %}

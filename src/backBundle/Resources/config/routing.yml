@@ -21,3 +21,7 @@ back_membre_bureau:
 back_article:
     resource: "@backBundle/Controller/ArticleController.php"
     type:     annotation
+    
+back_zana_tsampana:
+    resource: "@backBundle/Controller/ZanaTsampanaController.php"
+    type:     annotation

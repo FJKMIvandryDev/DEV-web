@@ -3,6 +3,7 @@
 namespace backBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * ZanaTsampana
@@ -43,6 +44,14 @@ class ZanaTsampana
      * @ORM\JoinColumn(nullable=true)
      */
     private $description;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imdageJacket", type="string", length=500)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $imageJacket;
 
     /**
      * @ORM\Column(name="sokajinAsa_id", type="integer")
@@ -50,7 +59,7 @@ class ZanaTsampana
     private $sampanaId;
     
     /**
-     * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="zanaTsampana")
+     * @ORM\ManyToOne(targetEntity="SokajinAsa", inversedBy="zanaTsampana")
      * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
      * @ORM\JoinColumn(nullable=false)
     */
@@ -61,12 +70,6 @@ class ZanaTsampana
      * @ORM\JoinColumn(nullable=true)
     */
     private $articles;
-    
-    /**
-     * @ORM\OneToOne(targetEntity="Image", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-    */
-    private $imageJacket;
     
     /**
      * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
@@ -322,7 +325,7 @@ class ZanaTsampana
      *
      * @return ZanaTsampana
      */
-    public function setImageJacket(\backBundle\Entity\Image $imageJacket)
+    public function setImageJacket($imageJacket)
     {
         $this->imageJacket = $imageJacket;
 

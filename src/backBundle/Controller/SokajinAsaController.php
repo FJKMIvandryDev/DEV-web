@@ -47,11 +47,6 @@ class SokajinAsaController extends Controller
             
             $sokajyServ->save($request);
             
-//            $info->setDate(new \DateTime($request->request->get("info")["date"]));
-//            $info->setType($typeInfoServ->find($info->getTypeId()));
-//            
-//            $infoServ->save($info);
-            
             return $this->redirectToRoute('sokajy_index', array(
                 "type" => $type,
                 

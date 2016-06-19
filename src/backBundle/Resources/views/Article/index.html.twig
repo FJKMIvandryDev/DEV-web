@@ -4,6 +4,9 @@
 
 {% block body %}
     
+    <a href="{{ path('article_add', { 'type' : type }) }}">Ajouter {{ type }}</a>
+    </br>
+    
     <table style="width:100%" border="1">
         
         <tr align="center">
@@ -21,6 +24,5 @@
     </table>
     
     </br>
-    <a href="{{ path('article_add', { 'type' : type }) }}">Ajouter fil article</a>
     
 {% endblock %}
