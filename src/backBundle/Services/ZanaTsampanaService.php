@@ -76,7 +76,20 @@ class ZanaTsampanaService {
     
     public function update(Request $request)
     {
+        $sokajy = new ZanaTsampana();
         
+        $sokajy->setId($request->request->get("id"));
+        $sokajy->setNom($request->request->get("nom"));
+        $sokajy->setImageJacket($request->request->get("imageJacket"));
+        $sokajy->setDescription($request->request->get("description"));
+        $sokajy->setDateCreation(new \DateTime($request->request->get("dateCreation")));
+        
+        $sampana = $this->em->getRepository("backBundle:SokajinAsa")->find($request->request->get("reniny"));
+        
+        $sokajy->setSampana($sampana);
+ 
+        $this->em->merge($sokajy);
+        $this->em->flush();
     }
 
     public function delete($id)
