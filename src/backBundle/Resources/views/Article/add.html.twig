@@ -20,7 +20,7 @@
 
 {% block body %}
     
-    <form action="{{ path('article_add', {'type':'{{ type }}' } ) }}" method="POST">
+    <form action="{{ path('article_add', {'type': type } ) }}" method="POST">
         
         <div class="container">
             <!-- header row -->
@@ -49,6 +49,8 @@
                 <div class="col-lg-3"></div>
                 
                 <input type="hidden" id="sary" value="" name="imageJacket"></input>
+                <input type="hidden" id="sary" value="{{ type }}" name="type"></input>
+                
             </div>
             
             <div class="row">
@@ -60,8 +62,14 @@
             </div>
             
             <div class="row">
-                
+                </br>
+                </br>
             </div>
+            
+            <div class="row">
+                <input type="submit" value="Enregistrer"/>
+            </div>
+            
             
         </div>
 

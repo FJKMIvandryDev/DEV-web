@@ -4,25 +4,23 @@
 
 {% block body %}
     
-    <textarea name="editor1" id="editor1" rows="10" cols="80">
-        This is my textarea to be replaced with CKEditor.
-    </textarea>
+    <table style="width:100%" border="1">
+        
+        <tr align="center">
+            <th>Auteur</th>
+            <th>Titre</th>
+        </tr>
+        {% for article in articles %}
+            <tr align="center">
+                <td>{{ article.titre }}</td>
+                <td>{{ article.auteur }}</td>
+                <td><a href="{{ path('article_delete', { 'type': type , 'id': article.id }) }}">Supprimer</a></td> 
+                <td><a href="{{ path('article_update_view', { 'type' : type, 'id': article.id }) }}">Modifier</a></td> 
+            </tr>
+        {% endfor%}
+    </table>
     
-{% endblock %}
-
-{% block importJS %}
-    {% javascripts output="js/compiled/backOffice.js"
-            "@backBundle/Resources/public/plugins/jQuery/jQuery-2.1.4.min.js"
-            "@backBundle/Resources/public/bootstrap/js/bootstrap.min.js"
-            "@backBundle/Resources/public/dist/js/app.min.js"
-            
-    %}
-        <script src="{{ asset_url }}" charset="utf-8"></script>
-        <script src="{{ asset("bundles/back/ckeditor/ckeditor.js") }}"></script>
-      
-        <script> 
-            CKEDITOR.replace( 'editor1' ); 
-        </script>
-
-    {% endjavascripts %}
+    </br>
+    <a href="{{ path('article_add', { 'type' : type }) }}">Ajouter fil article</a>
+    
 {% endblock %}

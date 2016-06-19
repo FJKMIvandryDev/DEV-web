@@ -39,7 +39,9 @@ class ArticleController extends Controller
     {
         if ($request->isMethod('POST'))
         {
+            $articleServ = $this->container->get('articleService');
             
+            $articleServ->save($request);
             
             return $this->redirectToRoute('article_index', array(
                 "type" => $type,
@@ -58,14 +60,18 @@ class ArticleController extends Controller
      * @Route("/{type}/modifier/{id}", name="article_update_view")
      * @Method("GET")
      */
-    public function updateViewAction($type, $id)
+    public function updateViewAction(Request $request, $type, $id)
     {
+        $articleServ = $this->container->get('articleService');
         
+        $article = $articleServ->findById($id);
         
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
         
         return $this->render('backBundle:Article:update.html.twig', array(
             "type" => $type,
-            "id" => $id,
+            "article" => $article,
+            "baseUrl" => $baseurl,
         ));
     }
 
@@ -75,7 +81,9 @@ class ArticleController extends Controller
      */
     public function updateAction(Request $request, $type)
     {
+        $articleServ = $this->container->get('articleService');
         
+        $articleServ->update($request);
         
         return $this->redirectToRoute('article_index', array(
             "type" => $type,
@@ -88,6 +96,10 @@ class ArticleController extends Controller
      */
     public function deleteAction($type, $id)
     {
+        $articleServ = $this->container->get('articleService');
+        
+        $articleServ->delete($id);
+        
         return $this->redirectToRoute('article_index', array(
             "type" => $type,
         ));
