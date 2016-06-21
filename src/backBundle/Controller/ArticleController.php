@@ -11,7 +11,7 @@ use \Symfony\Component\HttpFoundation\Response;
 /**
  * Article controller.
  *
- * @Route("/article")
+ * @Route("/admin/article")
  */
 class ArticleController extends Controller
 {

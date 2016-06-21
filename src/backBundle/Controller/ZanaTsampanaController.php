@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 /**
  * Article controller.
  *
- * @Route("/zanaTsampana")
+ * @Route("/admin/zanaTsampana")
  */
 class ZanaTsampanaController extends Controller
 {

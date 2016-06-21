@@ -14,7 +14,7 @@ use backBundle\Form\InfoType;
 /**
  * Info controller.
  *
- * @Route("/info")
+ * @Route("/admin/info")
  */
 class InfoController extends Controller
 {

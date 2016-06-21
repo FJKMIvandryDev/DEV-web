@@ -12,7 +12,7 @@ use backBundle\Form\PersonneType;
 /**
  * Personne controller.
  *
- * @Route("/personne")
+ * @Route("/admin/personne")
  */
 class PersonneController extends Controller
 {
