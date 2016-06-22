@@ -5,7 +5,8 @@
 
 CKEDITOR.editorConfig = function( config ) {
 
-
+        config.extraPlugins = 'oembed';
+        
 	config.filebrowserBrowseUrl = '../../../../bundles/back/kcfinder/browse.php?opener=ckeditor&type=files';
 	config.filebrowserImageBrowseUrl = '../../../../bundles/back/kcfinder/browse.php?opener=ckeditor&type=images';
 	config.filebrowserFlashBrowseUrl = '../../../../bundles/back/kcfinder/browse.php?opener=ckeditor&type=flash';
