@@ -14,7 +14,7 @@ security:
             security: false
         
         login:
-            pattern: ^/login$
+            pattern: ^/admin/login$
             anonymous: true
         
         main:
@@ -29,7 +29,7 @@ security:
                 use_referer : true
             logout:
                 path: fos_user_security_logout
-                target: /login
+                target: fos_user_security_login
             remember_me:
                 key: %secret%
  
