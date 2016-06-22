@@ -12,7 +12,7 @@ use backBundle\Form\MembreBureauType;
 /**
  * MembreBureau controller.
  *
- * @Route("/membrebureau")
+ * @Route("/admin/membrebureau")
  */
 class MembreBureauController extends Controller
 {

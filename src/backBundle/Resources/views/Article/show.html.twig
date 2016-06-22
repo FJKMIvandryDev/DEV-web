@@ -1,7 +1,16 @@
-{% extends "::base.html.twig" %}
+{% extends "backBundle::principal.html.twig" %}
 
-{% block title %}backBundle:Article:delete{% endblock %}
+{% block title %} {{ type }} {% endblock %}
 
 {% block body %}
-<h1>Welcome to the Article:delete page</h1>
+    <h1>{{ article.titre }} by {{ article.auteur }}</h1>
+    <br/>
+    <br/>
+    
+    {% autoescape %}
+        {{ article.texte.contenu |raw }} {# var won't be escaped #}
+    {% endautoescape %}
+    
+    <br/>
+    <a href="{{ path('article_index', { 'type': type }) }}">back to list</a>
 {% endblock %}

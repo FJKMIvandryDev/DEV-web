@@ -12,7 +12,7 @@ use backBundle\Entity\SokajinAsa;
 /**
  * Sampana controller.
  *
- * @Route("/sokajinAsa")
+ * @Route("/admin/sokajinAsa")
  */
 class SokajinAsaController extends Controller
 {

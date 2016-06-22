@@ -22,13 +22,16 @@
         <tr align="center">
             <th>Auteur</th>
             <th>Titre</th>
+            <th>Date de publication</th>
         </tr>
         {% for article in articles %}
             <tr align="center">
                 <td>{{ article.titre }}</td>
                 <td>{{ article.auteur }}</td>
+                <td>{{ article.date|date('Y-m-d') }}</td>
                 <td><a href="{{ path('article_delete', { 'type': type , 'id': article.id }) }}">Supprimer</a></td> 
-                <td><a href="{{ path('article_update_view', { 'type' : type, 'id': article.id }) }}">Modifier</a></td> 
+                <td><a href="{{ path('article_update_view', { 'type' : type, 'id': article.id }) }}">Modifier</a></td>
+                <td><a href="{{ path('article_show', { 'type' : type, 'id': article.id }) }}">afficher</a></td> 
             </tr>
         {% endfor%}
     </table>

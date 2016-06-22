@@ -1,5 +1,5 @@
 back_homepage:
-    path:     /admin/
+    path:     /admin
     defaults: { _controller: backBundle:Default:index }
 
 back_info:

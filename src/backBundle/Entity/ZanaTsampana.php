@@ -52,11 +52,6 @@ class ZanaTsampana
      * @ORM\JoinColumn(nullable=true)
      */
     private $imageJacket;
-
-    /**
-     * @ORM\Column(name="sokajinAsa_id", type="integer")
-     */
-    private $sampanaId;
     
     /**
      * @ORM\ManyToOne(targetEntity="SokajinAsa", inversedBy="zanaTsampana")
@@ -347,30 +342,6 @@ class ZanaTsampana
     public function getImageJacket()
     {
         return $this->imageJacket;
-    }
-
-    /**
-     * Set sampanaId
-     *
-     * @param integer $sampanaId
-     *
-     * @return ZanaTsampana
-     */
-    public function setSampanaId($sampanaId)
-    {
-        $this->sampanaId = $sampanaId;
-
-        return $this;
-    }
-
-    /**
-     * Get sampanaId
-     *
-     * @return integer
-     */
-    public function getSampanaId()
-    {
-        return $this->sampanaId;
     }
 
     /**

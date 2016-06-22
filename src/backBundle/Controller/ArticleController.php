@@ -11,7 +11,7 @@ use \Symfony\Component\HttpFoundation\Response;
 /**
  * Article controller.
  *
- * @Route("/article")
+ * @Route("/admin/article")
  */
 class ArticleController extends Controller
 {
@@ -104,5 +104,20 @@ class ArticleController extends Controller
             "type" => $type,
         ));
     }
-
+    
+        /**
+     * @Route("/{type}/afficher/{id}", name="article_show")
+     * @Method("GET")
+     */
+    public function showAction($type, $id)
+    {
+        $articleServ = $this->container->get('articleService');
+        
+        $article = $articleServ->findById($id);
+        
+        return $this->render('backBundle:Article:show.html.twig', array(
+            "type" => $type,
+            "article" => $article,
+        ));
+    }
 }

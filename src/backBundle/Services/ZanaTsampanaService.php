@@ -53,11 +53,11 @@ class ZanaTsampanaService {
         
         $sokajy->setSampana($sampana);
         
-        $emBureau = $this->em->getRepository('backBundle:Personne');
- 
         $this->em->persist($sokajy);
         
         
+        $emBureau = $this->em->getRepository('backBundle:Personne');
+
         $bureau = new MembreBureau();
         
         $bureau->setFiloha($emBureau->find($request->request->get("filoha")));
@@ -84,7 +84,12 @@ class ZanaTsampanaService {
         $sokajy->setDescription($request->request->get("description"));
         $sokajy->setDateCreation(new \DateTime($request->request->get("dateCreation")));
         
+        
+        
         $sampana = $this->em->getRepository("backBundle:SokajinAsa")->find($request->request->get("reniny"));
+        
+//        var_dump($sampana);
+//        die;
         
         $sokajy->setSampana($sampana);
  
