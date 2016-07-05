@@ -6,10 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use backBundle\Entity\Info;
-use backBundle\Entity\Type_info;
-use \Symfony\Component\HttpFoundation\Response;
-use backBundle\Form\InfoType;
 
 /**
  * Info controller.
@@ -20,34 +16,26 @@ class InfoController extends Controller
 {
     
     /**
-     * @Route("/", name="info_index")
+     * @Route("/{type}", name="info_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction($type)
     {      
-        $typeInfoServ = $this->container->get('typeInfoService');
         $infoServ = $this->container->get('infoService');
-        
-        $typeInfo = $typeInfoServ->findAll();
-        
-        if (count($typeInfo) <= 0)
-        {
-            $typeInfoServ->save("Fiantsoana");
-            $typeInfoServ->save("Fahoriana");
-        }
-        
-        $infos = $infoServ->findAll();
+
+        $infos = $infoServ->findAllByType($type);
         
         return $this->render('backBundle:info:index.html.twig', array(
             'infos' => $infos,
+            "type" => $type,
         ));
     }
     
     /**
-     * @Route("/ajouter", name="info_add")
+     * @Route("/{type}/ajouter", name="info_add")
      * @Method({"GET", "POST"})
      */
-    public function saveAction(Request $request)
+    public function saveAction(Request $request, $type)
     {
 //        ajouter dans me form : enctype="multipart/form-data"
 //        
@@ -60,94 +48,69 @@ class InfoController extends Controller
 ////            $image->move($this->container->getParameter('uploadDirectory'), "test.jpg");
 //            
 //        }
-        $typeInfoServ = $this->container->get('typeInfoService');
-        $infoServ = $this->container->get('infoService');
-        
-        $typeInfo = $typeInfoServ->findAll();
-        
-        $info = new Info();
-        $form = $this->createForm('backBundle\Form\InfoType', $info);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted()) 
+        if ($request->isMethod('POST')) 
         {
-            $info->setDate(new \DateTime($request->request->get("info")["date"]));
-            $info->setType($typeInfoServ->find($info->getTypeId()));
+            $infoServ = $this->container->get('infoService');
             
-            $infoServ->save($info);
+            $infoServ->save($request);
             
-            return $this->redirectToRoute('info_index');
+            return $this->redirectToRoute('info_index', array(
+                "type" => $type,
+            ));
         }
 
         return $this->render('backBundle:Info:add.html.twig', array(
-            "types" => $typeInfo,
+            "type" => $type,
         ));
     }
 
     
     /**
-     * @Route("/{id}/supprimer", name="info_delete")
+     * @Route("/{type}/supprimer/{id}", name="info_delete")
      * @Method("GET")
      */
-    public function deleteAction($id)
+    public function deleteAction($type, $id)
     {
         $infoServ = $this->container->get('infoService');
         
         $infoServ->delete($id);
         
-        return $this->redirectToRoute('info_index');
+        return $this->redirectToRoute('info_index', array(
+            "type" => $type,
+        ));
     }
 
     
     /**
-     * @Route("/{id}/modifier", name="info_update_view")
+     * @Route("/{type}/modifier/{id}", name="info_update_view")
      * @Method({"GET", "POST"})
      */
-    public function updateViewAction($id)
+    public function updateViewAction($type, $id)
     {
         $infoServ = $this->container->get('infoService');
         $info = $infoServ->findById($id);   
         
-        $typeInfoServ = $this->container->get('typeInfoService');
-        $typeInfo = $typeInfoServ->findAll();
         
         return $this->render('backBundle:Info:update.html.twig', array(
             "info" => $info,
-            "types" => $typeInfo,
+            "type" => $type,
         ));
     }
     
     
     /**
-     * @Route("/modifier", name="info_update")
-     * @Method({"GET", "POST"})
+     * @Route("/{type}/modifier", name="info_update")
+     * @Method("POST")
      */
-    public function updateAction(Request $request)
+    public function updateAction(Request $request, $type)
     {
-        $typeInfoServ = $this->container->get('typeInfoService');
-        $infoServ = $this->container->get('infoService');
+         $infoServ = $this->container->get('infoService');
         
-        $typeInfo = $typeInfoServ->findAll();
+        $infoServ->update($request);
         
-        $info = new Info();
-        $form = $this->createForm('backBundle\Form\InfoType', $info);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted()) 
-        {
-            $info->setDate(new \DateTime($request->request->get("info")["date"]));
-            $info->setType($typeInfoServ->find($info->getTypeId()));
-            
-            $info->setId($request->request->get("info")["id"]);
-
-            $infoServ->update($info);
-            
-            return $this->redirectToRoute('info_index');
-        }
-        
-        return $this->redirectToRoute('info_update_view', array(
-            "types" => $typeInfo,
-            "info" => $infoServ->findById($id),
+        return $this->redirectToRoute('info_index', array(
+            "type" => $type,
         ));
     }
     

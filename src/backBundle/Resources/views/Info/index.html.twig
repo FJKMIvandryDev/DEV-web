@@ -1,6 +1,6 @@
 {% extends "backBundle::principal.html.twig" %}
 
-{% block title %}Info{% endblock %}
+{% block title %} {{ type }} {% endblock %}
 
 {% block headPerso %}
     <style type="text/css">
@@ -13,25 +13,23 @@
 {% endblock %}
 
 {% block body %}
-    <a href="{{ path('info_add')}}">Ajouter fil d'info</a>
+    <a href="{{ path('info_add', { 'type' : type }) }}">Ajouter {{ type }}</a>
     </br>
     
     <table style="width:100%" border="1">
         
         <tr align="center">
-            <th>Type Info</th>
             <th>Titre</th>
             <th>Texte</th>
             <th>Date</th>
         </tr>
         {% for info in infos %}
             <tr align="center">
-                <td>{{ info.type.libelle }}</td>
                 <td>{{ info.titre }}</td>
                 <td>{{ info.texte }}</td>
                 <td>{{ info.date|date('Y-m-d') }}</td>
-                <td><a href="{{ path('info_delete', { 'id': info.id }) }}">Supprimer</a></td> 
-                <td><a href="{{ path('info_update_view', { 'id': info.id }) }}">Modifier</a></td> 
+                <td><a href="{{ path('info_delete', { 'type': type , 'id': info.id }) }}">Supprimer</a></td> 
+                <td><a href="{{ path('info_update_view', { 'type' : type, 'id': info.id }) }}">Modifier</a></td>
             </tr>
         {% endfor%}
     </table>

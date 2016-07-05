@@ -10,4 +10,20 @@ namespace backBundle\Repository;
  */
 class InfoRepository extends \Doctrine\ORM\EntityRepository
 {
+    
+    public function getAllByType($type)
+    {
+        $em = $this->_em;
+        $query = $em->createQuery(
+            "SELECT info
+            FROM backBundle:Info info
+            WHERE info.type = '$type'
+            "
+        );
+
+        $article = $query->getResult();
+        
+        return $article;
+    }
+    
 }

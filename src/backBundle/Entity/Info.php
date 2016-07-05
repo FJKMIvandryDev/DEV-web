@@ -44,23 +44,19 @@ class Info
      */
     private $date;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="type_id", type="integer")
-     */
-    private $typeId;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Type_info")
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
      * @ORM\JoinColumn(nullable=false)
-    */
+     */
     private $type;
     
     
     public function __construct()
     {
-
+        $this->date = new \Datetime();
     }
     
     
@@ -153,14 +149,15 @@ class Info
         return $this->date;
     }
 
+
     /**
      * Set type
      *
-     * @param \backBundle\Entity\Type_info $type
+     * @param string $type
      *
      * @return Info
      */
-    public function setType(\backBundle\Entity\Type_info $type)
+    public function setType($type)
     {
         $this->type = $type;
 
@@ -170,34 +167,10 @@ class Info
     /**
      * Get type
      *
-     * @return \backBundle\Entity\Type_info
+     * @return string
      */
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * Set typeId
-     *
-     * @param integer $typeId
-     *
-     * @return Info
-     */
-    public function setTypeId($typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
-    }
-
-    /**
-     * Get typeId
-     *
-     * @return integer
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
     }
 }

@@ -3,6 +3,7 @@
 namespace backBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * ZanaTsampana
@@ -43,14 +44,17 @@ class ZanaTsampana
      * @ORM\JoinColumn(nullable=true)
      */
     private $description;
-
-    /**
-     * @ORM\Column(name="sokajinAsa_id", type="integer")
-     */
-    private $sampanaId;
     
     /**
-     * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="zanaTsampana")
+     * @var string
+     *
+     * @ORM\Column(name="imdageJacket", type="string", length=500)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $imageJacket;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="SokajinAsa", inversedBy="zanaTsampana")
      * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
      * @ORM\JoinColumn(nullable=false)
     */
@@ -61,12 +65,6 @@ class ZanaTsampana
      * @ORM\JoinColumn(nullable=true)
     */
     private $articles;
-    
-    /**
-     * @ORM\OneToOne(targetEntity="Image", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-    */
-    private $imageJacket;
     
     /**
      * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
@@ -105,6 +103,13 @@ class ZanaTsampana
     public function getId()
     {
         return $this->id;
+    }
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -322,7 +327,7 @@ class ZanaTsampana
      *
      * @return ZanaTsampana
      */
-    public function setImageJacket(\backBundle\Entity\Image $imageJacket)
+    public function setImageJacket($imageJacket)
     {
         $this->imageJacket = $imageJacket;
 
@@ -337,30 +342,6 @@ class ZanaTsampana
     public function getImageJacket()
     {
         return $this->imageJacket;
-    }
-
-    /**
-     * Set sampanaId
-     *
-     * @param integer $sampanaId
-     *
-     * @return ZanaTsampana
-     */
-    public function setSampanaId($sampanaId)
-    {
-        $this->sampanaId = $sampanaId;
-
-        return $this;
-    }
-
-    /**
-     * Get sampanaId
-     *
-     * @return integer
-     */
-    public function getSampanaId()
-    {
-        return $this->sampanaId;
     }
 
     /**

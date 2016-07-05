@@ -22,37 +22,37 @@ class MembreBureau
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
     */
     private $filoha;
     
     /**
-     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
     */
     private $filohaLefitra;
     
     /**
-     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpitanTsoratra;
     
     /**
-     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpitahiryVola;
     
     /**
-     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpitanTsoratraVola;
     
     /**
-     * @ORM\OneToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpanoloTsaina;
@@ -82,18 +82,19 @@ class MembreBureau
 
     /**
      * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="membreBureau")
-     * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id" , onDelete="CASCADE")
      * @ORM\JoinColumn(nullable=true)
     */
     private $sokajinAsa;
     
     /**
      * @ORM\ManyToOne(targetEntity="ZanaTsampana", cascade={"persist"}, inversedBy="membreBureau")
-     * @ORM\JoinColumn(name="zanaTsampana_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="zanaTsampana_id", referencedColumnName="id", onDelete="CASCADE")
      * @ORM\JoinColumn(nullable=true)
     */
     private $zanaTsampana;
 
+    
     public function __construct()
     {
       $this->dateDebut = new \Datetime();
