@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    {% stylesheets output="css/compiled/backOffice.css" filter="cssrewrite"
+{#    {% stylesheets output="css/compiled/backOffice.css" filter="cssrewrite"
             '@backBundle/Resources/public/bootstrap/css/bootstrap.min.css'
             '@backBundle/Resources/public/dist/css/font-awesome.min.css'
             '@backBundle/Resources/public/dist/css/ionicons.min.css'
@@ -20,7 +20,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             '@backBundle/Resources/public/dist/css/skins/skin-blue.min.css'
     %}
         <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
+    {% endstylesheets %}#}
+
+    <link rel="stylesheet" href="{{ asset('css/compiled/backOffice.css') }}"/>
     
     {% block headPerso %}
             
@@ -67,7 +69,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <ul class="dropdown-menu">
                               <!-- The user image in the menu -->
                               <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+{#                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">#}
                                 <p>
                                   Admin backOffice site web Ivandry Firaisana
                                   <small>2016</small>
@@ -211,7 +213,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       
       
     {% block importJS %}
-        {% javascripts output="js/compiled/backOffice.js"
+{#        {% javascripts output="js/compiled/backOffice.js"
                 "@backBundle/Resources/public/plugins/jQuery/jQuery-2.1.4.min.js"
                 "@backBundle/Resources/public/bootstrap/js/bootstrap.min.js"
                 "@backBundle/Resources/public/dist/js/app.min.js"
@@ -223,7 +225,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             {% endblock %}
             
-        {% endjavascripts %}
+        {% endjavascripts %}#}
+        <script src="{{ asset('js/compiled/backOffice.js') }}" charset="utf-8"></script>
     {% endblock %}
     
     
