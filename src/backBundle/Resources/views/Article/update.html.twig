@@ -78,60 +78,52 @@
         
 {% endblock %}
 
-{% block importJS %}
-    {% javascripts output="js/compiled/backOffice.js"
-            "@backBundle/Resources/public/plugins/jQuery/jQuery-2.1.4.min.js"
-            "@backBundle/Resources/public/bootstrap/js/bootstrap.min.js"
-            "@backBundle/Resources/public/dist/js/app.min.js"
-            
-    %}
-        <script src="{{ asset_url }}" charset="utf-8"></script>
-        <script src="{{ asset("bundles/back/ckeditor/ckeditor.js") }}"></script>
-      
-        <script> 
-            CKEDITOR.replace( 'editor' );
-        </script>
-        
-        <script type="text/javascript">
-            function openKCFinder(elmt) {
-                window.KCFinder = {
-                    callBack: function(url) {
-                        window.KCFinder = null;                        
-                        elmt.innerHTML = '<div style="margin:5px">Loading...</div>';
-                        var texte = document.getElementById('sary');
-                        texte.value = url;
-                        var img = new Image();
-                        img.src = url;
-                        img.onload = function() {
-                            elmt.innerHTML = '<img id="img" src="' + url + '" />';
-                            var img = document.getElementById('img');
-                            var o_w = img.offsetWidth;
-                            var o_h = img.offsetHeight;
-                            var f_w = elmt.offsetWidth;
-                            var f_h = elmt.offsetHeight;
-                            if ((o_w > f_w) || (o_h > f_h)) {
-                                if ((f_w / f_h) > (o_w / o_h))
-                                    f_w = parseInt((o_w * f_h) / o_h);
-                                else if ((f_w / f_h) < (o_w / o_h))
-                                    f_h = parseInt((o_h * f_w) / o_w);
-                                img.style.width = f_w + "px";
-                                img.style.height = f_h + "px";
-                            } else {
-                                f_w = o_w;
-                                f_h = o_h;
-                            }
-                            img.style.marginLeft = parseInt((elmt.offsetWidth - f_w) / 2) + 'px';
-                            img.style.marginTop = parseInt((elmt.offsetHeight - f_h) / 2) + 'px';
-                            img.style.visibility = "visible";
-                        }
-                    }
-                };
-                window.open('{{ baseUrl }}/bundles/back/kcfinder/browse.php?type=images&dir=images/public', 'kcfinder_image',
-                        'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
-                        'resizable=1, scrollbars=0, width=800, height=600'
-                );
-            }
-        </script>
+{% block JSPerso %}
+    <script src="{{ asset("bundles/back/ckeditor/ckeditor.js") }}"></script>
 
-    {% endjavascripts %}
+    <script> 
+        CKEDITOR.replace( 'editor' );
+    </script>
+
+    <script type="text/javascript">
+        function openKCFinder(elmt) {
+            window.KCFinder = {
+                callBack: function(url) {
+                    window.KCFinder = null;                        
+                    elmt.innerHTML = '<div style="margin:5px">Loading...</div>';
+                    var texte = document.getElementById('sary');
+                    texte.value = url;
+                    var img = new Image();
+                    img.src = url;
+                    img.onload = function() {
+                        elmt.innerHTML = '<img id="img" src="' + url + '" />';
+                        var img = document.getElementById('img');
+                        var o_w = img.offsetWidth;
+                        var o_h = img.offsetHeight;
+                        var f_w = elmt.offsetWidth;
+                        var f_h = elmt.offsetHeight;
+                        if ((o_w > f_w) || (o_h > f_h)) {
+                            if ((f_w / f_h) > (o_w / o_h))
+                                f_w = parseInt((o_w * f_h) / o_h);
+                            else if ((f_w / f_h) < (o_w / o_h))
+                                f_h = parseInt((o_h * f_w) / o_w);
+                            img.style.width = f_w + "px";
+                            img.style.height = f_h + "px";
+                        } else {
+                            f_w = o_w;
+                            f_h = o_h;
+                        }
+                        img.style.marginLeft = parseInt((elmt.offsetWidth - f_w) / 2) + 'px';
+                        img.style.marginTop = parseInt((elmt.offsetHeight - f_h) / 2) + 'px';
+                        img.style.visibility = "visible";
+                    }
+                }
+            };
+            window.open('{{ baseUrl }}/bundles/back/kcfinder/browse.php?type=images&dir=images/public', 'kcfinder_image',
+                    'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
+                    'resizable=1, scrollbars=0, width=800, height=600'
+            );
+        }
+    </script>
+
 {% endblock %}

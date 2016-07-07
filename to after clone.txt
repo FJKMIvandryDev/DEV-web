@@ -4,13 +4,7 @@
 ouvrir cmd
 aller dans le repertoir du projet
 faire la commande suivant : 
-<<<<<<< .mine
+
 	php composer.phar update
 
-
-=======
-	php composer.phar update
-
-
->>>>>>> .theirs
 app/config/parameters.yml.dist à copier dans app/config/parameters.yml et changer les paramètre à celle de votre base
