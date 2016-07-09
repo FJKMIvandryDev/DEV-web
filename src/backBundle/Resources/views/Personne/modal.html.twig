@@ -4,6 +4,17 @@
 
 {% block body %}
     
+        <div class="container">
+            <!-- header row -->
+            
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-1" for="titre">find : </label>
+                <input class="col-lg-5" id="param" type="text" name="param"/>
+                <button id="button" type="button">go</button>
+            </div>
+        </div>
+    
     <table id="table" style="width:100%" border="1">
         
         <tr id="nonSelect" align="center">
@@ -11,14 +22,16 @@
             <th>Prenom</th>
             <th>Photo</th>
         </tr>
+        
         {% for personne in personnes %}
-            <tr align="center">
+            <tr align="center" class="listPersonne">
                 <td class="id" visibility: hidden>{{ personne.id }}</td>
                 <td class="nom">{{ personne.nom }}</td>
                 <td class="prenom">{{ personne.prenom }}</td>
                 <td class="photo">{{ personne.photo }}</td>
             </tr>
         {% endfor%}
+        
     </table>
     
     <button onClick="returnToParent()">valider</button>
@@ -27,7 +40,7 @@
 
 
 
-{% block personalJS %}
+{% block JSPerso %}
     
     <script>
 
@@ -43,8 +56,9 @@
             window.close();
         }
 
-        $("#table tr").click(function(){
-            if ($(this).id != "nonSelect")
+        $(".listPersonne").click(function(){
+            
+            if ($(this).attr('id') != "nonSelect")
             {
                 $(this).addClass('selected').siblings().removeClass('selected'); 
                 $(this).siblings().css({"background" : "#FFFFFF"});
@@ -52,6 +66,72 @@
             }
         });
 
+    </script>
+    
+    <script>
+        
+        $("button").click(function(){
+            var val = $("#param").val();
+            if (val != "")
+            {
+                replaceList($("#param").val());
+            }
+            else
+            {
+                replaceList("çééç");
+            }
+        });
+        
+        $("#param").keyup(function(event){
+            if(event.keyCode == 13){
+                var val = $("#param").val();
+                if (val != "")
+                {
+                    replaceList($("#param").val());
+                }
+                else
+                {
+                    replaceList("çééç");
+                }
+            }
+        });
+        
+        function replaceList(val)
+        {
+            $(".listPersonne").remove();
+            
+            var route = "{{ path('personne_find_modal', { 'name': "PLACEHOLDER" }) }}";
+            var uri = route.replace("PLACEHOLDER", val);
+            
+            $.get(uri, function(data, status){
+                
+                var table = $("#table");
+                var list = "";
+                
+                for (var p in data)
+                {
+                    list += '<tr align="center" class="listPersonne">';
+                    list +=    '<td class="id" visibility: hidden>'+data[p].id+'</td>';
+                    list +=    '<td class="nom">'+data[p].nom+'</td>';
+                    list +=    '<td class="prenom">'+data[p].prenom+'</td>';
+                    list +=    '<td class="photo">'+data[p].photo+'</td>';
+                    list +='</tr>'
+                }
+                
+                table.append(list);
+                
+                $(".listPersonne").click(function(){
+                
+                    if ($(this).attr('id') != "nonSelect")
+                    {
+                        $(this).addClass('selected').siblings().removeClass('selected'); 
+                        $(this).siblings().css({"background" : "#FFFFFF"});
+                        $(this).css({"background" : "#00FF00"});
+                    }
+                });
+                
+            });
+        }
     </script>
     
 {% endblock %}

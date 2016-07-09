@@ -36,6 +36,28 @@
             </div>
             
             <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="sokajy">sokajin'Asa : </label>
+                <select class="col-lg-4" id="sokajy" name="sokajy">
+                    <option value= 0 >--selection sokajin'asa--</option>
+                    {% for s in sokajy %}
+                        <option value={{ s.id }}>{{ s.nom }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+                
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="zanany">zana-tsampana : </label>
+                <select class="col-lg-4" id="zanany" name="zanaTsampana">
+                    <option value= 0 >--selection zana-tsampana--</option>
+                    {% for z in zanaTsampana %}
+                        <option value={{ z.id }}>{{ z.nom }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="row">
                 </br>
             </div>
             
@@ -60,7 +82,7 @@
                     
                 </textarea>
             </div>
-            
+    
             <div class="row">
                 <br/>
                 <br/>

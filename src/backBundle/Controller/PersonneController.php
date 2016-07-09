@@ -3,6 +3,7 @@
 namespace backBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -21,26 +22,45 @@ class PersonneController extends Controller
      * @Route("/modal", name="personne_modal")
      * @Method({"GET", "POST"})
      */
-    public function indexModalAction(Request $request)
+    public function indexModalAction()
     {
         $personneServ = $this->container->get('personneService');
-        
-        $personnes = NULL;
-        
-        if ($request->isMethod('POST'))
-        {
-            $valueParam = $request->request->get("param");
-            
-            $personnes = $personneServ->findByName($valueParam);
-        }
-        else
-        {
-           $personnes = $personneServ->findAll(); 
-        }
+
+        $personnes = $personneServ->findAll(); 
 
         return $this->render('backBundle:Personne:modal.html.twig', array(
             'personnes' => $personnes,
         ));
+    }
+    
+        /**
+     *
+     * @Route("/modal/{name}", name="personne_find_modal")
+     * @Method("GET")
+     */
+    public function searchModalAction($name)
+    {
+        $personneServ = $this->container->get('personneService');
+        
+        $personnes = null;
+        
+        if ($name != "çééç")
+        {
+            $personnes = $personneServ->findByName($name);
+        }
+        else
+        {
+            $personnes = $personneServ->findAll();
+        }
+
+        $serializer = $this->get('serializer');
+        
+        $jsonContent = $serializer->serialize($personnes, 'json');
+        
+        $response = new Response($jsonContent);
+        $response->headers->set('Content-Type', 'application/json');
+        
+        return $response;
     }
     
     

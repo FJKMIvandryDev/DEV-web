@@ -29,12 +29,45 @@
                 <label class="col-lg-1" for="titre">Titre : </label>
                 <input class="col-lg-5" id="titre" type="text" name="titre" value="{{ article.titre }}"/>
             </div>
+            
             <div class="row">
                 <div class="col-lg-2"></div>
                 <label class="col-lg-1" for="auteur">Auteur : </label>
                 <input class="col-lg-5" id="auteur" type="text" name="auteur" value="{{ article.auteur }}"/>
             </div>
             
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="sokajy">sokajin'Asa : </label>
+                <select class="col-lg-4" id="sokajy" name="sokajy">
+                    <option value= 0 >--selection sokajin'asa--</option>
+                    {% for s in sokajy %}
+                        {% if article.sokajinAsaId == s.id %}
+                            <option value={{ s.id }} selected>{{ s.nom }}</option>
+                        {% else %}
+                            <option value={{ s.id }}>{{ s.nom }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+                
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="zanany">zana-tsampana : </label>
+                <select class="col-lg-4" id="zanany" name="zanaTsampana">
+                    
+                    <option value= 0 >--selection zana-tsampana--</option>
+                    {% for z in zanaTsampana %}
+                        {% if article.zanaTsampanaId == z.id %}
+                            <option value={{ z.id }} selected>{{ z.nom }}</option>
+                        {% else %}
+                            <option value={{ z.id }}>{{ z.nom }}</option>
+                        {% endif %}
+                        
+                    {% endfor %}
+                </select>
+            </div>
+                
             <div class="row">
                 </br>
             </div>

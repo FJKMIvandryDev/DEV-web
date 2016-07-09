@@ -1,0 +1,34 @@
+{% extends "backBundle::principal.html.twig" %}
+
+{% block title %}{{ type }}{% endblock %}
+
+{% block body %}
+
+    <form action="{{ path('info_update', {'type': type } ) }}" method="POST">
+        <div id="personne">
+            
+            <input type="hidden" name="id" value={{ info.id }}>
+            <div>
+                <label for="info_titre" class="required">Titre</label>
+                <input type="text" id="info_titre" name="titre" required="required" maxlength="255" value={{ info.titre }}>
+            </div>
+            <div>
+                <label for="info_text" class="required">Contenue</label>
+                <textarea id="info_text" name="texte" required="required" maxlength="255" >{{ info.texte }}</textarea>
+            </div>
+            <div>
+                <label for="info_date" class="required">Date</label>
+                <input type="date" id="info_date" name="date" required="required" maxlength="255" value={{ info.date|date('Y-m-d') }}>
+            </div>
+            
+            <input type="hidden" value="{{ type }}" name="type"/>
+            
+            
+
+        </div>
+        
+        <input type="submit" value="save update">
+        
+    </form>
+
+{% endblock %}

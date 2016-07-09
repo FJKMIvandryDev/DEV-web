@@ -48,11 +48,16 @@ class ArticleController extends Controller
             ));
         }
         
+        $sokajyServ = $this->container->get('sokajinAsaService');
+        $zanaTsampanaServ = $this->container->get('zanaTsampanaService');
+        
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
         
         return $this->render('backBundle:Article:add.html.twig', array(
             "type" => $type,
             "baseUrl" => $baseurl,
+            "sokajy" => $sokajyServ->findAll(),
+            "zanaTsampana" => $zanaTsampanaServ->findAll(),
         ));
     }
 
@@ -68,10 +73,15 @@ class ArticleController extends Controller
         
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
         
+        $sokajyServ = $this->container->get('sokajinAsaService');
+        $zanaTsampanaServ = $this->container->get('zanaTsampanaService');
+        
         return $this->render('backBundle:Article:update.html.twig', array(
             "type" => $type,
             "article" => $article,
             "baseUrl" => $baseurl,
+            "sokajy" => $sokajyServ->findAll(),
+            "zanaTsampana" => $zanaTsampanaServ->findAll(),
         ));
     }
 

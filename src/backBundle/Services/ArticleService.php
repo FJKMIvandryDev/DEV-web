@@ -63,6 +63,20 @@ class ArticleService {
         $article->setType($request->request->get("type"));
         $article->setTexte($texte);
         
+        $sokajyEM = $this->em->getRepository('backBundle:SokajinAsa');
+        $zananyEM = $this->em->getRepository('backBundle:ZanaTsampana');
+        
+        $idSokajy = $sokajyEM->find($request->request->get("sokajy"));
+        $idZanany = $zananyEM->find($request->request->get("zanaTsampana"));
+        if ($idSokajy != '0')
+        {
+            $article->setSokajinAsa($idSokajy);
+        }
+        if ($idZanany != '0')
+        {
+            $article->setZanaTsampana($idZanany);
+        }
+        
         $this->em->persist($article);
         
         $this->em->flush();
@@ -90,6 +104,20 @@ class ArticleService {
         $article->setAuteur($request->request->get("auteur"));
         $article->setImageJacket($request->request->get("imageJacket"));
         $article->setType($request->request->get("type"));
+        
+        $sokajyEM = $this->em->getRepository('backBundle:SokajinAsa');
+        $zananyEM = $this->em->getRepository('backBundle:ZanaTsampana');
+        
+        $idSokajy = $sokajyEM->find($request->request->get("sokajy"));
+        $idZanany = $zananyEM->find($request->request->get("zanaTsampana"));
+        if ($idSokajy != '0')
+        {
+            $article->setSokajinAsa($idSokajy);
+        }
+        if ($idZanany != '0')
+        {
+            $article->setZanaTsampana($idZanany);
+        }
         
         $this->em->merge($article);
         $this->em->flush();
