@@ -44,38 +44,38 @@ class PersonneService {
     
     public function save(Request $request)
     { 
-//        $sokajy = new SokajinAsa();
-//        
-//        $sokajy->setNom($request->request->get("nom"));
-//        $sokajy->setImageJacket($request->request->get("imageJacket"));
-//        $sokajy->setType($request->request->get("type"));
-//        $sokajy->setDescription($request->request->get("description"));
-//        $sokajy->setDateCreation(new \DateTime($request->request->get("dateCreation")));
-//        
-//        $this->em->persist($sokajy);
-//        $this->em->flush();
+        $personne = new Personne();
+        
+        $personne->setNom($request->request->get("nom"));
+        $personne->setPrenom($request->request->get("prenom"));
+        $personne->setPhoto($request->request->get("photo"));
+        
+        $this->em->persist($personne);
+        $this->em->flush();
+        
+        return $personne;
+
     }
     
     public function delete($id)
     {
-//        $sokajy = $this->em->getRepository('backBundle:Personne')->find($id);
-//        
-//        $this->em->remove($sokajy);
-//        $this->em->flush();
+        $sokajy = $this->em->getRepository('backBundle:Personne')->find($id);
+        
+        $this->em->remove($sokajy);
+        $this->em->flush();
     }
     
     public function update(Request $request)
     {
-//        $sokajy = new SokajinAsa();
-//        
-//        $sokajy->setId($request->request->get("id"));
-//        $sokajy->setNom($request->request->get("nom"));
-//        $sokajy->setImageJacket($request->request->get("imageJacket"));
-//        $sokajy->setType($request->request->get("type"));
-//        $sokajy->setDescription($request->request->get("description"));
-//        $sokajy->setDateCreation(new \DateTime($request->request->get("dateCreation")));
-//        
-//        $this->em->merge($sokajy);
-//        $this->em->flush();
+        $personne = new Personne();
+        
+        $personne->setId($request->request->get("id"));
+        $personne->setNom($request->request->get("nom"));
+        $personne->setPrenom($request->request->get("prenom"));
+        $personne->setPhoto($request->request->get("photo"));
+        
+        $this->em->merge($personne);
+        $this->em->flush();
+
     }
 }

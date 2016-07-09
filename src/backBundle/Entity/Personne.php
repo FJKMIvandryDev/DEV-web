@@ -41,7 +41,7 @@ class Personne
      * @var string
      *
      * @ORM\Column(name="photo", type="string", length=500)
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $photo;
     
@@ -54,6 +54,13 @@ class Personne
     public function getId()
     {
         return $this->id;
+    }
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+        
+        return $this;
     }
 
     /**

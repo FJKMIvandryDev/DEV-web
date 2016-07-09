@@ -74,10 +74,10 @@ class PersonneController extends Controller
     {
         $personneServ = $this->container->get('personneService');
         
-        $personnes = $personneServ->findAll();
-
+        $list = $personneServ->findAll();
+        
         return $this->render('backBundle:Personne:index.html.twig', array(
-            'personnes' => $personnes,
+            "list" => $list,
         ));
     }
 
@@ -89,21 +89,19 @@ class PersonneController extends Controller
      */
     public function newAction(Request $request)
     {
-        $personne = new Personne();
-        $form = $this->createForm('backBundle\Form\PersonneType', $personne);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($personne);
-            $em->flush();
-
-            return $this->redirectToRoute('personne_show', array('id' => $personne->getId()));
+        if ($request->isMethod('POST')) 
+        {
+            $personneServ = $this->container->get('personneService');
+            
+            $personne = $personneServ->save($request);
+  
+            return $this->redirectToRoute('personne_index');
         }
+        
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
         return $this->render('backBundle:Personne:new.html.twig', array(
-            'personne' => $personne,
-            'form' => $form->createView(),
+            "baseUrl" => $baseurl,
         ));
     }
 
@@ -129,67 +127,39 @@ class PersonneController extends Controller
      * @Route("/{id}/edit", name="personne_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Personne $personne)
+    public function editAction(Request $request, $id)
     {
-        $deleteForm = $this->createDeleteForm($personne);
-        $editForm = $this->createForm('backBundle\Form\PersonneType', $personne);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($personne);
-            $em->flush();
-
-            return $this->redirectToRoute('personne_edit', array('id' => $personne->getId()));
+        $personneServ = $this->container->get('personneService');
+        
+        if ($request->isMethod('POST')) 
+        {
+            $personneServ->update($request);
+  
+            return $this->redirectToRoute('personne_index');
         }
+        
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
         return $this->render('backBundle:Personne:edit.html.twig', array(
-            'personne' => $personne,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            "baseUrl" => $baseurl,
+            "personne" => $personneServ->findById($id),
         ));
+
     }
 
     /**
      * Deletes a Personne entity.
      *
-     * @Route("/{id}", name="personne_delete")
-     * @Method("DELETE")
+     * @Route("/supprimer/{id}", name="personne_delete")
+     * @Method("GET")
      */
-    public function deleteAction(Request $request, Personne $personne)
+    public function deleteAction($id)
     {
-        $form = $this->createDeleteForm($personne);
-        $form->handleRequest($request);
+        $personneServ = $this->container->get('personneService');
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($personne);
-            $em->flush();
-        }
-
+        $personneServ->delete($id);
+        
         return $this->redirectToRoute('personne_index');
     }
-
-    
-    
-    
-    /**
-     * Creates a form to delete a Personne entity.
-     *
-     * @param Personne $personne The Personne entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Personne $personne)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('personne_delete', array('id' => $personne->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
-    
-    
-    
-    
+  
 }

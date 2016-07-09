@@ -2,17 +2,95 @@
 
 {% block title %}Personne{% endblock %}
 
+{% block headPerso %}
+    <style type="text/css">
+        #image {
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #000;
+            color: #fff;
+        }
+        #image img {
+            visibility: hidden;
+        }
+    </style>
+
+{% endblock %}
+
 {% block body %}
     <h1>Personne creation</h1>
+    
+    <div id="image" onclick="openKCFinder(this);">
+        <div style="margin:5px">Click here to choose an image</div>
+    </div>
+        <form action="{{ path('personne_new') }}" method="POST">
+            <table>
+                <tr>
+                    <td><label for="sary">Photo : </label></td>
+                    <td><input type="text" id="sary" name="photo"></input></td>
+                </tr>
+                <tr>
+                    <td><label for="description">Nom : </label></td>		
+                    <td><input type="text" id="nom" name="nom" required></input></td>
+                </tr>
+                <tr>
+                    <td><label for="description">Prenom : </label></td>	
+                    <td><input type="text" id="nom" name="prenom" required></input></td>
+                </tr>
+            </table>
+            <input type="submit" value="Create" />
+            
+        </form>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
 
     <ul>
         <li>
             <a href="{{ path('personne_index') }}">Back to the list</a>
         </li>
     </ul>
+{% endblock %}
+
+{% block JSPerso %}
+    <script type="text/javascript">
+        function openKCFinder(elmt) {
+            window.KCFinder = {
+                    callBack: function(url) {
+                        window.KCFinder = null;
+                        elmt.innerHTML = '<div style="margin:5px">Loading...</div>';
+                        var texte = document.getElementById('sary');
+                        texte.value = url;
+                        var img = new Image();
+                        img.src = url;
+                        img.onload = function() {
+                            elmt.innerHTML = '<img id="img" src="' + url + '" />';
+                            var img = document.getElementById('img');
+                            var o_w = img.offsetWidth;
+                            var o_h = img.offsetHeight;
+                            var f_w = elmt.offsetWidth;
+                            var f_h = elmt.offsetHeight;
+                            if ((o_w > f_w) || (o_h > f_h)) {
+                                if ((f_w / f_h) > (o_w / o_h))
+                                    f_w = parseInt((o_w * f_h) / o_h);
+                                else if ((f_w / f_h) < (o_w / o_h))
+                                    f_h = parseInt((o_h * f_w) / o_w);
+                                img.style.width = f_w + "px";
+                                img.style.height = f_h + "px";
+                            } else {
+                                f_w = o_w;
+                                f_h = o_h;
+                            }
+                            img.style.marginLeft = parseInt((elmt.offsetWidth - f_w) / 2) + 'px';
+                            img.style.marginTop = parseInt((elmt.offsetHeight - f_h) / 2) + 'px';
+                            img.style.visibility = "visible";
+                            }
+                }
+            };
+            window.open('{{ baseUrl }}/bundles/back/kcfinder/browse.php?type=images&dir=images/public', 'kcfinder_image',
+                    'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
+                    'resizable=1, scrollbars=0, width=800, height=600'
+            );
+        }
+    </script>
 {% endblock %}

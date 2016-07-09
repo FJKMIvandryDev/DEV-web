@@ -5,39 +5,24 @@
 {% block body %}
     <h1>Personne list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for personne in personnes %}
-            <tr>
-                <td><a href="{{ path('personne_show', { 'id': personne.id }) }}">{{ personne.id }}</a></td>
+    <a href="{{ path('personne_new') }}">Ajouter une personne</a>
+    
+    <table style="width:100%" border="1">
+        
+        <tr align="center">
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Photo</th>
+        </tr>
+        {% for personne in list %}
+            <tr align="center">
                 <td>{{ personne.nom }}</td>
                 <td>{{ personne.prenom }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('personne_show', { 'id': personne.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('personne_edit', { 'id': personne.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+                <td>{{ personne.photo }}</td>
+                <td><a href="{{ path('personne_delete', { 'id': personne.id }) }}">Supprimer</a></td> 
+                <td><a href="{{ path('personne_edit', { 'id': personne.id }) }}">Modifier</a></td>
             </tr>
-        {% endfor %}
-        </tbody>
+        {% endfor%}
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('personne_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+        
 {% endblock %}
