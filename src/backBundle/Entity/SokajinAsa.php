@@ -81,7 +81,7 @@ class SokajinAsa
     private $zanaTsampana;
     
     /**
-     * @ORM\OneToMany(targetEntity="MembreBureau", cascade={"persist"}, mappedBy="sokajinAsa")
+     * @ORM\OneToMany(targetEntity="MembreBureau", cascade={"persist"}, mappedBy="sokajinAsa", fetch="LAZY")
      * @ORM\JoinColumn(nullable=false)
     */
     private $membreBureau;

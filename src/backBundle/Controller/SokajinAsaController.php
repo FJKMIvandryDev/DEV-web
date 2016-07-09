@@ -69,12 +69,18 @@ class SokajinAsaController extends Controller
          
         $sokajyServ = $this->container->get('sokajinAsaService');
         
+        $membreServ = $this->container->get('membreBureauService');
+        
         $sokajy = $sokajyServ->findById($id);
- 
+        
+//        var_dump($membreServ->findBySokajinAsaActif($id));
+//        die;
+        
         return $this->render('backBundle:SokajinAsa:update.html.twig', array(
             "type" => $type,
             "sokajy" => $sokajy,
             "baseUrl" => $baseurl,
+            "membreBureau" => $membreServ->findBySokajinAsaActif($id),
         ));
     }
     

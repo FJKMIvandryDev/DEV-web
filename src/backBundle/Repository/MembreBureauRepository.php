@@ -10,4 +10,24 @@ namespace backBundle\Repository;
  */
 class MembreBureauRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findBySokajinAsa($idSokajinAsa)
+    {
+        $em = $this->_em;
+        
+        $query = $em->createQuery(
+            "SELECT membre
+            FROM backBundle:MembreBureau membre
+            WHERE membre.status=1 and membre.idSokajinAsa=$idSokajinAsa
+            "
+        );
+
+        $sokajy = $query->getSingleResult();
+        
+        return $sokajy;
+    }
+    
+    public function findByZanaTsampana()
+    {
+        
+    }
 }

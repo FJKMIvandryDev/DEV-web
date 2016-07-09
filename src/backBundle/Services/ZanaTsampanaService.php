@@ -60,12 +60,38 @@ class ZanaTsampanaService {
 
         $bureau = new MembreBureau();
         
-        $bureau->setFiloha($emBureau->find($request->request->get("filoha")));
-        $bureau->setFilohaLefitra($emBureau->find($request->request->get("filoha_lefitra")));
-        $bureau->setMpitanTsoratra($emBureau->find($request->request->get("mpitan_tsoratra")));
-        $bureau->setMpitahiryVola($emBureau->find($request->request->get("mpitahiry_vola")));
-        $bureau->setMpitanTsoratraVola($emBureau->find($request->request->get("mpitantsoratra_vola")));
-        $bureau->setMpanoloTsaina($emBureau->find($request->request->get("mpanolo_tsaina")));
+        $idFiloha = $request->request->get("filoha");
+        $idFilohaLefitra = $request->request->get("filoha_lefitra");
+        $idMpitanTsoratra = $request->request->get("mpitan_tsoratra");
+        $idMpitahiryVola = $request->request->get("mpitahiry_vola");
+        $idMpitanTsoratraVola = $request->request->get("mpitantsoratra_vola");
+        $idMpanolonTsaina = $request->request->get("mpanolo_tsaina");
+        
+        if ($idFiloha != 0)
+        {
+           $bureau->setFiloha($emBureau->find($idFiloha)); 
+        }
+        if ($idFilohaLefitra != 0)
+        {
+            $bureau->setFilohaLefitra($emBureau->find($idFilohaLefitra));
+        }
+        if ($idMpitanTsoratra != 0)
+        {
+            $bureau->setMpitanTsoratra($emBureau->find($idMpitanTsoratra));
+        }
+        if ($idMpitahiryVola != 0)
+        {
+            $bureau->setMpitahiryVola($emBureau->find($idMpitahiryVola));
+        }
+        if ($idMpitanTsoratraVola != 0)
+        {
+            $bureau->setMpitanTsoratraVola($emBureau->find($idMpitanTsoratraVola));
+        }
+        if ($idMpanolonTsaina != 0)
+        {
+            $bureau->setMpanoloTsaina($emBureau->find($idMpanolonTsaina));
+        }
+        
         $bureau->setStatus(1);
         $bureau->setZanaTsampana($sokajy);
         

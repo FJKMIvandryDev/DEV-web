@@ -22,37 +22,37 @@ class MembreBureau
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $filoha;
-    
+
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $filohaLefitra;
-    
+
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpitanTsoratra;
-    
+
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpitahiryVola;
-    
+
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpitanTsoratraVola;
-    
+
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpanoloTsaina;
@@ -79,7 +79,14 @@ class MembreBureau
      * @ORM\JoinColumn(nullable=false)
      */
     private $status;
-
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="sokajinAsa_id", type="integer")
+     */
+    private $idSokajinAsa;
+    
     /**
      * @ORM\ManyToOne(targetEntity="SokajinAsa", cascade={"persist"}, inversedBy="membreBureau")
      * @ORM\JoinColumn(name="sokajinAsa_id", referencedColumnName="id" , onDelete="CASCADE")
@@ -87,6 +94,12 @@ class MembreBureau
     */
     private $sokajinAsa;
     
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="zanaTsampana_id", type="integer")
+     */
+    private $idZanaTsampana;
     /**
      * @ORM\ManyToOne(targetEntity="ZanaTsampana", cascade={"persist"}, inversedBy="membreBureau")
      * @ORM\JoinColumn(name="zanaTsampana_id", referencedColumnName="id", onDelete="CASCADE")
@@ -110,6 +123,13 @@ class MembreBureau
     public function getId()
     {
         return $this->id;
+    }
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+        
+        return $this;
     }
 
     /**
@@ -422,5 +442,53 @@ class MembreBureau
     public function getMpanoloTsaina()
     {
         return $this->mpanoloTsaina;
+    }
+
+    /**
+     * Set idSokajinAsa
+     *
+     * @param integer $idSokajinAsa
+     *
+     * @return MembreBureau
+     */
+    public function setIdSokajinAsa($idSokajinAsa)
+    {
+        $this->idSokajinAsa = $idSokajinAsa;
+
+        return $this;
+    }
+
+    /**
+     * Get idSokajinAsa
+     *
+     * @return integer
+     */
+    public function getIdSokajinAsa()
+    {
+        return $this->idSokajinAsa;
+    }
+
+    /**
+     * Set idZanaTsampana
+     *
+     * @param integer $idZanaTsampana
+     *
+     * @return MembreBureau
+     */
+    public function setIdZanaTsampana($idZanaTsampana)
+    {
+        $this->idZanaTsampana = $idZanaTsampana;
+
+        return $this;
+    }
+
+    /**
+     * Get idZanaTsampana
+     *
+     * @return integer
+     */
+    public function getIdZanaTsampana()
+    {
+        return $this->idZanaTsampana;
     }
 }
