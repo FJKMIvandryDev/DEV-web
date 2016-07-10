@@ -26,8 +26,19 @@ class MembreBureauRepository extends \Doctrine\ORM\EntityRepository
         return $sokajy;
     }
     
-    public function findByZanaTsampana()
+    public function findByZanaTsampana($idZanaTsampana)
     {
+        $em = $this->_em;
         
+        $query = $em->createQuery(
+            "SELECT membre
+            FROM backBundle:MembreBureau membre
+            WHERE membre.status=1 and membre.idZanaTsampana=$idZanaTsampana
+            "
+        );
+
+        $sokajy = $query->getSingleResult();
+        
+        return $sokajy;
     }
 }

@@ -22,82 +22,192 @@
 {% block body %}
     
     <form action="{{ path('zana_tsampana_update') }}" method="POST">
-        {#<h1>Birao</h1>
-        
-        <table>
-            <tr>
-                <td><label for="filoha">Filoha : </label></td>		
-                <td><input type="text" id="filoha" name="filoha"></input></td>
-            </tr>
-            <tr>
-                <td><label for="filoha_mlefitra">Filoha lefitra : </label></td>		
-                <td><input type="text" id="filoha_mlefitra" name="filoha_mlefitra"></input></td>
-            </tr>
-            <tr>
-                <td><label for="mpitan_tsoratra">Mpitan-tsoratra : </label></td>		
-                <td><input type="text" id="mpitan_tsoratra" name="mpitan_tsoratra"></input></td>
-            </tr>
-            <tr>
-                <td><label for="mpitahiry_vola">Mpitahiry vola : </label></td>		
-                <td><input type="text" id="mpitahiry_vola" name="mpitahiry_vola"></input></td>
-            </tr>
-            <tr>
-                <td><label for="mpitantsoratra_vola">Mpitan-tsoratry ny vola : </label></td>		
-                <td><input type="text" id="mpitantsoratra_vola" name="mpitantsoratra_vola"></input></td>
-            </tr>
-            <tr>
-                <td><label for="mpanolo_tsaina">Mpanolo-tsaina : </label></td>		
-                <td><input type="text" id="mpanolo_tsaina" name="mpanolo_tsaina"></input></td>
-            </tr>
-        </table>#}
+        <div class="container">
+                    <!-- header row -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h1>Mombamomba ny sampana</h1>
 
-        <h1>Mombamomba ny sampana</h1>
+                            <table>
 
-        <table>
-            
-            <input type="hidden" name="id" value={{ zanaTsampana.id }}>
-            <tr>
-                <td><label for="anarana">Anarana : </label></td>		
-                <td><input type="text" id="anarana" name="nom" value={{ zanaTsampana.nom }}></input></td>
-            </tr>
+                                <input type="hidden" name="id" value={{ zanaTsampana.id }}>
+                                <tr>
+                                    <td><label for="anarana">Anarana : </label></td>		
+                                    <td><input type="text" id="anarana" name="nom" value={{ zanaTsampana.nom }}></input></td>
+                                </tr>
 
-            <tr>
-                <td colspan=2>
-                    <div id="image" onclick="openKCFinder(this)">
-                        <img id="img" style = "visibility:visible" src="{{ zanaTsampana.imageJacket }}"/>
+                                <tr>
+                                    <td colspan=2>
+                                        <div id="image" onclick="openKCFinder(this)">
+                                            <img id="img" style = "visibility:visible" src="{{ zanaTsampana.imageJacket }}"/>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <td><input type="hidden" id="sary" name="imageJacket" value= "{{ zanaTsampana.imageJacket }}"></input></td>
+
+                                <tr>
+                                    <td><label for="description">Description : </label></td>		
+                                    <td><textarea id="description" name="description">{{ zanaTsampana.description }}</textarea></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="date">Daty niforonana : </label></td>		
+                                    <td><input type="date" id="date" name="dateCreation" value={{ zanaTsampana.dateCreation|date('Y-m-d') }}></input></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="reniny">Reniny : </label></td>		
+                                    <td>
+                                        <select id="reniny" name="reniny">
+                                            {% for reniny in reninys %}
+                                                {% if reniny.id == zanaTsampana.sampana.id%}
+                                                    <option selected="selected" value = {{ reniny.id }}>{{ reniny.nom }}</option>
+                                                {% else %}
+                                                    <option value = {{ reniny.id }}>{{ reniny.nom }}</option>
+                                                {% endif%}
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                    {#            <tr>
+                                    <td><label for="isa">Isan'ny mpikambana : </label></td>		
+                                    <td><input type="number" id="isa" name="isa"></input></td>
+                                </tr>#}
+                            </table>
+                        </div>
+                    
+                    <div class="col-lg-6">
+                        <table class="openChild">
+                            <h1>Birao</h1>
+
+                            <input type="hidden" id="idMembre" name="idMembre" value= "{{ membreBureau.id }}">
+                            <tr>
+                                <td><label>Filoha : </label></td>
+                                {% if membreBureau.filoha is not null %}
+                                    <td><label class="toUpdate">{{ membreBureau.filoha.nom }} {{ membreBureau.filoha.prenom }}</label></td>
+                                    <td><input type="hidden" id="filoha" name="filoha" value={{ membreBureau.filoha.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="filoha" name="filoha" value=0></input></td>
+                                {% endif%}
+                            </tr>
+                            <tr>
+                                <td><label>Filoha lefitra : </label></td>
+                                {% if membreBureau.filohaLefitra is not null %}                                  
+                                    <td><label class="toUpdate">{{ membreBureau.filohaLefitra.nom }} {{ membreBureau.filohaLefitra.prenom }}</label></td>
+                                    <td><input type="hidden" id="filoha_mlefitra" name="filoha_lefitra" value={{ membreBureau.filohaLefitra.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="filoha_mlefitra" name="filoha_lefitra" value=0></input></td>
+                                {% endif%}
+                            </tr>
+                            <tr>
+                                <td><label>Filoha lefitra 2 : </label></td>
+                                {% if membreBureau.filohaLefitra2 is not null %}                                  
+                                    <td><label class="toUpdate">{{ membreBureau.filohaLefitra2.nom }} {{ membreBureau.filohaLefitra2.prenom }}</label></td>
+                                    <td><input type="hidden" id="filoha_mlefitra2" name="filoha_lefitra2" value={{ membreBureau.filohaLefitra2.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="filoha_mlefitra2" name="filoha_lefitra2" value=0></input></td>
+                                {% endif%}
+                            </tr>
+                            <tr>
+                                <td><label>Mpitan-tsoratra : </label></td>
+                                {% if membreBureau.mpitanTsoratra is not null %}                                    
+                                    <td><label class="toUpdate">{{ membreBureau.mpitanTsoratra.nom }} {{ membreBureau.mpitanTsoratra.prenom }}</label></td>
+                                    <td><input type="hidden" id="mpitan_tsoratra" name="mpitan_tsoratra" value={{ membreBureau.mpitanTsoratra.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="mpitan_tsoratra" name="mpitan_tsoratra" value=0></input></td>
+                                {% endif%}
+
+                            </tr>
+                            <tr>
+                                <td><label>Mpitahiry vola : </label></td>
+                                {% if membreBureau.mpitahiryVola is not null %}    
+                                    <td><label class="toUpdate">{{ membreBureau.mpitahiryVola.nom }} {{ membreBureau.mpitahiryVola.prenom }}</label></td>
+                                    <td><input type="hidden" id="mpitahiry_vola" name="mpitahiry_vola" value={{ membreBureau.mpitahiryVola.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="mpitahiry_vola" name="mpitahiry_vola" value=0></input></td>
+                                {% endif%}
+
+                            </tr>
+                            <tr>
+                                <td><label>Mpitan-tsoratry ny vola : </label></td>
+                                {% if membreBureau.mpitanTsoratraVola is not null %}
+                                    <td><label class="toUpdate">{{ membreBureau.mpitanTsoratraVola.nom }} {{ membreBureau.mpitanTsoratraVola.prenom }}</label></td>
+                                    <td><input type="hidden" id="mpitantsoratra_vola" name="mpitantsoratra_vola" value={{ membreBureau.mpitanTsoratraVola.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="mpitantsoratra_vola" name="mpitantsoratra_vola" value=0></input></td>
+                                {% endif%}
+
+                            </tr>
+                            <tr>
+                                <td><label>Mpanolo-tsaina : </label></td>
+                                {% if membreBureau.mpanoloTsaina is not null %}  
+                                    <td><label class="toUpdate">{{ membreBureau.mpanoloTsaina.nom }} {{ membreBureau.mpanoloTsaina.prenom }}</label></td>
+                                    <td><input type="hidden" id="mpanolo_tsaina" name="mpanolo_tsaina" value={{ membreBureau.mpanoloTsaina.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="mpanolo_tsaina" name="mpanolo_tsaina" value=0></input></td>
+                                {% endif%}
+                            </tr>
+                            <tr>
+                                <td><label>Mpanolo-tsaina 2 : </label></td>
+                                {% if membreBureau.mpanoloTsaina2 is not null %}  
+                                    <td><label class="toUpdate">{{ membreBureau.mpanoloTsaina2.nom }} {{ membreBureau.mpanoloTsaina2.prenom }}</label></td>
+                                    <td><input type="hidden" id="mpanolo_tsaina2" name="mpanolo_tsaina2" value={{ membreBureau.mpanoloTsaina2.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="mpanolo_tsaina2" name="mpanolo_tsaina2" value=0></input></td>
+                                {% endif%}
+                            </tr>
+                            <tr>
+                                <td><label>Mpiandraikitra : </label></td>
+                                {% if membreBureau.mpiandraikitra is not null %}  
+                                    <td><label class="toUpdate">{{ membreBureau.mpiandraikitra.nom }} {{ membreBureau.mpiandraikitra.prenom }}</label></td>
+                                    <td><input type="hidden" id="mpiandraikitra" name="mpiandraikitra" value={{ membreBureau.mpiandraikitra.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="mpiandraikitra" name="mpiandraikitra" value=0></input></td>
+                                {% endif%}
+                            </tr>
+                            <tr>
+                                <td><label>Mpiandraikitra 2 : </label></td>
+                                {% if membreBureau.mpiandraikitra2 is not null %}  
+                                    <td><label class="toUpdate">{{ membreBureau.mpiandraikitra2.nom }} {{ membreBureau.mpiandraikitra2.prenom }}</label></td>
+                                    <td><input type="hidden" id="mpiandraikitra2" name="mpiandraikitra2" value={{ membreBureau.mpiandraikitra2.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="mpiandraikitra2" name="mpiandraikitra2" value=0></input></td>
+                                {% endif%}
+                            </tr>
+                            <tr>
+                                <td><label>Teknisiana : </label></td>
+                                {% if membreBureau.teknisiana is not null %}  
+                                    <td><label class="toUpdate">{{ membreBureau.teknisiana.nom }} {{ membreBureau.teknisiana.prenom }}</label></td>
+                                    <td><input type="hidden" id="teknisiana" name="teknisiana" value={{ membreBureau.teknisiana.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="teknisiana" name="teknisiana" value=0></input></td>
+                                {% endif%}
+                            </tr>
+                            <tr>
+                                <td><label>Teknisiana 2 : </label></td>
+                                {% if membreBureau.teknisiana2 is not null %}
+                                    <td><label class="toUpdate">{{ membreBureau.teknisiana2.nom }} {{ membreBureau.teknisiana2.prenom }}</label></td>
+                                    <td><input type="hidden" id="teknisiana2" name="teknisiana2" value={{ membreBureau.teknisiana2.id }}></input></td>
+                                {% else %}
+                                    <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                    <td><input type="hidden" id="teknisiana2" name="teknisiana2" value=0></input></td>
+                                {% endif%}
+                            </tr>
+                        </table>
                     </div>
-                </td>
-            </tr>
+                </div>
 
-            <td><input type="hidden" id="sary" name="imageJacket" value= "{{ zanaTsampana.imageJacket }}"></input></td>
-
-            <tr>
-                <td><label for="description">Description : </label></td>		
-                <td><textarea id="description" name="description">{{ zanaTsampana.description }}</textarea></td>
-            </tr>
-            <tr>
-                <td><label for="date">Daty niforonana : </label></td>		
-                <td><input type="date" id="date" name="dateCreation" value={{ zanaTsampana.dateCreation|date('Y-m-d') }}></input></td>
-            </tr>
-            <tr>
-                <td><label for="reniny">Reniny : </label></td>		
-                <td>
-                    <select id="reniny" name="reniny">
-                        {% for reniny in reninys %}
-                            {% if reniny.id == zanaTsampana.sampana.id%}
-                                <option selected="selected" value = {{ reniny.id }}>{{ reniny.nom }}</option>
-                            {% else %}
-                                <option value = {{ reniny.id }}>{{ reniny.nom }}</option>
-                            {% endif%}
-                        {% endfor %}
-                    </select>
-                </td>
-            </tr>
-{#            <tr>
-                <td><label for="isa">Isan'ny mpikambana : </label></td>		
-                <td><input type="number" id="isa" name="isa"></input></td>
-            </tr>#}
-        </table>
+            </div>
 
         <input type="submit" value="Enregistrer"></input>
 
@@ -147,5 +257,29 @@
         }
 
     </script>
+    
+    <script>
 
+        var win;
+
+        window.callBack = function(value, caller)
+        {
+            caller.find(".toUpdate").text(value.find(".nom").text()+" "+value.find(".prenom").text());
+            caller.find("input").val(value.find(".id").text());
+            console.log(value.find(".id").text());
+        }
+
+        $(".openChild tr").click(function(){
+
+            if (win != null)
+            {
+                win.close();
+            }
+
+            win = window.open('{{ path('personne_modal') }}', "Ratting", "width=550,height=300,left=150,top=200,toolbar=1,status=1");
+
+            win.varTest = $(this);
+        });
+
+    </script>
 {% endblock %}

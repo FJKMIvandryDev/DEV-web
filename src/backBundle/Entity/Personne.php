@@ -41,7 +41,7 @@ class Personne
      * @var string
      *
      * @ORM\Column(name="photo", type="string", length=500)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $photo;
     

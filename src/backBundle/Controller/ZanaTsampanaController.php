@@ -69,6 +69,8 @@ class ZanaTsampanaController extends Controller
         
         $zanaTsampanaServ = $this->container->get('zanaTsampanaService');
         
+        $membreServ = $this->container->get('membreBureauService');
+        
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
         
         $zanaTsampana = $zanaTsampanaServ->findById($id);
@@ -77,6 +79,7 @@ class ZanaTsampanaController extends Controller
             "zanaTsampana" => $zanaTsampana,
             "baseUrl" => $baseurl,
             "reninys" => $reninys,
+            "membreBureau" => $membreServ->findByZanaTsampanaActif($id),
         ));
     }
     

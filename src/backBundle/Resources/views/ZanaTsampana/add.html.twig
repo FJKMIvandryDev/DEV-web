@@ -77,32 +77,62 @@
                        <tr>
                             <td><label>Filoha : </label></td>
                             <td><label class="toUpdate">cliquez pour attribué</label></td>
-                            <td><input type="hidden" id="filoha" name="filoha" required></input></td>
+                            <td><input type="hidden" id="filoha" name="filoha" value=0 required></input></td>
                         </tr>
                         <tr>
                             <td><label>Filoha lefitra : </label></td>
                             <td><label class="toUpdate">cliquez pour attribué</label></td>
-                            <td><input type="hidden" id="filoha_mlefitra" name="filoha_lefitra" required></input></td>
+                            <td><input type="hidden" id="filoha_mlefitra" name="filoha_lefitra" value=0 required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Filoha lefitra 2 : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="filoha_mlefitra" name="filoha_lefitra2" value=0 required></input></td>
                         </tr>
                         <tr>
                             <td><label>Mpitan-tsoratra : </label></td>
                             <td><label class="toUpdate">cliquez pour attribué</label></td>
-                            <td><input type="hidden" id="mpitan_tsoratra" name="mpitan_tsoratra" required></input></td>
+                            <td><input type="hidden" id="mpitan_tsoratra" name="mpitan_tsoratra" value=0 required></input></td>
                         </tr>
                         <tr>
                             <td><label>Mpitahiry vola : </label></td>
                             <td><label class="toUpdate">cliquez pour attribué</label></td>
-                            <td><input type="hidden" id="mpitahiry_vola" name="mpitahiry_vola" required></input></td>
+                            <td><input type="hidden" id="mpitahiry_vola" name="mpitahiry_vola" value=0 required></input></td>
                         </tr>
                         <tr>
                             <td><label>Mpitan-tsoratry ny vola : </label></td>
                             <td><label class="toUpdate">cliquez pour attribué</label></td>
-                            <td><input type="hidden" id="mpitantsoratra_vola" name="mpitantsoratra_vola" required></input></td>
+                            <td><input type="hidden" id="mpitantsoratra_vola" name="mpitantsoratra_vola" value=0 required></input></td>
                         </tr>
                         <tr>
                             <td><label>Mpanolo-tsaina : </label></td>
                             <td><label class="toUpdate">cliquez pour attribué</label></td>
-                            <td><input type="hidden" id="mpanolo_tsaina" name="mpanolo_tsaina" required></input></td>
+                            <td><input type="hidden" id="mpanolo_tsaina" name="mpanolo_tsaina" value=0 required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpanolo-tsaina 2 : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpanolo_tsaina" name="mpanolo_tsaina2" value=0 required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpiandraikitra : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpanolo_tsaina" name="mpiandraikitra" value=0 required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Mpiandraikitra 2 : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpanolo_tsaina" name="mpiandraikitra2" value=0 required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Teknisiana : </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpanolo_tsaina" name="teknisiana" value=0 required></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Teknisiana 2: </label></td>
+                            <td><label class="toUpdate">cliquez pour attribué</label></td>
+                            <td><input type="hidden" id="mpanolo_tsaina" name="teknisiana2" value=0 required></input></td>
                         </tr>
                     </table>
                 </div>
@@ -164,7 +194,7 @@
 
         window.callBack = function(value, caller)
         {
-            caller.find(".toUpdate").text(value.find(".nom").text());
+            caller.find(".toUpdate").text(value.find(".nom").text()+" "+value.find(".prenom").text());
             caller.find("input").val(value.find(".id").text());
             console.log(value.find(".id").text());
         }

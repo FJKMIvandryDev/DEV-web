@@ -32,6 +32,12 @@ class MembreBureau
      * @ORM\JoinColumn(nullable=true)
     */
     private $filohaLefitra;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $filohaLefitra2;
 
     /**
      * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
@@ -56,6 +62,36 @@ class MembreBureau
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpanoloTsaina;
+    
+        /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpanoloTsaina2;
+    
+        /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpiandraikitra;
+    
+        /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpiandraikitra2;
+    
+        /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $teknisiana;
+    
+        /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $teknisiana2;
     
     /**
      * @var \DateTime
@@ -83,7 +119,7 @@ class MembreBureau
     /**
      * @var int
      *
-     * @ORM\Column(name="sokajinAsa_id", type="integer")
+     * @ORM\Column(name="sokajinAsa_id", type="integer", nullable=true)
      */
     private $idSokajinAsa;
     
@@ -97,7 +133,7 @@ class MembreBureau
     /**
      * @var int
      *
-     * @ORM\Column(name="zanaTsampana_id", type="integer")
+     * @ORM\Column(name="zanaTsampana_id", type="integer", nullable=true)
      */
     private $idZanaTsampana;
     /**
@@ -490,5 +526,149 @@ class MembreBureau
     public function getIdZanaTsampana()
     {
         return $this->idZanaTsampana;
+    }
+
+    /**
+     * Set filohaLefitra2
+     *
+     * @param \backBundle\Entity\Personne $filohaLefitra2
+     *
+     * @return MembreBureau
+     */
+    public function setFilohaLefitra2(\backBundle\Entity\Personne $filohaLefitra2 = null)
+    {
+        $this->filohaLefitra2 = $filohaLefitra2;
+
+        return $this;
+    }
+
+    /**
+     * Get filohaLefitra2
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getFilohaLefitra2()
+    {
+        return $this->filohaLefitra2;
+    }
+
+    /**
+     * Set mpanoloTsaina2
+     *
+     * @param \backBundle\Entity\Personne $mpanoloTsaina2
+     *
+     * @return MembreBureau
+     */
+    public function setMpanoloTsaina2(\backBundle\Entity\Personne $mpanoloTsaina2 = null)
+    {
+        $this->mpanoloTsaina2 = $mpanoloTsaina2;
+
+        return $this;
+    }
+
+    /**
+     * Get mpanoloTsaina2
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getMpanoloTsaina2()
+    {
+        return $this->mpanoloTsaina2;
+    }
+
+    /**
+     * Set mpiandraikitra
+     *
+     * @param \backBundle\Entity\Personne $mpiandraikitra
+     *
+     * @return MembreBureau
+     */
+    public function setMpiandraikitra(\backBundle\Entity\Personne $mpiandraikitra = null)
+    {
+        $this->mpiandraikitra = $mpiandraikitra;
+
+        return $this;
+    }
+
+    /**
+     * Get mpiandraikitra
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getMpiandraikitra()
+    {
+        return $this->mpiandraikitra;
+    }
+
+    /**
+     * Set mpiandraikitra2
+     *
+     * @param \backBundle\Entity\Personne $mpiandraikitra2
+     *
+     * @return MembreBureau
+     */
+    public function setMpiandraikitra2(\backBundle\Entity\Personne $mpiandraikitra2 = null)
+    {
+        $this->mpiandraikitra2 = $mpiandraikitra2;
+
+        return $this;
+    }
+
+    /**
+     * Get mpiandraikitra2
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getMpiandraikitra2()
+    {
+        return $this->mpiandraikitra2;
+    }
+
+    /**
+     * Set teknisiana
+     *
+     * @param \backBundle\Entity\Personne $teknisiana
+     *
+     * @return MembreBureau
+     */
+    public function setTeknisiana(\backBundle\Entity\Personne $teknisiana = null)
+    {
+        $this->teknisiana = $teknisiana;
+
+        return $this;
+    }
+
+    /**
+     * Get teknisiana
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getTeknisiana()
+    {
+        return $this->teknisiana;
+    }
+
+    /**
+     * Set teknisiana2
+     *
+     * @param \backBundle\Entity\Personne $teknisiana2
+     *
+     * @return MembreBureau
+     */
+    public function setTeknisiana2(\backBundle\Entity\Personne $teknisiana2 = null)
+    {
+        $this->teknisiana2 = $teknisiana2;
+
+        return $this;
+    }
+
+    /**
+     * Get teknisiana2
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getTeknisiana2()
+    {
+        return $this->teknisiana2;
     }
 }

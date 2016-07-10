@@ -26,13 +26,15 @@ class MembreBureauService {
     
     public function findBySokajinAsaActif($idSokajinAsa)
     {
-        $sokajyRepo = $this->em->getRepository('backBundle:MembreBureau');
+        $membreBureauRepo = $this->em->getRepository('backBundle:MembreBureau');
         
-        return $sokajyRepo->findBySokajinAsa($idSokajinAsa);
+        return $membreBureauRepo->findBySokajinAsa($idSokajinAsa);
     }
     
     public function findByZanaTsampanaActif($idZanaTsampana)
     {
+        $membreBureauRepo = $this->em->getRepository('backBundle:MembreBureau');
         
+        return $membreBureauRepo->findByZanaTsampana($idZanaTsampana);
     }
 }

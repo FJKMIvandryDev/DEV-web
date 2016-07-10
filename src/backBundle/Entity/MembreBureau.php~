@@ -22,46 +22,76 @@ class MembreBureau
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id1", type="integer")
-     */
-    private $idFiloha;
-    /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $filoha;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $filohaLefitra;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $filohaLefitra2;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpitanTsoratra;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpitahiryVola;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpitanTsoratraVola;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
     */
     private $mpanoloTsaina;
+    
+        /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpanoloTsaina2;
+    
+        /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpiandraikitra;
+    
+        /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpiandraikitra2;
+    
+        /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $teknisiana;
+    
+        /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $teknisiana2;
     
     /**
      * @var \DateTime
@@ -129,6 +159,13 @@ class MembreBureau
     public function getId()
     {
         return $this->id;
+    }
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+        
+        return $this;
     }
 
     /**
@@ -443,4 +480,51 @@ class MembreBureau
         return $this->mpanoloTsaina;
     }
 
+    /**
+     * Set idSokajinAsa
+     *
+     * @param integer $idSokajinAsa
+     *
+     * @return MembreBureau
+     */
+    public function setIdSokajinAsa($idSokajinAsa)
+    {
+        $this->idSokajinAsa = $idSokajinAsa;
+
+        return $this;
+    }
+
+    /**
+     * Get idSokajinAsa
+     *
+     * @return integer
+     */
+    public function getIdSokajinAsa()
+    {
+        return $this->idSokajinAsa;
+    }
+
+    /**
+     * Set idZanaTsampana
+     *
+     * @param integer $idZanaTsampana
+     *
+     * @return MembreBureau
+     */
+    public function setIdZanaTsampana($idZanaTsampana)
+    {
+        $this->idZanaTsampana = $idZanaTsampana;
+
+        return $this;
+    }
+
+    /**
+     * Get idZanaTsampana
+     *
+     * @return integer
+     */
+    public function getIdZanaTsampana()
+    {
+        return $this->idZanaTsampana;
+    }
 }
