@@ -28,6 +28,13 @@ class Article
      * @ORM\Column(name="titre", type="string", length=100)
      */
     private $titre;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
 
     /**
      * @var \DateTime
@@ -47,12 +54,10 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="imageJacket", type="string", length=500)
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\Column(name="imageJacket", type="string", length=500, nullable=true)
      */
     private $imageJacket;
 
-    
     /**
      * @var string
      *
@@ -62,27 +67,23 @@ class Article
     private $type;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Categorie", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
-    */
-    private $categorie;
-    
-    /**
      * @ORM\OneToOne(targetEntity="Texte", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
     */
     private $texte;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Video", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
-    */
+     * @var string
+     *
+     * @ORM\Column(name="video", type="string", length=500, nullable=true)
+     */
     private $videos;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Audio", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
-    */
+     * @var string
+     *
+     * @ORM\Column(name="audio", type="string", length=500, nullable=true)
+     */
     private $audios;
     
     /**
@@ -112,10 +113,6 @@ class Article
     
     public function __construct()
     {
-      $this->images = new ArrayCollection();
-      $this->videos = new ArrayCollection();
-      $this->audios = new ArrayCollection();
-      
       $this->date = new \Datetime();
     }
 
@@ -129,7 +126,14 @@ class Article
     {
         return $this->id;
     }
-
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+        
+        return $this;
+    }
+    
     /**
      * Set titre
      *
@@ -152,6 +156,18 @@ class Article
     public function getTitre()
     {
         return $this->titre;
+    }
+    
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        
+        return $this;
+    }
+    
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     /**
@@ -249,30 +265,12 @@ class Article
         return $this->imageJacket;
     }
 
-    /**
-     * Add video
-     *
-     * @param \backBundle\Entity\Video $video
-     *
-     * @return Article
-     */
-    public function addVideo(\backBundle\Entity\Video $video)
+    public function setVideos($video)
     {
-        $this->videos[] = $video;
-
+        $this->videos = $video;
+        
         return $this;
     }
-
-    /**
-     * Remove video
-     *
-     * @param \backBundle\Entity\Video $video
-     */
-    public function removeVideo(\backBundle\Entity\Video $video)
-    {
-        $this->videos->removeElement($video);
-    }
-
     /**
      * Get videos
      *
@@ -283,30 +281,12 @@ class Article
         return $this->videos;
     }
 
-    /**
-     * Add audio
-     *
-     * @param \backBundle\Entity\Audio $audio
-     *
-     * @return Article
-     */
-    public function addAudio(\backBundle\Entity\Audio $audio)
+    public function setAudios($audio)
     {
-        $this->audios[] = $audio;
-
+        $this->audios = $audio;
+        
         return $this;
     }
-
-    /**
-     * Remove audio
-     *
-     * @param \backBundle\Entity\Audio $audio
-     */
-    public function removeAudio(\backBundle\Entity\Audio $audio)
-    {
-        $this->audios->removeElement($audio);
-    }
-
     /**
      * Get audios
      *
@@ -339,54 +319,6 @@ class Article
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * Set categorie
-     *
-     * @param \backBundle\Entity\Categorie $categorie
-     *
-     * @return Article
-     */
-    public function setCategorie(\backBundle\Entity\Categorie $categorie)
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return \backBundle\Entity\Categorie
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-    /**
-     * Add categorie
-     *
-     * @param \backBundle\Entity\Categorie $categorie
-     *
-     * @return Article
-     */
-    public function addCategorie(\backBundle\Entity\Categorie $categorie)
-    {
-        $this->categorie[] = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Remove categorie
-     *
-     * @param \backBundle\Entity\Categorie $categorie
-     */
-    public function removeCategorie(\backBundle\Entity\Categorie $categorie)
-    {
-        $this->categorie->removeElement($categorie);
     }
 
     /**

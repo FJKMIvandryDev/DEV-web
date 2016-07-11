@@ -38,6 +38,23 @@
             
             <div class="row">
                 <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="description">Description : </label>
+                <textarea class="col-lg-5" id="description" name="description">{{ article.description }}</textarea>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="audio">Url Audio : </label>
+                <input class="col-lg-5" id="audio" type="text" name="audio" value="{{ article.audios }}"/>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="video">Url Video : </label>
+                <input class="col-lg-5" id="video" type="text" name="video" value="{{ article.videos }}"/>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-2"></div>
                 <label class="col-lg-2" for="sokajy">sokajin'Asa : </label>
                 <select class="col-lg-4" id="sokajy" name="sokajy">
                     <option value= 0 >--selection sokajin'asa--</option>

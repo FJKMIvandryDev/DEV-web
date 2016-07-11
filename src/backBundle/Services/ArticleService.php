@@ -61,6 +61,9 @@ class ArticleService {
         $article->setAuteur($request->request->get("auteur"));
         $article->setImageJacket($request->request->get("imageJacket"));
         $article->setType($request->request->get("type"));
+        $article->setDescription($request->request->get("description"));
+        $article->setAudios($request->request->get("audio"));
+        $article->setVideos($request->request->get("video"));
         $article->setTexte($texte);
         
         $sokajyEM = $this->em->getRepository('backBundle:SokajinAsa');
@@ -104,6 +107,9 @@ class ArticleService {
         $article->setAuteur($request->request->get("auteur"));
         $article->setImageJacket($request->request->get("imageJacket"));
         $article->setType($request->request->get("type"));
+        $article->setDescription($request->request->get("description"));
+        $article->setAudios($request->request->get("audio"));
+        $article->setVideos($request->request->get("video"));
         
         $sokajyEM = $this->em->getRepository('backBundle:SokajinAsa');
         $zananyEM = $this->em->getRepository('backBundle:ZanaTsampana');
