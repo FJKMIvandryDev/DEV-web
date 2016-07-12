@@ -10,7 +10,9 @@ zana_tsampana_containt:
     path:     /zana-tsampana-containt
     defaults: { _controller: frontBundle:sampana:zanaTsampanaContaint }
     
-
+front_index:
+    resource: "@frontBundle/Controller/IndexController.php"
+    type:     annotation
 
 #article Controller
 article_test:

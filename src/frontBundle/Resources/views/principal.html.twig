@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Site-web FJKM Ivandry</title>
+
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+        {% stylesheets output="css/compiled/frontOffice.css" filter="cssrewrite"
+                '@frontBundle/Resources/public/ivandry/css/bootstrap.min.css'
+                '@frontBundle/Resources/public/ivandry/css/jquery.mCustomScrollbar.css'
+                '@frontBundle/Resources/public/ivandry/css/style.css'
+                '@frontBundle/Resources/public/ivandry/css/ivandry.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+
+    {#    <link rel="stylesheet" href="{{ asset('css/compiled/frontOffice.css') }}"/>#}
+
+        {% block headPerso %}
+
+
+        {% endblock %}
+
+
+    </head>
+
+
+    <body>
+        <div class="container">
+            <div class="row">
+		<div class="head_banner">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3" >
+			<div ><a href="http:#" class=""><img class="head_logo" src="{{ asset('upload/images/ivandry/logo.png') }}" alt="logo" /></a></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" >
+                        <nav class="navbar navbar-default navbar-static">
+                            <div class="navbar-header">
+                                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#"></a>
+
+                                <div class="collapse navbar-collapse js-navbar-collapse">
+                                    <ul class="nav navbar-nav">
+
+                                        <li class="dropdown dropdown-large">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+
+                                            <ul class="dropdown-menu dropdown-menu-large row">
+                                                <li class="col-sm-2">
+                                                    <ul>
+                                                        <li class="dropdown-header">BIRAO</li>
+                                                    </ul>
+                                                </li>
+                                                <li class="col-sm-2">
+                                                    <ul>
+                                                        <li class="dropdown-header">SAMPANA</li>
+                                                        <div style="text-align: left; font-weight: normal; padding-left: 30px">
+                                                        <li><a href="#"> STK</a></li>
+                                                        <li><a href="#"> SAFIF</a></li>
+                                                        <li><a href="#"> SA</a></li>
+                                                        <li><a href="#"> DORKASY</a></li>
+                                                        <li><a href="#"> SVM</a></li>
+                                                        </div>
+                                                    </ul>
+                                                </li>
+                                                <li class="col-sm-2">
+                                                    <ul>
+                                                        <li class="dropdown-header">FIKAMBANANA</li>
+                                                        <div style="text-align: left; font-weight: normal; padding-left: 30px">
+                                                        <li><a href="#"> STK</a></li>
+                                                        <li><a href="#"> SAFIF</a></li>
+                                                        <li><a href="#"> SA</a></li>
+                                                        <li><a href="#"> DORKASY</a></li>
+                                                        <li><a href="#"> SVM</a></li>
+                                                        </div>
+                                                    </ul>
+                                                </li>
+                                                <li class="col-sm-2">
+                                                    <ul>
+                                                        <li class="dropdown-header">VAOMIERA</li>
+                                                        <div style="text-align: left; font-weight: normal; padding-left: 30px">
+                                                        <li><a href="#"> STK</a></li>
+                                                        <li><a href="#"> SAFIF</a></li>
+                                                        <li><a href="#"> SA</a></li>
+                                                        <li><a href="#"> DORKASY</a></li>
+                                                        <li><a href="#"> SVM</a></li>
+                                                        </div>
+                                                    </ul>
+                                                </li>
+                                                <li class="col-sm-2">
+                                                    <ul>
+                                                        <li class="dropdown-header">FIKAMBANANA</li>
+                                                        <div style="text-align: left; font-weight: normal; padding-left: 30px">
+                                                        <li><a href="#"> STK</a></li>
+                                                        <li><a href="#"> SAFIF</a></li>
+
+                                                        </div>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+
+                                            </li>
+                                            <li class="dropdown dropdown-large">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                            <ul class="dropdown-menu dropdown-menu-large row">
+                                                <li class="col-sm-2">
+                                                        <ul>
+                                                                <li class="dropdown-header">BIRAO</li>
+                                                        </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown dropdown-large">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a></li>                   
+                                        <li class="dropdown dropdown-large">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a></li>
+                                        <li class="dropdown dropdown-large">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a></li>
+                                        <li class="dropdown dropdown-large">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a></li>                    
+                                    </ul>
+
+                                </div><!-- /.nav-collapse -->
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3" >
+			<form class="navbar-form pull-left">
+                            <input type="text" class="input-sm form-control" placeholder="Recherche">
+                            <button type="submit" class="btn btn-primary btn-sm" style="width:20px;height:25px;border:2px solid #BED13E;background-image:url('{{ asset('upload/images/ivandry/loupe.png')}}');">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            
+            {% block body %}
+
+
+            {% endblock %}
+
+        </div>
+            
+        {% javascripts output="js/compiled/frontOffice.js"
+            "@frontBundle/Resources/public/ivandry/js/jquery.min.js"
+            "@frontBundle/Resources/public/ivandry/js/bootstrap.min.js"
+            "@frontBundle/Resources/public/ivandry/js/jquery.mCustomScrollbar.concat.min.js"
+        %}
+            <script src="{{ asset_url }}" charset="utf-8"></script>
+                
+        {% endjavascripts %}
+            
+    {#        <script src="{{ asset('js/compiled/backOffice.js') }}" charset="utf-8"></script>#}
+
+        {% block JSPerso %}
+
+        {% endblock %}
+ 
+    </body>
+</html>

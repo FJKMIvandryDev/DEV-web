@@ -1,0 +1,6 @@
+src/frontBundle/Controller/IndexController.php
+src/frontBundle/Resources/public/ivandry/
+src/frontBundle/Resources/views/Index/
+src/frontBundle/Resources/views/principal.html.twig
+src/frontBundle/Tests/Controller/IndexControllerTest.php
+web/upload/images/ivandry/
