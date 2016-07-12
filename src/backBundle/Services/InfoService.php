@@ -46,6 +46,20 @@ class InfoService {
         return $info;
     }
     
+    public function getLastByType($type)
+    {
+        $article = $this->em->getRepository('backBundle:Info')->getLastByType($type);  
+        
+        return $article;
+    }
+    
+    public function getLastNews()
+    {
+        $info = $this->em->getRepository('backBundle:Info')->getLastNews();  
+        
+        return $info;
+    }
+    
     public function save(Request $request)
     { 
 

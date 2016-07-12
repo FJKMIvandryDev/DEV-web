@@ -8,16 +8,16 @@
 
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-        {% stylesheets output="css/compiled/frontOffice.css" filter="cssrewrite"
+{#        {% stylesheets output="css/compiled/frontOffice.css" filter="cssrewrite"
                 '@frontBundle/Resources/public/ivandry/css/bootstrap.min.css'
                 '@frontBundle/Resources/public/ivandry/css/jquery.mCustomScrollbar.css'
                 '@frontBundle/Resources/public/ivandry/css/style.css'
                 '@frontBundle/Resources/public/ivandry/css/ivandry.css'
         %}
             <link rel="stylesheet" href="{{ asset_url }}"/>
-        {% endstylesheets %}
+        {% endstylesheets %}#}
 
-    {#    <link rel="stylesheet" href="{{ asset('css/compiled/frontOffice.css') }}"/>#}
+        <link rel="stylesheet" href="{{ asset('css/compiled/frontOffice.css') }}"/>
 
         {% block headPerso %}
 
@@ -149,16 +149,16 @@
 
         </div>
             
-        {% javascripts output="js/compiled/frontOffice.js"
+{#        {% javascripts output="js/compiled/frontOffice.js"
             "@frontBundle/Resources/public/ivandry/js/jquery.min.js"
             "@frontBundle/Resources/public/ivandry/js/bootstrap.min.js"
             "@frontBundle/Resources/public/ivandry/js/jquery.mCustomScrollbar.concat.min.js"
         %}
             <script src="{{ asset_url }}" charset="utf-8"></script>
                 
-        {% endjavascripts %}
+        {% endjavascripts %}#}
             
-    {#        <script src="{{ asset('js/compiled/backOffice.js') }}" charset="utf-8"></script>#}
+            <script src="{{ asset('js/compiled/frontOffice.js') }}" charset="utf-8"></script>
 
         {% block JSPerso %}
 

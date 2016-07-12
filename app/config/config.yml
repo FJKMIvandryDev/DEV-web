@@ -79,7 +79,7 @@ fos_user:
 
 assetic:
     debug:          "%kernel.debug%"
-    use_controller: true
+    use_controller: false
     bundles:        [ frontBundle, backBundle ]
     filters:
         cssrewrite: ~

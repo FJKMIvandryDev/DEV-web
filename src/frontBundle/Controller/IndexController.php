@@ -19,10 +19,14 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-
+        $infoServ = $this->container->get('infoService');
+        
+        $perikopa = $infoServ->getLastByType("perikopa");
+        $vaovao = $infoServ->getLastNews();
+        
         return $this->render('frontBundle:Index:index.html.twig', array(
-            "vaovao" => "",
-            "perikopa" => "",
+            "vaovao" => $vaovao,
+            "perikopa" => $perikopa,
         ));
     }
 }

@@ -18,6 +18,41 @@ class InfoRepository extends \Doctrine\ORM\EntityRepository
             "SELECT info
             FROM backBundle:Info info
             WHERE info.type = '$type'
+                order by DATE_DIFF( info.date, CURRENT_DATE()) asc
+            "
+        );
+
+        $article = $query->getResult();
+        
+        return $article;
+    }
+    
+    public function getLastByType($type)
+    {
+        $em = $this->_em;
+        $query = $em->createQuery(
+            "SELECT info
+            FROM backBundle:Info info
+            WHERE info.type = '$type' and DATE_DIFF( info.date, CURRENT_DATE())>0
+                order by DATE_DIFF( info.date, CURRENT_DATE()) asc
+            "
+        );
+
+        $article = $query->getResult();
+        
+        return $article;
+    }
+    
+    public function getLastNews()
+    {
+        $em = $this->_em;
+        $query = $em->createQuery(
+            "SELECT info
+            FROM backBundle:Info info
+            WHERE info.type != 'lohahevitra' and info.type != 'vanimpotoana'
+                and info.type != 'zioga' and info.type != 'perikopa' 
+                and DATE_DIFF(info.date, CURRENT_DATE())>0
+                order by DATE_DIFF( info.date, CURRENT_DATE()) asc
             "
         );
 
