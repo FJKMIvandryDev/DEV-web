@@ -1,0 +1,353 @@
+{% extends "frontBundle::principal.html.twig" %}
+
+{% block body %}
+    <!-- DIV HAUT -->
+    <div class="allign">
+        <div class="fampianarana_alahady"> 
+	    <div class="row">		
+            <div class="col-lg-12">            
+		        <!-- Fil d'ariane -->
+                <div class="row">
+				<div class="fil_ariane">
+                    <div class="row"><div class="col-lg-12">
+                    <span class="petit_gras">Tongasoa > </span><span class="ariane">Rafitra</span>
+                    </div></div>
+                </div>
+				</div>
+                <!-- fin fil d'ariane -->
+
+                <!-- titre alahady -->
+                <div class="row">
+                    <t3>BIRAO</t3>
+                </div>
+                <div><p class="descr">
+                        {{ biraoFiangonana.description }}
+                    </p></div>
+                <!-- fin titre alahady -->
+                
+                <!-- topic fampianarana -->
+                <!-- ligne 1 -->
+                <div class="row">
+                    {% if biraoFiangonanaM.filoha is not null %}
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="rafitra_bloc">
+                                <a href="#"><img style="height: 165px; width: 260px" src="{{ biraoFiangonanaM.filoha.photo }}" width="100%" /></a>
+                                <p></p>
+                                <span class="ariane2">FILOHA</span>
+                                <p class="nom_rafitra">{{ biraoFiangonanaM.filoha.nom }} {{ biraoFiangonanaM.filoha.prenom }}</p> 
+                            </div> 
+                        </div>
+                    {% else %}
+                    {% endif%}        
+                    
+                    {% if biraoFiangonanaM.filohaLefitra is not null %}
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="rafitra_bloc">
+                                <a href="#"><img style="height: 165px; width: 260px" src="{{ biraoFiangonanaM.filohaLefitra.photo }}" width="100%" /></a>
+                                <p></p>
+                                <span class="ariane2">FILOHA LEFITRA </span>
+                                <p class="nom_rafitra">{{ biraoFiangonanaM.filohaLefitra.nom }} {{ biraoFiangonanaM.filohaLefitra.prenom }}</p> 
+                            </div>
+                        </div>
+                    {% else %}
+                    {% endif%}
+
+                    {% if biraoFiangonanaM.mpitanTsoratra is not null %}
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="rafitra_bloc">
+                                <a href="#"><img style="height: 165px; width: 260px" src="{{ biraoFiangonanaM.mpitanTsoratra.photo }}" width="100%" /></a>
+                                <p></p>
+                                <span class="ariane2">MPITAN-TSORATRA </span>
+                                <p class="nom_rafitra">{{ biraoFiangonanaM.mpitanTsoratra.nom }} {{ biraoFiangonanaM.mpitanTsoratra.prenom }}</p> 
+                            </div>            
+                        </div>
+                    {% else %}
+                    {% endif%}
+                        
+                    
+                    {% if biraoFiangonanaM.mpitahiryVola is not null %}
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="rafitra_bloc">
+                                <a href="#"><img style="height: 165px; width: 260px" src="{{ biraoFiangonanaM.mpitahiryVola.photo }}" width="100%" /></a>
+                                <p></p>
+                                <span class="ariane2">MPITAHIRY VOLA </span>
+                                <p class="nom_rafitra">{{ biraoFiangonanaM.mpitahiryVola.nom }} {{ biraoFiangonanaM.mpitahiryVola.prenom }}</p> 
+                            </div>            
+                        </div>
+                    {% else %}
+                    {% endif%}
+
+                    {% if biraoFiangonanaM.mpitanTsoratraVola is not null %}
+                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="rafitra_bloc">
+                                <a href="#"><img style="height: 165px; width: 260px" src="{{ biraoFiangonanaM.mpitanTsoratraVola.photo }}" width="100%" /></a>
+                                <p></p>
+                                <span class="ariane2">MPITAN-TSORATRY NY VOLA </span>
+                                <p class="nom_rafitra">{{ biraoFiangonanaM.mpitanTsoratraVola.nom }} {{ biraoFiangonanaM.mpitanTsoratraVola.prenom }}</p> 
+                            </div>  
+                        </div>
+                    {% else %}
+                    {% endif%}
+
+                    {% if biraoFiangonanaM.mpanoloTsaina is not null %}
+                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="rafitra_bloc">
+                                <a href="#"><img style="height: 165px; width: 260px" src="{{ biraoFiangonanaM.mpanoloTsaina.photo }}" width="100%" /></a>
+                                <p></p>
+                                <span class="ariane2">MPANOLON-TSAINA </span>
+                                <p class="nom_rafitra">{{ biraoFiangonanaM.mpanoloTsaina.nom }} {{ biraoFiangonanaM.mpanoloTsaina.prenom }}</p> 
+                            </div>            
+                        </div>
+                    {% else %}
+                    {% endif%}
+
+                    {% if biraoFiangonanaM.mpanoloTsaina2 is not null %}
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="rafitra_bloc">
+                                <a href="#"><img style="height: 165px; width: 260px" src="{{ biraoFiangonanaM.mpanoloTsaina2.photo }}" width="100%" /></a>
+                                <p></p>
+                                <span class="ariane2">MPANOLON-TSAINA 2 </span>
+                                <p class="nom_rafitra">{{ biraoFiangonanaM.mpanoloTsaina2.nom }} {{ biraoFiangonanaM.mpanoloTsaina2.prenom }}</p> 
+                            </div>            
+                        </div>
+                    {% else %}
+                    {% endif%}
+
+                    {% if biraoFiangonanaM.mpiandraikitra is not null %}
+                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="rafitra_bloc">
+                                <a href="#"><img style="height: 165px; width: 260px" src="{{ biraoFiangonanaM.mpiandraikitra.photo }}" width="100%" /></a>
+                                <p></p>
+                                <span class="ariane2">MPIANDRAIKITRA </span>
+                                <p class="nom_rafitra">{{ biraoFiangonanaM.mpiandraikitra.nom }} {{ biraoFiangonanaM.mpiandraikitra.prenom }}</p> 
+                            </div>
+                        </div>
+                    {% else %}
+                    {% endif%}
+                    
+                </div>         
+            </div><!-- fin topic fampianarana -->
+                   
+	    </div>
+	</div>
+	<!-- FIN DIV HAUT -->
+    </div>
+    <!-- DIV MENU AU MILIEU -->
+
+    <div class="row" id="sampana-page">
+        <div class="head_banner2">
+            <div class="allign">
+                <div class="row"><t3b>SAMPANA</t3b></div>
+        <!--MENU -->
+                <div class="row">
+                    <nav class="navbar2 navbar-default navbar-static">
+                        <div class="navbar-header">
+                            <div class="collapse navbar-collapse js-navbar-collapse" style="padding-left: 0px;">
+                                <ul class="nav3 navbar-nav">
+                                    {% for i in sampanas %}
+                                        <li class="dropdown dropdown-large">
+                                            <a class="dropdown-toggle" data-toggle="tab" href="#{{ i.id }}" onclick="return onglet.clickO('{{ i.id }}')">{{ i.nom }}</a></li>
+                                    {% endfor %}
+                                    {#<li class="dropdown dropdown-large">
+                                        <a class="dropdown-toggle" data-toggle="tab" href="#DORKASY" onclick="return onglet.clickO('DORKASY')">DORKASY</a></li>
+                                    <li class="dropdown dropdown-large">
+                                        <a class="dropdown-toggle" data-toggle="tab" href="#FIFOHAZANA" onclick="return onglet.clickO('FIFOHAZANA')">FIFOHAZANA</a></li>
+                                    <li class="dropdown dropdown-large">
+                                        <a class="dropdown-toggle" data-toggle="tab" href="#LEHILAHY_KRISTIANINA" onclick="return onglet.clickO('LEHILAHY_KRISTIANINA')">LEHILAHY KRISTIANINA</a></li>
+                                    <li class="dropdown dropdown-large">
+                                        <a class="dropdown-toggle" data-toggle="tab" href="#SEKOLY_ALAHADY" onclick="return onglet.clickO('SEKOLY_ALAHADY')">SEKOLY ALAHADY</a></li>
+                                    <li class="dropdown dropdown-large">
+                                        <a class="dropdown-toggle" data-toggle="tab" href="#TANORA_KRISTIANINA" onclick="return onglet.clickO('TANORA_KRISTIANINA')">TANORA KRISTIANINA</a></li>
+                                    <li class="dropdown dropdown-large">
+                                        <a class="dropdown-toggle" data-toggle="tab" href="#VOKOVOKOMANGA" onclick="return onglet.clickO('VOKOVOKOMANGA')">VOKOVOKOMANGA</a></li>
+                                    <li class="dropdown dropdown-large">
+                                        <a class="dropdown-toggle" data-toggle="tab" href="#VONDRONA_FOTOTRA_LAIKA" onclick="return onglet.clickO('VONDRONA_FOTOTRA_LAIKA')">VONDRONA FOTOTRA LAIKA</a></li>
+                                    <li class="dropdown dropdown-large">
+                                        <a class="dropdown-toggle" data-toggle="tab" href="#FITORIANA_NY_FILAZAN_TSARA" onclick="return onglet.clickO('FITORIANA_NY_FILAZAN_TSARA')">FITORIANA NY FILAZAN-TSARA</a></li>     #}               
+                                </ul>
+
+                            </div>
+                        </div> 
+                    </nav>
+                </div>
+<!-- fin menu -->
+            </div>
+        </div>
+    </div>  
+    
+    <div class="row">
+        <div class="tab-content">
+            <!-- onglet 1-->
+            {% for i in sampanas %}
+                <div id="{{ i.id }}" class="tab-pane fade in active">
+
+                </div>
+            {% endfor %}
+            
+{#
+            <!-- onglet 2-->
+            <div id="FIFOHAZANA" class="tab-pane fade">
+
+            </div>
+            <!-- end onglet 2-->
+
+
+            <!-- onglet 3-->
+            <div id="LEHILAHY_KRISTIANINA" class="tab-pane fade">
+
+            </div>
+            <!-- end onglet 3-->
+
+            <!-- onglet 4-->
+            <div id="SEKOLY_ALAHADY" class="tab-pane fade">
+
+            </div>
+            <!-- end onglet 4-->
+
+            <!-- onglet 5-->
+            <div id="TANORA_KRISTIANINA" class="tab-pane fade">
+
+            </div>
+            <!-- end onglet 5-->
+
+            <!-- onglet 6-->
+            <div id="VOKOVOKOMANGA" class="tab-pane fade">
+
+            </div>
+            <!-- end onglet 6-->
+
+            <!-- onglet 7-->
+            <div id="VONDRONA_FOTOTRA_LAIKA" class="tab-pane fade">
+
+            </div>
+            <!-- end onglet 7-->
+
+            <!-- onglet 8-->
+            <div id="FITORIANA_NY_FILAZAN_TSARA" class="tab-pane fade">
+
+            </div>
+            <!-- end onglet 8-->#}
+        </div>
+    </div>
+
+    <!-- FIN DIV MENU AU MILIEU -->
+
+    <!-- DIV BAS -->
+    
+    {#<div class="samihafa"> 
+	<div class="allign">    
+        <div class="row">		
+            <div class="col-lg-12">            
+                
+                <!-- topic fampianarana 2 -->
+                <!-- ligne 1 -->
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                        <div class="sampana_bloc">
+                        <a href="#"><img src="{{ asset('upload/images/ivandry/hand-open.jpg') }}" width="100%" /></a>
+                        </div>            
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5" style="text-align: left;">
+                        <div class="sampana_bloc2">
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Filoha :</li> &nbsp;<span class="nom_sampana">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx</span></div>
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Filoha mpanampy :</li> &nbsp;<span class="nom_sampana">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></div>
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Secretera :</li> &nbsp;<span class="nom_sampana">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx</span></div>
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Mpitam-bola :</li> &nbsp;<span class="nom_sampana">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx</span></div>
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Mpitan-tsoratry ny vola :</li> &nbsp;<span class="nom_sampana">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></div>
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Mpannolotsaina :</li> &nbsp;<span class="nom_sampana">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx</span></div>
+
+                        </div>            
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                        <div class="sampana_bloc3">
+                            241
+                        </div>            
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                        
+                        <p class="descr_sampana">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  dipoiuo o[iu kjh oiutui hjfhflj mlkj mlkj lkj lkj hg yt9o h kjhkjhk lh iugiuh iuh iuuygui g nogiohoih Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.                
+                        </p>
+                    </div>
+                 </div>   
+                <!-- fin ligne 1 -->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                        <div class="rafitra_bloc2">
+                        <a href="#"><img src="{{ asset('upload/images/ivandry/hand-open.jpg') }}" width="100%" /></a>
+                        <p></p>
+                        <span class="ariane2">FILOHA MPANAMPY </span>
+                        <p class="nom_rafitra">RAKOTOKAPOAKA Rehetra</p> 
+                        </div>            
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                        <div class="rafitra_bloc2">
+                        <a href="#"><img src="{{ asset('upload/images/ivandry/hand-open.jpg') }}" width="100%" /></a>
+                        <p></p>
+                        <span class="ariane2">FILOHA MPANAMPY </span>
+                        <p class="nom_rafitra">RAKOTOKAPOAKA Rehetra</p> 
+                        </div>            
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                        <div class="rafitra_bloc2">
+                        <a href="#"><img src="{{ asset('upload/images/ivandry/hand-open.jpg') }}" width="100%" /></a>
+                        <p></p>
+                        <span class="ariane2">FILOHA MPANAMPY </span>
+                        <p class="nom_rafitra">RAKOTOKAPOAKA Rehetra</p> 
+                        </div>            
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                        <div class="rafitra_bloc2">
+                        <a href="#"><img src="{{ asset('upload/images/ivandry/hand-open.jpg') }}" width="100%" /></a>
+                        <p></p>
+                        <span class="ariane2">FILOHA MPANAMPY </span>
+                        <p class="nom_rafitra">RAKOTOKAPOAKA Rehetra</p> 
+                        </div>            
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <div class="sampana_bloc4">
+                        
+                        </div>            
+                    </div>
+
+                </div><!-- fin ligne 2 -->
+                                
+            </div><!-- fin topic fampianarana 2 -->
+            
+            <!-- pagination -->
+                              
+	    </div>
+	</div>
+    </div>#}    
+    <!-- FIN DIV BAS -->
+
+{% endblock %}
+
+{% block JSPerso %}
+    <script>
+        onglet = {
+            clickO: function(ongletName) 
+            {
+                var url = "{{ baseUrl }}/front/rafitra/sampana/";
+
+                if ( $("#".concat(ongletName)).children().length <= 0 ) 
+                {
+                    $.get(url.concat(ongletName),function(data)
+                    {
+                        $("#".concat(ongletName)).append(data);
+                        $(document).scrollTop( $("#sampana-page").offset().top );
+                    });
+                }
+            }
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+                onglet.clickO("{{id}}");
+          });
+    </script>
+{% endblock %}

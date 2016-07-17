@@ -2,6 +2,7 @@
 
 namespace backBundle\Repository;
 
+use Doctrine\ORM\Query\ResultSetMapping;
 /**
  * InfoRepository
  *
@@ -22,25 +23,23 @@ class InfoRepository extends \Doctrine\ORM\EntityRepository
             "
         );
 
-        $article = $query->getResult();
+        $info = $query->getResult();
         
-        return $article;
+        return $info;
     }
     
     public function getLastByType($type)
     {
         $em = $this->_em;
-        $query = $em->createQuery(
-            "SELECT info
+        $dql = "SELECT info
             FROM backBundle:Info info
-            WHERE info.type = '$type' and DATE_DIFF( info.date, CURRENT_DATE())>0
-                order by DATE_DIFF( info.date, CURRENT_DATE()) asc
-            "
-        );
+            WHERE info.type = '$type' and DATE_DIFF( info.date, CURRENT_DATE())>=0
+                order by DATE_DIFF( info.date, CURRENT_DATE()) asc";
+        $query = $em->createQuery($dql);
 
-        $article = $query->getResult();
+        $info = $query->getResult();
         
-        return $article;
+        return $info;
     }
     
     public function getLastNews()
@@ -51,14 +50,32 @@ class InfoRepository extends \Doctrine\ORM\EntityRepository
             FROM backBundle:Info info
             WHERE info.type != 'lohahevitra' and info.type != 'vanimpotoana'
                 and info.type != 'zioga' and info.type != 'perikopa' 
-                and DATE_DIFF(info.date, CURRENT_DATE())>0
+                and DATE_DIFF(info.date, CURRENT_DATE())>=0
                 order by DATE_DIFF( info.date, CURRENT_DATE()) asc
             "
         );
 
-        $article = $query->getResult();
+        $info = $query->getResult();
         
-        return $article;
+        return $info;
     }
     
+    
+    public function getLohahevitra()
+    {
+        $rsm = new ResultSetMapping();
+        $rsm->addEntityResult('\backBundle\Entity\Info', 'd');
+        $rsm->addFieldResult('d', 'id', 'id');
+        $rsm->addFieldResult('d', 'texte', 'texte');
+        $rsm->addFieldResult('d', 'titre', 'titre');
+        $rsm->addFieldResult('d', 'date', 'date');
+        
+        $sql = "SELECT info.id as id, info.texte as texte, info.titre as titre, info.date as date "
+                . "FROM info as info WHERE info.type = 'lohahevitra' "
+                . "and (MONTH(info.date) - MONTH(CURRENT_DATE))=0";
+        
+        $query = $this->_em->createNativeQuery($sql, $rsm);
+
+        return $query->getResult();
+    }
 }

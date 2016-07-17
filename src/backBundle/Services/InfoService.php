@@ -60,6 +60,13 @@ class InfoService {
         return $info;
     }
     
+    public function getLohahevitra()
+    {
+        $info = $this->em->getRepository('backBundle:Info')->getLohahevitra();  
+        
+        return $info;
+    }
+    
     public function save(Request $request)
     { 
 

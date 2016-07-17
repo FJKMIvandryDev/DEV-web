@@ -1,0 +1,194 @@
+{% extends "frontBundle::principal.html.twig" %}
+
+{% block headPerso %}
+    <link rel="stylesheet" href="{{ asset('bundles/front/ivandry/css/colorbox.css') }}" />
+	
+    <style>
+        #cboxLoadedContent{ overflow-y: hidden; }
+        #inline_content hr{ border-top-color: rgba(0,0,0,0.2); }
+        #inline_content h2{ color: inherit; }
+        #cboxContent .mCSB_scrollTools{ margin-right: 5px; }
+    </style>
+{% endblock %}
+	
+{% block body %}
+    
+    <!-- DIV HAUT -->
+    <div class="allign">
+        <div class="fampianarana_alahady"> 
+	    <div class="row">		
+                <div class="col-lg-12">            
+                            <!-- Fil d'ariane -->
+                    <div class="fil_ariane">
+                        <div class="row"><div class="col-lg-12">
+                        <span class="petit_gras">Tongasoa > </span><span class="ariane">Fampianarana</span>
+                        </div></div>
+                    </div>
+                    <!-- fin fil d'ariane -->
+
+                    <!-- titre alahady -->
+                    <div class="row"><div class="col-lg-12">
+                        <t3>ISAK'ALAHADY</t3>
+                    </div></div>
+                    <!-- fin titre alahady -->
+
+                    <!-- topic fampianarana -->
+                    <!-- ligne 1 -->
+                    
+                    {% set indexArtcleActu = 0 %}
+                    {% for count in toritenyAlahadyCount %}
+                        <div id="totalToritenyAlahady" style="visibility: hidden">{{ count }}</div>
+                    {% endfor%}
+                    <div class="row">
+                        {% for i in isakAlahady if indexArtcleActu<8 %}
+                            <div style='display:none;'>
+                                <div id='toritenyAlahady{{ indexArtcleActu }}' style='padding:10px; background:#fff;'>
+                                            {{ i.texte.contenu|raw }}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="fampianarana_bloc">
+                                    <div class="id" style="visibility: hidden">{{ i.id }}</div>
+                                    <a class='inline' href="#toritenyAlahady{{ indexArtcleActu }}"><img src="{{ asset(i.imageJacket)}}" width="100%" /></a>
+                                    <p></p>
+                                    <span class="petit_gras"> {{ i.date|date('Y-m-d') }} : {{ i.titre }} </span>
+                                    <p></p>
+                                        {{ i.description }}
+                                    <p></p>
+                                    <span class="petit_gras">Tohiny <a href="#"><img src="{{ asset('web/images/ivandry/suite.png')}}" class="picto" /></a></span>
+
+                                    <span class="pull-right">
+                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto1.png')}}" class="picto" /></a>
+                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto2.png')}}" class="picto" /></a>
+                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto3.png')}}" class="picto" /></a>
+                                    </span>
+
+                                    <p></p>
+                                </div>            
+                            </div>
+                            {% set indexArtcleActu = indexArtcleActu+1 %}
+                            {% if indexArtcleActu == 4%}
+                                </div>
+                                <div class="row">
+                            {% endif%}
+                        {% endfor %}
+                    </div>                
+                </div><!-- fin topic fampianarana -->
+
+                <!-- pagination -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class = "pagination pagination-lg">
+                            <li><a href = "#">&laquo;</a></li>
+                            <li><a href = "#">1</a></li>
+                            <li><a href = "#">2</a></li>
+                            <li><a href = "#">3</a></li>
+                            <li><a href = "#">4</a></li>
+                            <li><a href = "#">5</a></li>
+                            <li><a href = "#">&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div><!-- fin pagination -->                            
+	    </div>
+	</div>
+	<!-- FIN DIV HAUT -->
+    </div>
+    <!-- DIV MENU AU MILIEU -->
+    
+    
+	<div class="row">
+            <div class="head_banner">
+
+            <!--MENU -->
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" >
+
+                </div>
+            </div>
+        </div>    
+
+    <!-- FIN DIV MENU AU MILIEU -->
+
+    <!-- DIV BAS -->
+    
+    <div class="samihafa"> 
+	<div class="allign">    
+            <div class="row">		
+                <div class="col-lg-12">            
+                    {% set indexArtcleActu = 0 %}
+                    {% for count in samihafaCount %}
+                        <div id="totalSamihafa" style="visibility: hidden">{{ count }}</div>
+                    {% endfor%}
+                    <div class="row">
+                        {% for i in samihafa if indexArtcleActu<8 %}
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="fampianarana_bloc">
+                                    <div class="id" style="visibility: hidden">{{ i.id }}</div>
+                                    <a href="#"><img src="{{ asset(i.imageJacket)}}" width="100%" /></a>
+                                    <p></p>
+                                    <span class="petit_gras"> {{ i.date|date('Y-m-d') }} : {{ i.titre }} </span>
+                                    <p></p>
+                                        {{ i.description }}
+                                    <p></p>
+                                    <span class="petit_gras">Tohiny <a href="#"><img src="{{ asset('web/images/ivandry/suite.png')}}" class="picto" /></a></span>
+
+                                    <span class="pull-right">
+                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto1.png')}}" class="picto" /></a>
+                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto2.png')}}" class="picto" /></a>
+                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto3.png')}}" class="picto" /></a>
+                                    </span>
+
+                                    <p></p>
+                                </div>            
+                            </div>
+                            {% set indexArtcleActu = indexArtcleActu+1 %}
+                            {% if indexArtcleActu == 4%}
+                                </div>
+                                <div class="row">
+                            {% endif%}
+                        {% endfor %}
+                    </div>           
+                    <!-- pagination -->
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <ul class = "pagination pagination-lg">
+                                <li class="deux"><a href = "#">&laquo;</a></li>
+                                <li class="deux"><a href = "#">1</a></li>
+                                <li class="deux"><a href = "#">2</a></li>
+                                <li class="deux"><a href = "#">3</a></li>
+                                <li class="deux"><a href = "#">4</a></li>
+                                <li class="deux"><a href = "#">5</a></li>
+                                <li class="deux"><a href = "#">&raquo;</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- fin pagination -->             
+                </div>
+            </div>
+        </div>
+    </div>    
+    <!-- FIN DIV BAS -->
+    
+{% endblock %}
+
+
+{% block JSPerso %}
+    <script src="{{ asset('bundles/front/ivandry/js/holder.min.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ivandry/js/jquery.colorbox-min.js') }}"></script>
+    <script>
+        (function($){
+            $(window).load(function(){
+
+                $(".inline").colorbox({
+                        inline:true, 
+                        width:"80%",
+                        height:"100%"
+                });
+
+                $("#cboxLoadedContent").mCustomScrollbar({
+                        live:true,
+                        theme:"inset-dark"
+                });
+
+            });
+        })(jQuery);
+    </script>
+{% endblock %}

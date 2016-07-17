@@ -374,7 +374,7 @@ yx-axis
 	.mCSB_scrollTools .mCSB_buttonDown,
 	.mCSB_scrollTools .mCSB_buttonLeft,
 	.mCSB_scrollTools .mCSB_buttonRight{
-		background-image: url(../../../Resources/public/ivandry/css/mCSB_buttons.png); /* css sprites */
+		background-image: url(/web/images/mCustomScrollbar/mCSB_buttons.png); /* css sprites */
 		background-repeat: no-repeat;
 		opacity: 0.4; filter: "alpha(opacity=40)"; -ms-filter: "alpha(opacity=40)"; 
 	}
@@ -1303,6 +1303,24 @@ time, mark, audio, video {
         color: #000;
 }
 
+@font-face {
+font-family: 'Mission Script';
+font-style: normal;
+font-weight: normal;
+src: local('Mission Script'), url('/web/bundles/front/ivandry/css/fonts/Mission-Script.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'heldustryftvbasic_blackRg';
+    src: url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.eot');
+    src: url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.woff2') format('woff2'),
+         url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.woff') format('woff'),
+         url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.ttf') format('truetype'),
+         url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.svg#heldustryftvbasic_blackRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 [class*="col-"], footer {
 
 
@@ -1312,7 +1330,7 @@ time, mark, audio, video {
 
 }
 
-img{ width:100%; }
+img{ }
 .ico{
     width: 10%;
     min-width: 20px;
@@ -1438,6 +1456,9 @@ float:left;
 .fampianarana_ligne{
 	height:147px;
 		background-color: #BED13E;
+                overflow: hidden;
+                padding-bottom: 10px;
+                padding-top: 10px;
 }
 .fampianarana_sep_v{
 	border-left:1px solid rgba(255, 255, 255, 1);
@@ -1498,15 +1519,18 @@ t3b{
 	max-width:320px;
 }
 .head_banner{
-	height:90px;
+	height:93px;
 	background-color:#1E1E1A;
+	padding-top:16px;
 }
+
 .head_logo{
 	width:100%;
 	max-width:130px;
+	margin-top:-13px;
 }
 .navbar-form{
-	padding-top:22px;
+	padding-top:10px;
 }
 .input-sm{
 	height:25px;
@@ -1570,7 +1594,7 @@ t3b{
     padding-right: 15px;
 }
 .alahady_ico{
-    background-image: url("../../../Resources/public/ivandry/img/fampianarana_ico.png");
+    background-image: url("/web/images/ivandry/fampianarana_ico.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1749,7 +1773,7 @@ t3b{
     position: absolute;
     /*margin-left: 265px;*/
     width: 100%;
-    background-position: #bfd13f;
+    background-color:#bfd13f;
   }
  /* .navbar-header{
     height: 90px;
@@ -1844,7 +1868,6 @@ t3b{
 .fil_ariane {
     float: left;
     padding-top: 25px;
-    padding-left: 50px;
 }
 
 .petit_gras {
@@ -1865,18 +1888,21 @@ t3{
     font-weight: bold;
     float: left;
     padding-top: 25px;
-    padding-left: 50px;
 }
 
 .fampianarana_bloc, .sary {
     padding-top: 25px;
-    padding-left: 50px;
-    padding-right: 50px;
+    width: 256px;
     text-align: left;
+}
+
+.fampianarana_bloc>a>img {
+    height:168px;
 }
 
 .picto {
     width: 30px;
+
 }   
 
 .samihafa {
@@ -2159,7 +2185,6 @@ ts3{
       border-bottom: solid;
       border-bottom-width: 2px;
       border-bottom-color: #BED13E;
-      height: 50px;
 }
 
 .dropdown-menu{
@@ -2177,4 +2202,217 @@ ts3{
 }
 .navbar-brand{
 	padding:0px;
+}
+.picto2{
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+	width:48px;
+}
+.fifandraisana{
+	float:left;
+	padding-left:50px;
+}
+.fifandraisana2{
+	float:left;
+}
+.contact_txt {
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+ .lig{
+	 height:80px;
+	 padding-top:20px;
+ }
+ .dropdown{
+	 font-size:1em;
+ }
+.nav>li>a{
+	padding-left:10px;
+	padding-right:10px;
+	text-align:center;
+	border-right:1px solid white;
+	padding-top: 11px;
+	line-height: 1px;
+}
+.nav .open > a{
+	border-color:white;
+}
+.nav .open > a:focus, .nav .open > a:hover{
+		border-color:white;
+}
+.navbar-nav > li > .dropdown-menu{
+	margin-top:-22px;
+}
+.lohahevitra{
+	height:90px;
+	text-align:center;
+	padding-top:5px;
+}
+.daty_lohahevitra{
+	font-family:'heldustryftvbasic_blackRg';
+	font-size:1.7em;
+	color:#BED13E;
+}
+.txt_lohahevitra{
+	font-family:'Mission Script';
+	font-weight:normal;
+	font-size:2em;
+}
+ .txt_float{
+	 position:absolute;
+	 top:280px; 
+         bottom: 10px;
+	 font-size:200%;
+	 z-index:2;
+         color: white;
+         overflow: hidden;
+         height: 150px;
+         width: inherit;
+         background-color: rgba(255,255,255,0.3)
+ }
+ .img_slide{
+	 position:relative;
+ }
+ .foot{
+     height: 93px;
+     background-color: #1E1E1A;
+      padding-top: 52px;
+ }
+ .rs{
+     height: 40px;
+     width: 180px;
+     background-color: #BED13E;
+    background-image: url("/web/images/ivandry/rsb.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    display: block;
+    top:20px;
+ }
+ .rst{
+     color: white;
+ }
+ .rse{
+         float: right;
+ }
+ .rafitra_bloc{
+     width: 256px;
+     height: 220px;
+     margin: auto;
+     background-color: #1E1E1A;
+     overflow: hidden;
+     text-align: left;
+     margin-bottom: 50px;
+     
+ }
+ .descr{
+     text-align: left;
+     margin-bottom: 10px;
+ }
+ .nom_rafitra{
+     color: white;
+     font-size: 12px;
+     margin-left:5px;
+ }
+ .ariane2 {
+    color: #BED13E;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left:5px;
+}
+t3b{
+color:#BED13E;
+font-weight:bold;
+font-size:25px;
+float:left;
+
+}
+.head_banner2{
+	height:93px;
+	background-color:#1E1E1A;
+        padding-top: 12px;
+}
+.navbarb{
+    height:40px;
+    margin-top: 5px;
+}
+.dropdown-toggle2{
+    padding-left: 0px;
+}
+.nav3>li>a{
+	padding-right:35px;
+	text-align:center;
+	padding-top: 11px;
+}
+.nav3{
+    padding-left: 1px;
+}
+
+.titre{
+    float: left;
+}
+.sampana_bloc2{
+    padding-left: 30px;
+    padding-top: 30px;
+}
+.nom_sampana{
+    color: white;
+}
+.sampana_descr{
+    margin-bottom: 10px;
+}
+.sampana_bloc3{
+    background-image: url("/web/images/ivandry/isa.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    width: 140px;
+    height: 156px;
+    font-size: 40px;
+    padding-top: 91px;
+    font-weight: bold;
+    float:left;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    color: white;
+}
+.descr_sampana{
+    text-align: left;
+    padding-top: 20px;
+    margin-bottom: 10px;
+}
+ .rafitra_bloc2{
+     width: 220px;
+     height: 200px;
+     margin: auto;
+     background-color: #1E1E1A;
+     overflow: hidden;
+     text-align: left;
+     margin-bottom: 50px;
+     
+ }
+ .sampana_bloc4{
+    background-image: url("/web/images/ivandry/tantara.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    width: 210px;
+    height: 50px;
+    font-size: 40px;
+    padding-top: 91px;
+    font-weight: bold;
+    margin: auto;
+    margin-top: 30px;
+    color: white;
+}
+.tetikasa_bloc {
+    padding-top: 25px;
+    text-align: left;
+    width: 300px;
 }

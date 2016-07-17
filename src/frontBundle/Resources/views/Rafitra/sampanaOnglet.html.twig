@@ -1,0 +1,107 @@
+<div class="samihafa"> 
+	<div class="allign">    
+        <div class="row">		
+            <div class="col-lg-12">            
+                
+                <!-- topic fampianarana 2 -->
+                <!-- ligne 1 -->
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                        <div class="sampana_bloc">
+                        <a href="#"><img src="{{ sampana.imageJacket }}" width="100%" /></a>
+                        </div>            
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5" style="text-align: left;">
+                        <div class="sampana_bloc2">
+                            
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Filoha :</li> &nbsp;<span class="nom_sampana">
+                                    {% if sampanaM.filoha is not null %}
+                                        {{ sampanaM.filoha.nom }} {{ sampanaM.filoha.prenom }}
+                                    {% else %}
+                                    {% endif%} 
+                                </span></div>
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Filoha lefitra :</li> &nbsp;<span class="nom_sampana">
+                                    {% if sampanaM.filohaLefitra is not null %}
+                                        {{ sampanaM.filohaLefitra.nom }} {{ sampanaM.filohaLefitra.prenom }}
+                                    {% else %}
+                                    {% endif%} 
+                                    </span></div>
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Mpitan-tsoratra :</li> &nbsp;<span class="nom_sampana">
+                                    {% if sampanaM.mpitanTsoratra is not null %}
+                                        {{ sampanaM.mpitanTsoratra.nom }} {{ sampanaM.mpitanTsoratra.prenom }}
+                                    {% else %}
+                                    {% endif%} 
+                                    </span></div>
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Mpitam-bola :</li> &nbsp;<span class="nom_sampana">
+                                    {% if sampanaM.mpitahiryVola is not null %}
+                                        {{ sampanaM.mpitahiryVola.nom }} {{ sampanaM.mpitahiryVola.prenom }}
+                                    {% else %}
+                                    {% endif%} 
+                                    </span></div>
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Mpitan-tsoratry ny vola :</li> &nbsp;<span class="nom_sampana">
+                                    {% if sampanaM.mpitanTsoratraVola is not null %}
+                                        {{ sampanaM.mpitanTsoratraVola.nom }} {{ sampanaM.mpitanTsoratraVola.prenom }}
+                                    {% else %}
+                                    {% endif%} 
+                                    </span></div>
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Mpannolotsaina :</li> &nbsp;<span class="nom_sampana">
+                                    {% if sampanaM.mpanoloTsaina is not null %}
+                                        {{ sampanaM.mpanoloTsaina.nom }} {{ sampanaM.mpanoloTsaina.prenom }}
+                                    {% else %}
+                                    {% endif%} 
+                                    </span></div>
+
+                        </div>            
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                        <div class="sampana_bloc3">
+                            241
+                        </div>            
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                        
+                        <p class="descr_sampana">{{ sampana.description }}</p>
+                    </div>
+                 </div>   
+                <!-- fin ligne 1 -->
+                <div class="row">
+                    {% set nb = 0 %}
+                    {% for i in articles %}
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                            <div class="rafitra_bloc2" style="height: 250px; width: 190px">
+                            <a href="#"><img style="height: 175px" src="{{ i.imageJacket }}" width="100%" /></a>
+                            <p></p>
+                            <span class="ariane2">{{ i.titre }} </span>
+                            <p class="nom_rafitra">{{ i.description}}</p> 
+                            </div>            
+                        </div>
+                        {% set nb = nb+1 %}
+                    {% endfor %}
+                    
+                    {% if nb<4 %}
+                        {% for i in nb..3 %}
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                            
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <div class="sampana_bloc4">
+                        
+                        </div>            
+                    </div>
+
+                </div><!-- fin ligne 2 -->
+                                
+            </div><!-- fin topic fampianarana 2 -->
+            
+            <!-- pagination -->
+                              
+	    </div>
+	</div>
+    </div>

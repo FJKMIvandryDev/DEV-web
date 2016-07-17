@@ -1,0 +1,202 @@
+{% extends "frontBundle::principal.html.twig" %}
+
+{% block body %}
+    {#{% for val in loopArray %}
+        {{ tempArray['_'~val] }} <br/ >
+    {% endfor %}#}
+    <div class="row">
+        <div class="allign">
+            <div class="nav_page"><a href="" style="font-weight: bold;">Tongasoa ></a><a href="" style="color:#BED13E;font-weight: bold;">Fandaharana</a></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="allign">
+            <div class="titre_fampianarana"><t3>FANDAHARANA</t3></div>
+        </div>
+    </div>
+    <!--FANDAHARANA ALAHADY-->
+    <div class="row">
+        <!--BLOC ALAHADY 1-->    
+        <div class="allign">
+            <div class="titre_fampianarana">
+                {% for i in vanimpotoana %}
+                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                        <div class="row">
+                            <div class="ico_suite"><div class="alahady_ico">{{ i.date|date('d') }}</div><b>{{ jourArray['_'~i.date|date('D')] }} {{ i.date|date('d') }} {{ moisArray['_'~i.date|date('F')] }} {{ i.date|date('Y') }}</b><p><i>{{ i.titre }}</i></p></div>
+                        </div>
+                        <div class="row">
+                            <div class="alahady"><dd>{{ i.texte }}</dd></div>
+                        </div>
+                    </div>
+                {% endfor%}
+            </div>
+        </div>
+        <!--FIN BLOC ALAHADY 1-->   
+    </div>
+	<!-- MAPS FANDAHARANA -->
+    <div class="row"> 
+        <div class="allign "> 
+            <div class="titre_fampianarana">
+                                    <!-- FIVORIANA -->
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="scrol_cont">
+                        <div class="row"><div class="elan"></div></div>
+                        <div class="row"><t3>FIVORIANA</t3></div>
+                        <div class="row">
+                            <div class="bootstrap">	
+                                <!-- Modal -->
+                                <div id="myTab1">
+                                    <div class="tab-pane fade in active">
+                                        <dl>
+                                            {% for i in fivoriana %}
+                                                <t4>{{ i.titre }}</t4>
+                                                <dd><b>Daty: </b>{{i.date|date('d')}} {{ moisArray['_'~i.date|date('F')] }} {{i.date|date('Y')}}</dd>
+                                                {{ i.texte }}
+                                            {% endfor %}
+                                        </dl>
+                                    </div>
+                                </div>	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+ 
+                        <!-- FILAZANA MANJO -->
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="scrol_cont">
+                        <div class="row"><div class="elan"></div></div>
+                        <div class="row"><t3>FILAZANA MANJO</t3></div>
+                        <div class="row">
+                            <div class="bootstrap">	
+                                <!-- Modal -->
+                                <div id="myTab1">
+                                    <div class="tab-pane fade in active">
+                                        <dl>
+                                            {% for i in filazanaManjo %}
+                                                <dt>{{ i.date|date('d/m/Y')}}</dt>
+                                                <dd><b>{{ i.texte }}</b></dd>
+                                                <p></p>
+                                            {% endfor %}
+                                            
+                                        </dl>
+                                    </div>
+                                </div>	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAMANGIANA -->
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="scrol_cont">
+                        <div class="row"><div class="elan"></div></div>
+                        <div class="row"><t3>FAMANGIANA</t3></div>
+                        <div class="row">
+                            <div class="bootstrap">	
+                                    <!-- Modal -->
+                                <div id="myTab2">
+                                    <div class="tab-pane fade in active">
+                                        <dl>
+                                            {% for i in famangiana %}
+                                                <t4>{{ i.titre }}</t4>
+                                                <dd><b>Daty: </b>{{i.date|date('d')}} {{ moisArray['_'~i.date|date('F')] }} {{i.date|date('Y')}}</dd>
+                                                {{ i.texte }}
+                                            {% endfor %}
+                                        </dl>
+                                    </div>
+                                </div>	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SAMIHAFA -->
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="scrol_cont">
+                        <div class="row"><div class="elan"></div></div>
+                        <div class="row"><t3>SAMIHAFA</t3></div>
+                        <div class="row">
+                            <div class="bootstrap">	
+                                <!-- Modal -->
+                                <div id="myTab2">
+                                    <div class="tab-pane fade in active">
+                                        <dl>
+                                            {% for i in filazanaSamihafa %}
+                                               <t4>{{ i.titre }}</t4>
+                                               <dd><b>{{ i.date|date('d/m/Y')}}</b> : {{ i.texte }}</dd>
+                                            {% endfor %}
+                                        </dl>
+                                    </div>
+                                </div>	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN SAMIHAFA -->
+                <!-- TATITRA -->
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="scrol_cont">
+                        <div class="row"><div class="elan"></div></div>
+                        <div class="row"><t3>TATITRA</t3></div>
+                        <div class="row">
+                            <div class="bootstrap">	
+                                <!-- Modal -->
+                                <div id="myTab2">
+                                    <div class="tab-pane fade in active">
+                                        <dl>
+                                            {% for i in tatitra %}
+                                               <t4>{{ i.titre }}</t4>
+                                               <dd><b>{{ i.date|date('d/m/Y')}}</b> : {{ i.texte }}</dd>
+                                               <br/>
+                                            {% endfor %} 
+                                        </dl>
+                                    </div>
+                                </div>	
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <!-- FIN TATITRA -->
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block JSPerso %}
+    <script>
+		(function($){
+			$(window).load(function(){
+				$("#myTab1 .tab-pane").mCustomScrollbar({
+					setHeight:300,
+					scrollButtons:{enable:true,scrollType:"stepped"},
+					keyboard:{scrollType:"stepped"},
+					mouseWheel:{scrollAmount:188},
+					theme:"rounded-dark",
+					autoExpandScrollbar:false,
+					snapAmount:5,
+					snapOffset:100
+				});
+				
+			});
+		})(jQuery);
+	</script>
+	<script>
+		(function($){
+			$(window).load(function(){
+				$("#myTab2 .tab-pane").mCustomScrollbar({
+					setHeight:300,
+					scrollButtons:{enable:true,scrollType:"stepped"},
+					keyboard:{scrollType:"stepped"},
+					mouseWheel:{scrollAmount:188},
+					theme:"rounded-dark",
+					autoExpandScrollbar:false,
+					snapAmount:5,
+					snapOffset:100
+				});
+				
+			});
+		})(jQuery);
+	</script>
+	
+{% endblock %}

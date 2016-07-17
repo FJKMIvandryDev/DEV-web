@@ -24,4 +24,51 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
         
         return $article;
     }
+    
+    public function findAllByTypeLimit($type, $begin, $limit)
+    {
+        $em = $this->_em;
+        $dql = "SELECT article
+                FROM backBundle:Article article
+            WHERE article.type = '$type'
+                order by DATE_DIFF( article.date, CURRENT_DATE()) asc
+            ";
+        $query = $em->createQuery($dql)
+                        ->setFirstResult($begin)
+                        ->setMaxResults($limit);
+
+        $article = $query->getResult();
+        
+        return $article;
+    }
+    
+    public function findSokajyNotTsiahyLimit($begin, $limit, $idSokajy)
+    {
+        $em = $this->_em;
+        $dql = "SELECT article
+                FROM backBundle:Article article
+            WHERE article.type != 'tsiahy' and article.sokajinAsaId=$idSokajy
+                order by DATE_DIFF( article.date, CURRENT_DATE()) asc
+            ";
+        $query = $em->createQuery($dql)
+                        ->setFirstResult($begin)
+                        ->setMaxResults($limit);
+
+        $article = $query->getResult();
+        
+        return $article;
+    }
+    
+    public function getCountByType($type)
+    {
+        $em = $this->_em;
+        $dql = "SELECT COUNT(article)
+                FROM backBundle:Article article
+            WHERE article.type = '$type'";
+        $query = $em->createQuery($dql);
+
+        $count = $query->getOneOrNullResult();
+        
+        return $count;
+    }
 }

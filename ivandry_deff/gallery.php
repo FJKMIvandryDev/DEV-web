@@ -66,7 +66,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                         <div class="sary">
-                        <a data-toggle="modal" data-target="#diakona">
+                        <a href="#" data-toggle="modal" data-target="#diakona">
                         <img src="ivandry/images/hand-open.jpg" width="100%" /></a>
                         <p></p>
                         <span class="ariane">Fanokanana diakona </span>
@@ -301,12 +301,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non 
 </div>
 
 
-<script>
-    $("[data-toggle=popover]").popover({
-	    content: function() {
-          return $('#popover-content').html();
-        }
-    });
-    </script>	
+	
 </body>
 </html>

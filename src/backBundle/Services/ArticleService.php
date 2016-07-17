@@ -36,7 +36,28 @@ class ArticleService {
     
     public function findAllByType($type)
     {
-        $article = $this->em->getRepository('backBundle:Article')->getAllByType($type);  
+        $article = $this->em->getRepository('backBundle:Article')->getAllByType($type);
+        
+        return $article;
+    }
+    
+    public function findAllByTypeLimit($type, $begin, $limit)
+    {
+        $article = $this->em->getRepository('backBundle:Article')->findAllByTypeLimit($type, $begin, $limit);
+        
+        return $article;
+    }
+    
+    public function findSokajyNotTsiahyLimit($begin, $limit, $idSokajy)
+    {
+        $article = $this->em->getRepository('backBundle:Article')->findSokajyNotTsiahyLimit($begin, $limit, $idSokajy);
+        
+        return $article;
+    }
+    
+    public function getCountByType($type)
+    {
+        $article = $this->em->getRepository('backBundle:Article')->getCountByType($type);  
         
         return $article;
     }
