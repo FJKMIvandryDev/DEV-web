@@ -8,7 +8,7 @@
 
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-        {% stylesheets output="css/compiled/frontOffice.css" filter="cssrewrite"
+{#        {% stylesheets output="css/compiled/frontOffice.css" filter="cssrewrite"
                 '@frontBundle/Resources/public/ivandry/css/bootstrap.min.css'
                 '@frontBundle/Resources/public/ivandry/css/jquery.mCustomScrollbar.css'
                 '@frontBundle/Resources/public/ivandry/css/style.css'
@@ -16,9 +16,11 @@
                 
         %}
             <link rel="stylesheet" href="{{ asset_url }}"/>
-        {% endstylesheets %}
+        {% endstylesheets %}#}
 
-{#        <link rel="stylesheet" href="{{ asset('css/compiled/frontOffice.css') }}"/>#}
+        <link rel="stylesheet" href="{{ asset('css/compiled/frontOffice.css') }}"/>
+        
+        <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
 
         {% block headPerso %}
 
