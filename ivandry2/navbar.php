@@ -1,5 +1,10 @@
 <nav class="navbar navbar-default navbar-static">
 	<div class="navbar-header">
+            <form class="navbar-form pull-left cache" style="border: none; margin-top: 2px">
+					<input type="text" class="input-sm form-control"  style="width: 120px;display: initial;" placeholder="Recherche">
+						<button type="submit" class="btn btn-primary btn-sm" style="width:20px;height:25px;border:2px solid #BED13E;background-image:url('ivandry/img/loupe.png');">
+						</button>
+            </form>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
 			<span class="sr-only">Toggle navigation</span>
 			<span class="icon-bar"></span>
@@ -11,7 +16,7 @@
 	
 	
 	<div class="collapse navbar-collapse js-navbar-collapse">
-		<ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" style="z-index: 100;position: relative">
                     
                     <li class="dropdown dropdown-large">
                         <a href="ivandry.php" class="dropdown-toggle" >Tongasoa</a>

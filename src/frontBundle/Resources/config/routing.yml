@@ -25,6 +25,14 @@ front_fandaharana:
 front_rafitra:
     resource: "@frontBundle/Controller/RafitraController.php"
     type:     annotation
+    
+front_tetik_asa:
+    resource: "@frontBundle/Controller/TetikAsaController.php"
+    type:     annotation
+    
+front_fifandraisana:
+    resource: "@frontBundle/Controller/FifandraisanaController.php"
+    type:     annotation
 
 #article Controller
 article_test:

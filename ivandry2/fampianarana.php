@@ -54,7 +54,32 @@
                 </div>
 				</div>
                 <!-- fin fil d'ariane -->
-
+                
+                <!-- ligne cache -->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="fampianarana_bloc1">
+                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
+                        <p></p>
+                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
+                        <p></p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
+                        <p></p>
+                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
+                        
+                        <span class="pull-right">
+                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
+                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
+                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
+                        </span>
+                    
+                        <p></p>
+                        </div>           
+                    </div>
+                </div>
+                <!-- fin ligne cache -->  
+                
+                
                 <!-- titre alahady -->
                 <div class="row">
                     <t3>ISAK'ALAHADY</t3>
@@ -63,6 +88,7 @@
                 
                 <!-- topic fampianarana -->
                 <!-- ligne 1 -->
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                         <div class="fampianarana_bloc">

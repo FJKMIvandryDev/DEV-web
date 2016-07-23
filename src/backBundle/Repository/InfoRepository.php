@@ -35,6 +35,7 @@ class InfoRepository extends \Doctrine\ORM\EntityRepository
             FROM backBundle:Info info
             WHERE info.type = '$type' and DATE_DIFF( info.date, CURRENT_DATE())>=0
                 order by DATE_DIFF( info.date, CURRENT_DATE()) asc";
+        
         $query = $em->createQuery($dql);
 
         $info = $query->getResult();
@@ -76,6 +77,30 @@ class InfoRepository extends \Doctrine\ORM\EntityRepository
         
         $query = $this->_em->createNativeQuery($sql, $rsm);
 
-        return $query->getResult();
+        $lohahevitra = $query->getResult();
+        
+        if (sizeof($lohahevitra)>0)
+        {
+            return $lohahevitra[0];
+        }
+        
+        return null;
+    }
+    
+    public function getLastOneInfoByType($type)
+    {
+        $em = $this->_em;
+        $dql = "SELECT info
+            FROM backBundle:Info info
+            WHERE info.type = '$type' and CURRENT_DATE()>=info.date
+                order by info.date desc";
+        
+        $query = $em->createQuery($dql)
+                        ->setFirstResult(0)
+                        ->setMaxResults(1);
+
+        $info = $query->getResult();
+        
+        return $info;
     }
 }

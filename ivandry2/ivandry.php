@@ -19,18 +19,18 @@
 	<link rel="stylesheet" href="ivandry/css/jquery.mCustomScrollbar.css">
 	<link rel="stylesheet" href="ivandry/css/style.css">
 	<link rel="stylesheet" href="ivandry/css/ivandry.css">
-	<link rel="stylesheet" type="text/css" href="ivandry/css/slidemenu.css" />
+<	<link rel="stylesheet" type="text/css" href="ivandry/css/slidemenu.css" />
 		<!-- Google CDN jQuery with fallback to local -->
 	<script src="ivandry/js/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="ivandry/js/minified/jquery-1.11.0.min.js"><\/script>')</script>
+<!--	<script>window.jQuery || document.write('<script src="ivandry/js/minified/jquery-1.11.0.min.js"><\/script>')</script> -->
 	
 	<!-- MaxCDN Bootstrap plugins -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<!--	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
 		<script src="ivandry/js/bootstrap.min.js"></script>
 	<!-- custom scrollbar plugin -->
 	<script src="ivandry/js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!--	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUZkFZxtc0cwtGBsu-Mj4mJB8_G9mntWM"  type="text/javascript"></script>
     <script type="text/javascript" src="ivandry/js/slidemenu.js"></script>
 
 
@@ -43,15 +43,25 @@
 	<div class="row lohahevitra">
 	<p><div class="daty_lohahevitra">Jolay 2016</div></p>
 	<p><div class="txt_lohahevitra">"Mpiara miasa amin'ny Tompo ny mino"</div></p>
+<p><div style="margin: auto; height: 22px;">
+    <div class="rond1" style="background-color: blue"></div>
+    <div class="rond2" style="background-color: blue"></div>
+    <div class="rond3" style="background-color: blue"></div>
+    <div class="alahady_nom">EPIFANIA</div>
+    <div class="rond3" style="background-color: blue"></div>
+    <div class="rond2" style="background-color: blue"></div>
+    <div class="rond1" style="background-color: blue"></div>
+    </div>
+</p>
 	</div>
 	<!-- SLIDE -->
 
 	<div class="row slideimage">
-	        <div class="col-lg-12 hidden-sm">
-	            <ul id="sm" class="sm">
-	                <li><div><img src="ivandry/images/1.jpg" alt="" /></div><div class="txt_float">FANDRAISANTANANA NY MPITANDRINA RAKOTONIVONY ANDRIANANTENAINA</div></li>
-	                <li><div><img src="ivandry/images/2.jpg" alt="" /></div><div class="txt_float"> FANDRAISANTANANA NY MPITANDRINA RAKOTONIVONY ANDRIANANTENAINA</div></li>
-	                <li><div><img src="ivandry/images/3.jpg" alt="" /></div><div class="txt_float"> FANDRAISANTANANA NY MPITANDRINA RAKOTONIVONY ANDRIANANTENAINA</div></li>
+	        <div class="col-lg-12 hidden-xs">
+                    <ul id="sm" class="sm" style="margin-bottom: 0px;">
+	                <li><div><img src="ivandry/images/1.jpg" alt="" /></div><div class="txt_float">50 eme ALI</div></li>
+	                <li><div><img src="ivandry/images/2.jpg" alt="" /></div><div class="txt_float"> Maintimolaly</div></li>
+	                <li><div><img src="ivandry/images/3.jpg" alt="" /></div><div class="txt_float"> FANDRAISANTANANA NY MPITANDRINA</div></li>
 	               <!-- <li><img src="ivandry/images/4.jpg" alt="" /></li> -->
                </ul>
            </div>		
@@ -59,7 +69,7 @@
 
 	<!-- FAMPIANARANA --> 
 	<div class="row"> 
-		<div class="fampianarana">
+		<div class="fond_deg">
 			<!-- IMAGE -->
 			<div class="hidden-xs">
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >  

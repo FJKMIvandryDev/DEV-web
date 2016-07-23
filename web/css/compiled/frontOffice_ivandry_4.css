@@ -169,7 +169,7 @@ float:left;
 }
 .fampianarana_ligne{
 	height:147px;
-		background-color: #BED13E;
+		/*background-color: #BED13E;*/
                 overflow: hidden;
                 padding-bottom: 10px;
                 padding-top: 10px;
@@ -183,7 +183,7 @@ float:left;
 }
 .fampianarana_txt{
 	height:147px;
-	background-color: #BED13E;
+	/*background-color: #BED13E;*/
 }
 .fampianarana_content{
 	padding-top:30px;
@@ -242,9 +242,6 @@ t3b{
 	width:100%;
 	max-width:130px;
 	margin-top:-13px;
-}
-.navbar-form{
-	padding-top:10px;
 }
 .input-sm{
 	height:25px;
@@ -606,12 +603,11 @@ t3{
 
 .fampianarana_bloc, .sary {
     padding-top: 25px;
-    width: 256px;
     text-align: left;
+    width: 256px;
 }
-
-.fampianarana_bloc>a>img {
-    height:168px;
+.fampianarana_bloc>a>img{
+    height: 165px;
 }
 
 .picto {
@@ -770,7 +766,7 @@ ts3{
     height: 150px;
     /*background-color: #1E1E1A;*/
     float: right;
-    background-image: url("../../../Resources/public/ivandry/img/timeline_head_g.png"); 
+    background-image: url("/web/images/ivandry/timeline_head_g.png"); 
     background-position:right top 50px;
     background-repeat: no-repeat;
     background-size: 50px 50px;
@@ -791,7 +787,7 @@ ts3{
     height: 150px;
     /*background-color: #1E1E1A;*/
     float: right;
-    background-image: url("../../../Resources/public/ivandry/img/timeline_head_d.png"); 
+    background-image: url("/web/images/ivandry/timeline_head_d.png"); 
     background-position:left top 50px;
     background-repeat: no-repeat;
     background-size: 50px 50px;
@@ -859,7 +855,7 @@ ts3{
   color: #000;
   font-size: 14px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1199px) {
   .dropdown-menu-large {
     margin-left: 0 ;
     margin-right: 0 ;
@@ -873,13 +869,59 @@ ts3{
   .dropdown-menu-large .dropdown-header {
     padding: 3px 15px !important;
   }
+  .navbar{
+	height:40px;
+    margin-top: -7px;
+  }
+  .navbar-default{
+    background-color: #1E1E1A;
+    border: none;
+    font-size:16px;
+    font-weight: bold;
+   }
+   .navbar-collapse{
+    background-color: #1E1E1A;
+    width: 100%;
+    border: none;
+    z-index: 999;
+    position: relative;
+   }
 }
 
-.navbar-default{
+@media (min-width: 1200px) {
+  .dropdown-menu-large {
+    margin-left: 0 ;
+    margin-right: 0 ;
+  }
+  .dropdown-menu-large > li {
+    margin-bottom: 30px;
+  }
+  .dropdown-menu-large > li:last-child {
+    margin-bottom: 0;
+  }
+  .dropdown-menu-large .dropdown-header {
+    padding: 3px 15px !important;
+  }
+  .navbar{
+	height:40px;
+    margin-top: 20px;
+  }
+  .navbar-default{
     background-color: transparent;
     border: none;
     font-size:16px;
     font-weight: bold;
+   }
+   .navbar-form{
+    padding-top:10px;
+    }
+}
+
+@media (min-width:768px){
+    .cache{display: none}
+}
+@media (max-width:768px){
+    .cache1{display: none}
 }
 
 .dropdown-toggle{
@@ -909,10 +951,6 @@ ts3{
     border-right: solid;
     border-color: #000;
     border-width: 1px;
-}
-.navbar{
-	height:40px;
-    margin-top: 20px;
 }
 .navbar-brand{
 	padding:0px;
@@ -961,7 +999,7 @@ ts3{
 	margin-top:-22px;
 }
 .lohahevitra{
-	height:90px;
+	height:110px;
 	text-align:center;
 	padding-top:5px;
 }
@@ -976,24 +1014,29 @@ ts3{
 	font-size:2em;
 }
  .txt_float{
+        font-family:'heldustryftvbasic_blackRg';
+        font-size:1.6em;
+        font-weight:normal;
 	 position:absolute;
-	 top:280px; 
+	 top:0px; 
          bottom: 10px;
-	 font-size:200%;
 	 z-index:2;
          color: white;
          overflow: hidden;
-         height: 150px;
+         height: 50px;
          width: inherit;
-         background-color: rgba(255,255,255,0.3)
+         text-align: left;
+         padding-left: 20px;
+         background-color: rgba(0,0,0,0.2);
+         line-height: 48px;
  }
  .img_slide{
 	 position:relative;
  }
  .foot{
-     height: 93px;
+     height: 120px;
      background-color: #1E1E1A;
-      padding-top: 52px;
+      padding-top: 27px;
  }
  .rs{
      height: 40px;
@@ -1004,7 +1047,7 @@ ts3{
     background-repeat: no-repeat;
     background-size: 100px;
     display: block;
-    top:20px;
+    margin-top:20px;
  }
  .rst{
      color: white;
@@ -1128,5 +1171,87 @@ float:left;
 .tetikasa_bloc {
     padding-top: 25px;
     text-align: left;
-    width: 300px;
+    width: 350px;
+    margin-bottom: 70px;
+    height: 110px;
+}
+.nav{
+    font-family: 'heldustryftvbasic_blackRg';
+}
+@media (max-width: 768px){.fond_deg
+{
+	background : -moz-radial-gradient(-2.13% 35.77%, circle farthest-side, rgba(190, 209, 62, 1) 0%, rgba(140, 198, 63, 1) 100%);
+	background : -webkit-radial-gradient(-2.13% 35.77%, circle farthest-side, rgba(190, 209, 62, 1) 0%, rgba(140, 198, 63, 1) 100%);
+	background : -webkit-gradient(radial,-2.13% 35.77% ,0 , -2.13% 35.77%, 991.49 ,color-stop(0,rgba(190, 209, 62, 1) ),color-stop(1,rgba(140, 198, 63, 1) ));
+	background : -o-radial-gradient(-2.13% 35.77%, circle farthest-side, rgba(190, 209, 62, 1) 0%, rgba(140, 198, 63, 1) 100%);
+	background : -ms-radial-gradient(-2.13% 35.77%, circle farthest-side, rgba(190, 209, 62, 1) 0%, rgba(140, 198, 63, 1) 100%);
+	/*-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);"*/
+	background : radial-gradient(-2.13% 35.77%, circle farthest-side, rgba(190, 209, 62, 1) 0%, rgba(140, 198, 63, 1) 100%);
+	height : 650px;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Stlye=2);
+}}
+@media (min-width: 769px){.fond_deg
+{
+	background : -moz-radial-gradient(-2.13% 35.77%, circle farthest-side, rgba(190, 209, 62, 1) 0%, rgba(140, 198, 63, 1) 100%);
+	background : -webkit-radial-gradient(-2.13% 35.77%, circle farthest-side, rgba(190, 209, 62, 1) 0%, rgba(140, 198, 63, 1) 100%);
+	background : -webkit-gradient(radial,-2.13% 35.77% ,0 , -2.13% 35.77%, 991.49 ,color-stop(0,rgba(190, 209, 62, 1) ),color-stop(1,rgba(140, 198, 63, 1) ));
+	background : -o-radial-gradient(-2.13% 35.77%, circle farthest-side, rgba(190, 209, 62, 1) 0%, rgba(140, 198, 63, 1) 100%);
+	background : -ms-radial-gradient(-2.13% 35.77%, circle farthest-side, rgba(190, 209, 62, 1) 0%, rgba(140, 198, 63, 1) 100%);
+	/*-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);"*/
+	background : radial-gradient(-2.13% 35.77%, circle farthest-side, rgba(190, 209, 62, 1) 0%, rgba(140, 198, 63, 1) 100%);
+	height : 390px;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Stlye=2);
+}}
+.rond1{
+  border-radius:50%;
+  width:12px;
+  height:12px;
+  border:1px solid #000; 
+  display: inline-block;
+    vertical-align: middle;
+}
+.rond2{
+  border-radius:50%;
+  width:16px;
+  height:16px;
+  border:1px solid #000; 
+  display: inline-block;
+    vertical-align: middle;
+}
+.rond3{
+  border-radius:50%;
+  width:20px;
+  height:20px;
+  border:1px solid #000; 
+  display: inline-block;
+  vertical-align: middle;
+}
+.alahady_nom{
+        font-family: 'heldustryftvbasic_blackRg';
+	font-weight:normal;
+	font-size:1.4em;
+        display: inline;
+        vertical-align: middle;
+}
+.rsd1{
+    height: 40px;
+    width: 180px;
+    background-color: #BED13E;
+    background-image: url("/web/images/ivandry/rsb.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 100px; 
+    display: -moz-inline-box;
+    vertical-align: middle;
+}
+.rs_txt{
+    color:white;
+            font-family: 'heldustryftvbasic_blackRg';
+	font-weight:normal;
+	font-size:1.1em;
+        display: inline;
+        vertical-align: middle;
+}
+.fampianarana_bloc1{
+    margin: auto;
 }

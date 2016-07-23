@@ -1,0 +1,179 @@
+{% extends "frontBundle::principal.html.twig" %}
+
+{% block headPerso %}
+    <link rel="stylesheet" href="{{ asset('/web/bundles/front/ivandry/css/colorbox.css') }}" />
+	
+    <style>
+        #cboxLoadedContent{ overflow-y: hidden; }
+        #inline_content hr{ border-top-color: rgba(0,0,0,0.2); }
+        #inline_content h2{ color: inherit; }
+        #cboxContent .mCSB_scrollTools{ margin-right: 5px; }
+    </style>
+{% endblock %}
+
+{% block body %}
+    
+    <div class="allign">
+        <div class="fampianarana_alahady"> 
+	    <div class="row">		
+            <div class="col-lg-12">            
+		        <!-- Fil d'ariane -->
+                <div class="row">
+				<div class="fil_ariane">
+                    <div class="row"><div class="col-lg-12">
+                    <span class="petit_gras">Tongasoa > </span><span class="ariane">Tetikasa</span>
+                    </div></div>
+                </div>
+				</div>
+                <!-- fin fil d'ariane -->
+
+                <!-- titre alahady -->
+                <div class="row">
+                    <t3>TETIKASA ANATINY</t3>
+                </div>
+                <!-- fin titre alahady -->
+                
+                <!-- topic fampianarana -->
+                <!-- ligne 1 -->
+                <div class="row">
+                    
+                    {% set indexArtcleActu = 0 %}
+                    {#{% for count in toritenyAlahadyCount %}
+                        <div id="totalToritenyAlahady" style="visibility: hidden">{{ count }}</div>
+                    {% endfor%}#}
+                    {% for i in anatiny if indexArtcleActu<6 %}
+                        <div style='display:none;'>
+                            <div id='anatiny{{ indexArtcleActu }}' style='padding:10px; background:#fff;'>
+                                        {{ i.texte.contenu|raw }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="tetikasa_bloc">
+                                <div class="id" style="visibility: hidden">{{ i.id }}</div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <a class='inline' href="#anatiny{{ indexArtcleActu }}"><img style="padding-top: 5px;"src="{{ asset(i.imageJacket)}}" width="100%" /></a>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <p><dt style="text-align: left;padding-left: 5px;font-size: 1.2em;">{{ i.titre }}</dt></p>
+                                <p style="text-align: left; padding-left: 5px;height: 74px;overflow: hidden;font-size: 0.9em;">
+                                    {{ i.description }}
+                                </p>
+                                    <a style="text-align: left;color:#BED13E;font-size:1.1em;float: left; padding-left: 10px;" href="#">tohiny...</a>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        
+                        {% set indexArtcleActu = indexArtcleActu+1 %}
+                        {% if indexArtcleActu == 3%}
+                        </div>
+                        <div class="row">
+                            {% endif%}
+                            {% endfor %}
+                        </div>
+                        
+                                    <!-- pagination -->
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <ul class = "pagination pagination-lg">
+                                    <li class="deux"><a href = "#">&laquo;</a></li>
+                                    <li class="deux"><a href = "#">1</a></li>
+                                    <li class="deux"><a href = "#">2</a></li>
+                                    <li class="deux"><a href = "#">3</a></li>
+                                    <li class="deux"><a href = "#">4</a></li>
+                                    <li class="deux"><a href = "#">5</a></li>
+                                    <li class="deux"><a href = "#">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- fin pagination -->
+                        
+                <div class="row">
+                    <t3>TETIKASA IVELANY</t3>
+                </div>
+                <!-- fin titre alahady -->
+                
+                <!-- topic fampianarana -->
+                <!-- ligne 1 -->
+                <div class="row">
+                    {% set indexArtcleActu = 0 %}
+                    {#{% for count in toritenyAlahadyCount %}
+                        <div id="totalToritenyAlahady" style="visibility: hidden">{{ count }}</div>
+                    {% endfor%}#}
+                    {% for i in ivelany if indexArtcleActu<6 %}
+                        <div style='display:none;'>
+                            <div id='ivelany{{ indexArtcleActu }}' style='padding:10px; background:#fff;'>
+                                        {{ i.texte.contenu|raw }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="tetikasa_bloc">
+                                <div class="id" style="visibility: hidden">{{ i.id }}</div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <a class='inline' href="#ivelany{{ indexArtcleActu }}"><img style="padding-top: 5px;"src="{{ asset(i.imageJacket)}}" width="100%" /></a>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <p><dt style="text-align: left;padding-left: 5px;font-size: 1.2em;">{{ i.titre }}</dt></p>
+                                <p style="text-align: left; padding-left: 5px;height: 74px;overflow: hidden;font-size: 0.9em;">
+                                    {{ i.description }}
+                                </p>
+                                    <a style="text-align: left;color:#BED13E;font-size:1.1em;float: left; padding-left: 10px;" href="#">tohiny...</a>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        
+                        {% set indexArtcleActu = indexArtcleActu+1 %}
+                        {% if indexArtcleActu == 3%}
+                        </div>
+                        <div class="row">
+                            {% endif%}
+                            {% endfor %}
+                        </div>
+                        
+                        <!-- pagination -->
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <ul class = "pagination pagination-lg">
+                                    <li class="deux"><a href = "#">&laquo;</a></li>
+                                    <li class="deux"><a href = "#">1</a></li>
+                                    <li class="deux"><a href = "#">2</a></li>
+                                    <li class="deux"><a href = "#">3</a></li>
+                                    <li class="deux"><a href = "#">4</a></li>
+                                    <li class="deux"><a href = "#">5</a></li>
+                                    <li class="deux"><a href = "#">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- fin pagination --> 
+                        
+                </div>
+                                
+            </div><!-- fin topic fampianarana 2 -->
+            
+                                  
+	    </div>
+	</div>
+    </div>    
+    
+{% endblock %}
+
+{% block JSPerso %}
+    <script src="{{ asset('bundles/front/ivandry/js/jquery.colorbox-min.js') }}"></script>
+    <script>
+        (function($){
+            $(window).load(function(){
+
+                $(".inline").colorbox({
+                        inline:true, 
+                        width:"80%",
+                        height:"100%"
+                });
+
+                $("#cboxLoadedContent").mCustomScrollbar({
+                        live:true,
+                        theme:"inset-dark"
+                });
+
+            });
+        })(jQuery);
+    </script>
+{% endblock%}

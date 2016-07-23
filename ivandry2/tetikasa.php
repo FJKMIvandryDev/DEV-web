@@ -64,376 +64,120 @@
                 <!-- topic fampianarana -->
                 <!-- ligne 1 -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                         <div class="tetikasa_bloc">
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
+                                <a href="#"><img style="padding-top: 5px;"src="ivandry/images/hand-open.jpg" width="100%" /></a>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <p></p>
-                                <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                                <p></p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                                <p></p>
-                                <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
+                                <p><dt style="text-align: left;padding-left: 5px;font-size: 1.2em;">Rihana</dt></p>
+                            <p style="text-align: left; padding-left: 5px;height: 74px;overflow: hidden;font-size: 0.9em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
+                                </p>
+                                <a style="text-align: left;color:#BED13E;font-size:1.1em;float: left; padding-left: 10px;" href="#">tohiny...</a>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="tetikasa_bloc">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <a href="#"><img style="padding-top: 5px;"src="ivandry/images/hand-open.jpg" width="100%" /></a>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <p><dt style="text-align: left;padding-left: 5px;font-size: 1.2em;">Rihana</dt></p>
+                            <p style="text-align: left; padding-left: 5px;height: 74px;overflow: hidden;font-size: 0.9em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
+                                </p>
+                                <a style="text-align: left;color:#BED13E;font-size:1.1em;float: left; padding-left: 10px;" href="#">tohiny...</a>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="tetikasa_bloc">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <a href="#"><img style="padding-top: 5px;"src="ivandry/images/hand-open.jpg" width="100%" /></a>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <p><dt style="text-align: left;padding-left: 5px;font-size: 1.2em;">Rihana</dt></p>
+                            <p style="text-align: left; padding-left: 5px;height: 74px;overflow: hidden;font-size: 0.9em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
+                                </p>
+                                <a style="text-align: left;color:#BED13E;font-size:1.1em;float: left; padding-left: 10px;" href="#">tohiny...</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="tetikasa_bloc">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <a href="#"><img style="padding-top: 5px;"src="ivandry/images/hand-open.jpg" width="100%" /></a>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <p><dt style="text-align: left;padding-left: 5px;font-size: 1.2em;">Rihana</dt></p>
+                            <p style="text-align: left; padding-left: 5px;height: 74px;overflow: hidden;font-size: 0.9em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
+                                </p>
+                                <a style="text-align: left;color:#BED13E;font-size:1.1em;float: left; padding-left: 10px;" href="#">tohiny...</a>
+                            </div>
+                        </div>
+                    </div>   
                 </div>
-                <!-- fin ligne 1 -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
-                </div><!-- fin ligne 2 -->
-                                
-            </div><!-- fin topic fampianarana -->
-            
-            <!-- pagination -->
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <ul class = "pagination pagination-lg">
-                        <li><a href = "#">&laquo;</a></li>
-                        <li><a href = "#">1</a></li>
-                        <li><a href = "#">2</a></li>
-                        <li><a href = "#">3</a></li>
-                        <li><a href = "#">4</a></li>
-                        <li><a href = "#">5</a></li>
-                        <li><a href = "#">&raquo;</a></li>
-                    </ul>
+                    <t3>TETIKASA IVELANY</t3>
                 </div>
-            </div><!-- fin pagination -->                            
-	    </div>
-	</div>
-	<!-- FIN DIV HAUT -->
-    </div>
-    <!-- DIV MENU AU MILIEU -->
-    
-    
-	<div class="row">
-            <div class="head_banner">
-
-            <!--MENU -->
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" >
-
-                </div>
-            </div>
-        </div>    
-
-    <!-- FIN DIV MENU AU MILIEU -->
-
-    <!-- DIV BAS -->
-    
-    <div class="samihafa"> 
-	<div class="allign">    
-        <div class="row">		
-            <div class="col-lg-12">            
+                <!-- fin titre alahady -->
                 
-                <!-- topic fampianarana 2 -->
+                <!-- topic fampianarana -->
                 <!-- ligne 1 -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="tetikasa_bloc">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <a href="#"><img style="padding-top: 5px;"src="ivandry/images/hand-open.jpg" width="100%" /></a>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <p><dt style="text-align: left;padding-left: 5px;font-size: 1.2em;">Rihana</dt></p>
+                            <p style="text-align: left; padding-left: 5px;height: 74px;overflow: hidden;font-size: 0.9em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
+                                </p>
+                                <a style="text-align: left;color:#BED13E;font-size:1.1em;float: left; padding-left: 10px;" href="#">tohiny...</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="tetikasa_bloc">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <a href="#"><img style="padding-top: 5px;"src="ivandry/images/hand-open.jpg" width="100%" /></a>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <p><dt style="text-align: left;padding-left: 5px;font-size: 1.2em;">Rihana</dt></p>
+                            <p style="text-align: left; padding-left: 5px;height: 74px;overflow: hidden;font-size: 0.9em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
+                                </p>
+                                <a style="text-align: left;color:#BED13E;font-size:1.1em;float: left; padding-left: 10px;" href="#">tohiny...</a>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="tetikasa_bloc">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <a href="#"><img style="padding-top: 5px;"src="ivandry/images/hand-open.jpg" width="100%" /></a>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <p><dt style="text-align: left;padding-left: 5px;font-size: 1.2em;">Rihana</dt></p>
+                            <p style="text-align: left; padding-left: 5px;height: 74px;overflow: hidden;font-size: 0.9em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
+                                </p>
+                                <a style="text-align: left;color:#BED13E;font-size:1.1em;float: left; padding-left: 10px;" href="#">tohiny...</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="tetikasa_bloc">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <a href="#"><img style="padding-top: 5px;"src="ivandry/images/hand-open.jpg" width="100%" /></a>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <p><dt style="text-align: left;padding-left: 5px;font-size: 1.2em;">Rihana</dt></p>
+                            <p style="text-align: left; padding-left: 5px;height: 74px;overflow: hidden;font-size: 0.9em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
+                                </p>
+                                <a style="text-align: left;color:#BED13E;font-size:1.1em;float: left; padding-left: 10px;" href="#">tohiny...</a>
+                            </div>
+                        </div>
+                    </div>   
                 </div>
-                <!-- fin ligne 1 -->
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="fampianarana_bloc">
-                        <a href="#"><img src="ivandry/images/hand-open.jpg" width="100%" /></a>
-                        <p></p>
-                        <span class="petit_gras">Alahady 17 aprily 2016 </span>
-                        <p></p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero.
-                        <p></p>
-                        <span class="petit_gras">Tohiny <a href="#"><img src="ivandry/img/suite.png" class="picto" /></a></span>
-                        
-                        <span class="pull-right">
-                        <a href="#"><img src="ivandry/img/picto1.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto2.png" class="picto" /></a>
-                        <a href="#"><img src="ivandry/img/picto3.png" class="picto" /></a>
-                        </span>
-                    
-                        <p></p>
-                        </div>            
-                    </div>
-
-                </div><!-- fin ligne 2 -->
                                 
             </div><!-- fin topic fampianarana 2 -->
             

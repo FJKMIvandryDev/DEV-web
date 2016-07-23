@@ -103,4 +103,16 @@ class InfoService {
         $this->em->flush();
     }
     
+    public function getLastOneInfoByType($type)
+    {
+        $info = $this->em->getRepository('backBundle:Info')->getLastOneInfoByType($type);
+        
+        if (sizeof($info)>0)
+        {
+            return $info[0];
+        }
+        
+        return null;
+    }
+    
 }

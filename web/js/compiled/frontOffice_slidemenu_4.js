@@ -2,7 +2,6 @@ var slideMenu=function(){
 	var sp,st,t,m,sa,l,w,gw,ot;
 	return{
 		build:function(sm,sw,mt,s,sl,h){
-			console.log("makamo b an");
 			sp=s; st=sw; t=mt;
 			m=document.getElementById(sm);
 			sa=m.getElementsByTagName('li');

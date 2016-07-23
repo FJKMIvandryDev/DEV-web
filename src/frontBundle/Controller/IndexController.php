@@ -23,18 +23,16 @@ class IndexController extends Controller
         
         $perikopa = $infoServ->getLastByType("perikopa");
         $vaovao = $infoServ->getLastNews();
-        $lohahevitras = $infoServ->getLohahevitra();
-        $lohahevitra = new \backBundle\Entity\Info();
-        
-        if (sizeof($lohahevitras) > 0)
-        {
-            $lohahevitra = $lohahevitras[0];
-        }
+        $lohahevitra = $infoServ->getLohahevitra();
+        $zioga = $infoServ->getLastOneInfoByType('zioga');
+        $vanimpotoana = $infoServ->getLastOneInfoByType('vanimpotoana');
         
         return $this->render('frontBundle:Index:index.html.twig', array(
             "vaovao" => $vaovao,
             "perikopa" => $perikopa,
             "lohahevitra" => $lohahevitra,
+            "zioga" => $zioga,
+            "vanimpotoana" => $vanimpotoana,
         ));
     }
 }

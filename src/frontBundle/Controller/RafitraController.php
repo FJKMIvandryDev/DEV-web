@@ -15,10 +15,10 @@ use Symfony\Component\HttpFoundation\Request;
 class RafitraController extends Controller
 {
     /**
-     * @Route("/rafitra/{idSampana}", name="rafitra_index")
+     * @Route("/rafitra", name="rafitra_index")
      * @Method("GET")
      */
-    public function indexAction(Request $request, $idSampana)
+    public function indexAction(Request $request)
     {
         $sokajyServ = $this->container->get('sokajinAsaService');
         $membreServ = $this->container->get('membreBureauService');
@@ -36,19 +36,14 @@ class RafitraController extends Controller
         
         //sampana selon type
         $sampanas = $sokajyServ->findAllByType("sampana");
-        $sampana = $sokajyServ->findById($idSampana);
-        $sampanaM = $membreServ->findBySokajinAsaActif($idSampana);
         
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
         
         return $this->render('frontBundle:Rafitra:index.html.twig', array(
             "biraoFiangonana" => $biraoFiangonana,
             "biraoFiangonanaM" => $biraoFiangonanaM,
-            "sampana" => $sampana,
-            "sampanaM" => $sampanaM,
             "sampanas" => $sampanas,
             "baseUrl" => $baseurl,
-            "id" => $idSampana,
         ));
     }
     
