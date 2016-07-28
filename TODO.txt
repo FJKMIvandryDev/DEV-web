@@ -1,0 +1,10 @@
+- à la une redirection (back)
+- fampianarana page d'acceuil redirection
+- article video et audio button to pop-up
+- isan'ny mpikanmbana rafitra (back)
+- pop up article rafitra
+- redirection tantaran'ny sampana
+- pagination article
+- album photo (back)
+- ajout input url imgjacket (back)
+- image ckeditor to fix (back)
