@@ -18,7 +18,12 @@
             <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}#}
 
-        <link rel="stylesheet" href="{{ asset('css/compiled/frontOffice.css') }}"/>
+{#        <link rel="stylesheet" href="{{ asset('css/compiled/frontOffice.css') }}"/>#}
+
+        <link rel="stylesheet" href="{{ asset('bundles/front/ivandry/css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('bundles/front/ivandry/css/jquery.mCustomScrollbar.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('bundles/front/ivandry/css/style.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('bundles/front/ivandry/css/ivandry.css') }}"/>
         
         <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
 
@@ -260,7 +265,11 @@
                 
         {% endjavascripts %}#}
             
-        <script src="{{ asset('js/compiled/frontOffice.js') }}" charset="utf-8"></script>
+{#        <script src="{{ asset('js/compiled/frontOffice.js') }}" charset="utf-8"></script>#}
+
+        <script src="{{ asset('bundles/front/ivandry/js/jquery.min.js') }}" charset="utf-8"></script>
+        <script src="{{ asset('bundles/front/ivandry/js/bootstrap.min.js') }}" charset="utf-8"></script>
+        <script src="{{ asset('bundles/front/ivandry/js/jquery.mCustomScrollbar.concat.min.js') }}" charset="utf-8"></script>
 
         {% block JSPerso %}
 
