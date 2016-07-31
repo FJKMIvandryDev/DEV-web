@@ -86,6 +86,7 @@ class ArticleService {
         $article->setAudios($request->request->get("audio"));
         $article->setVideos($request->request->get("video"));
         $article->setTexte($texte);
+        $article->setDate(new \DateTime($request->request->get("date")));
         
         $sokajyEM = $this->em->getRepository('backBundle:SokajinAsa');
         $zananyEM = $this->em->getRepository('backBundle:ZanaTsampana');
@@ -131,6 +132,7 @@ class ArticleService {
         $article->setDescription($request->request->get("description"));
         $article->setAudios($request->request->get("audio"));
         $article->setVideos($request->request->get("video"));
+        $article->setDate(new \DateTime($request->request->get("date")));
         
         $sokajyEM = $this->em->getRepository('backBundle:SokajinAsa');
         $zananyEM = $this->em->getRepository('backBundle:ZanaTsampana');

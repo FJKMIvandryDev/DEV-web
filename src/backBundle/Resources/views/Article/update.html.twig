@@ -55,6 +55,12 @@
             
             <div class="row">
                 <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="date">Date : </label>
+                <input class="col-lg-5" id="date" type="date" name="date" value="{{ article.date|date('Y-m-d') }}"/>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-2"></div>
                 <label class="col-lg-2" for="sokajy">sokajin'Asa : </label>
                 <select class="col-lg-4" id="sokajy" name="sokajy">
                     <option value= 0 >--selection sokajin'asa--</option>
@@ -99,9 +105,14 @@
                 <div class="col-lg-3"></div>
                 
                 <input type="hidden" value="{{ article.id }}" name="id"></input>
-                <input type="hidden" id="sary" value="{{ article.imageJacket }}" name="imageJacket"></input>
                 <input type="hidden" value="{{ type }}" name="type"></input>
                 
+            </div>
+                
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="sary">Jacket : </label>
+                <input class="col-lg-5" id="sary" type="text" name="imageJacket" value="{{ article.imageJacket }}"/>
             </div>
             
             <div class="row">

@@ -21,11 +21,12 @@ class InfoController extends Controller
      */
     public function indexAction($type)
     {      
+        
         $infoServ = $this->container->get('infoService');
 
         $infos = $infoServ->findAllByType($type);
-        
-        return $this->render('backBundle:info:index.html.twig', array(
+
+        return $this->render('backBundle:Info:index.html.twig', array(
             'infos' => $infos,
             "type" => $type,
         ));
@@ -60,7 +61,7 @@ class InfoController extends Controller
             ));
         }
 
-        return $this->render('backBundle:Info:add.html.twig', array(
+        return $this->render('backBundle:Info:add1.html.twig', array(
             "type" => $type,
         ));
     }

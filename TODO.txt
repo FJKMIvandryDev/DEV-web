@@ -10,10 +10,10 @@
 2 - page article (tsy popup)
  - tsiahy sy sary : integration
  - liaison a la une (evenement)
-3 - ajout article evenement
+//3 - ajout article evenement
 1 - Fampianarna accueil rediriger-na  @ page article
 4 - texte isaky ny page atao tena izy
-5 - date isaky ny article
+//5 - date isaky ny article
 1 - rafitra sous menu (ze clickena no miseho amle onglet)
 1 - info fandaharana (ajouter)
-1 - ajouter sigle sokajin'asa (back) à afficher menu
+//1 - ajouter sigle sokajin'asa (back) à afficher menu

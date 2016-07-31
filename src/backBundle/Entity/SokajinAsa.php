@@ -33,18 +33,21 @@ class SokajinAsa
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateCreation", type="date")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\Column(name="dateCreation", type="date", nullable=true)
      */
     private $dateCreation;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
+    
+    /**
+     * @ORM\Column(name="sigle", type="string", length=100, nullable=true)
+     */
+    private $sigle;
     
     /**
      * @ORM\Column(name="type", type="string", length=100)
@@ -423,5 +426,29 @@ class SokajinAsa
     public function getTypeId()
     {
         return $this->typeId;
+    }
+
+    /**
+     * Set sigle
+     *
+     * @param string $sigle
+     *
+     * @return SokajinAsa
+     */
+    public function setSigle($sigle)
+    {
+        $this->sigle = $sigle;
+
+        return $this;
+    }
+
+    /**
+     * Get sigle
+     *
+     * @return string
+     */
+    public function getSigle()
+    {
+        return $this->sigle;
     }
 }

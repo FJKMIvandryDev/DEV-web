@@ -17,13 +17,13 @@
             </div>
             <div class="row">
                 <label for="info_date" class="col-lg-2">Date</label>
-                <input type="date" class="col-lg-4" id="info_date" name="date" required="required" maxlength="255">
+                <input type="date" class="col-lg-4" id="info_date" name="date" value={{ 'now'|date('Y-m-d') }}>
             </div>
             <input type="hidden" id="sary" value="{{ type }}" name="type"/>
         </div>
 
         
-        <input type="submit" value="Create">
+        <input type="submit" value="Ajouter">
         
     </form>
 

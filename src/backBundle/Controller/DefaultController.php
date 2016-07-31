@@ -9,7 +9,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
         return $this->redirectToRoute('info_index', array(
-            "type" => "lohahevitra",
+            "type" => "filazanasamihafa",
         ));
     }
 }

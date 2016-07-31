@@ -54,6 +54,7 @@ class SokajinAsaService {
         $sokajy = new SokajinAsa();
         
         $sokajy->setNom($request->request->get("nom"));
+        $sokajy->setSigle($request->request->get("sigle"));
         $sokajy->setImageJacket($request->request->get("imageJacket"));
         $sokajy->setType($request->request->get("type"));
         $sokajy->setDescription($request->request->get("description"));
@@ -148,6 +149,7 @@ class SokajinAsaService {
         
         $sokajy->setId($request->request->get("id"));
         $sokajy->setNom($request->request->get("nom"));
+        $sokajy->setSigle($request->request->get("sigle"));
         $sokajy->setImageJacket($request->request->get("imageJacket"));
         $sokajy->setType($request->request->get("type"));
         $sokajy->setDescription($request->request->get("description"));

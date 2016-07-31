@@ -39,11 +39,19 @@
                         </tr>
                         
                         <tr>
+                            <td><label for="nom">ImageJacket : </label></td>		
+                            <td><input type="text" id="sary" value="" name="imageJacket"></input></td>
+                        </tr>
+                        
+                        <tr>
                             <td><label for="nom">Nom : </label></td>		
                             <td><input type="text" id="nom" name="nom" required></input></td>
                         </tr>
                         
-                        <td><input type="hidden" id="sary" value="" name="imageJacket"></input></td>
+                        <tr>
+                            <td><label for="sigle">Sigle : </label></td>		
+                            <td><input type="text" id="sigle" name="sigle"></input></td>
+                        </tr>
 
                         <td><input type="hidden" id="type" value="{{type}}" name="type" required></input></td>
 
@@ -53,7 +61,7 @@
                         </tr>
                         <tr>
                             <td><label for="date">Daty niforonana : </label></td>		
-                            <td><input type="date" id="date" name="dateCreation"></input></td>
+                            <td><input type="date" id="date" name="dateCreation" value={{ 'now'|date('Y-m-d') }}></input></td>
                         </tr>
             {#            <tr>
                             <td><label for="isa">Isan'ny mpikambana : </label></td>		

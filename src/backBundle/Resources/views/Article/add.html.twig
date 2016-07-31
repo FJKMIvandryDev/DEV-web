@@ -49,6 +49,12 @@
                 <label class="col-lg-2" for="video">Url Video : </label>
                 <input class="col-lg-5" id="video" type="text" name="video"/>
             </div>
+            
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="date">Date : </label>
+                <input class="col-lg-5" id="date" type="date" name="date" value="{{ 'now'|date('Y-m-d') }}"/>
+            </div>
  
             <div class="row">
                 <div class="col-lg-2"></div>
@@ -85,9 +91,14 @@
                 </div>
                 <div class="col-lg-3"></div>
                 
-                <input type="hidden" id="sary" value="" name="imageJacket"></input>
-                <input type="hidden" id="sary" value="{{ type }}" name="type"></input>
+                <input type="hidden" id="type" value="{{ type }}" name="type"></input>
                 
+            </div>
+                
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="sary">Jacket : </label>
+                <input class="col-lg-5" id="sary" type="text" name="imageJacket"/>
             </div>
             
             <div class="row">
