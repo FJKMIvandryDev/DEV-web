@@ -1,5 +1,16 @@
 {% extends "frontBundle::principal.html.twig" %}
 
+{% block headPerso %}
+    <link rel="stylesheet" href="{{ asset('bundles/front/ivandry/css/colorbox.css') }}" />
+	
+    <style>
+        #cboxLoadedContent{ overflow-y: hidden; }
+        #inline_content hr{ border-top-color: rgba(0,0,0,0.2); }
+        #inline_content h2{ color: inherit; }
+        #cboxContent .mCSB_scrollTools{ margin-right: 5px; }
+    </style>
+{% endblock %}
+
 {% block body %}
     <!-- DIV HAUT -->
     <div class="allign">
@@ -194,7 +205,7 @@
                                 <ul class="nav3 navbar-nav">
                                     {% for i in sampanas %}
                                         <li class="dropdown dropdown-large">
-                                            <a class="dropdown-toggle" data-toggle="tab" href="#{{ i.id }}" onclick="return onglet.clickO('{{ i.id }}')">{{ i.nom }}</a></li>
+                                            <a class="dropdown-toggle" data-toggle="tab" href="#{{ i.id }}" onclick="return onglet.clickO('{{ i.id }}')">{{ i.sigle }}</a></li>
                                     {% endfor %}
                                 </ul>
 
@@ -205,7 +216,7 @@
 <!-- fin menu -->
             </div>
         </div>
-    </div>  
+    </div>
     
     <div class="row">
         <div class="tab-content">
@@ -221,6 +232,9 @@
 {% endblock %}
 
 {% block JSPerso %}
+    <script src="{{ asset('bundles/front/ivandry/js/holder.min.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ivandry/js/jquery.colorbox-min.js') }}"></script>
+
     <script>
         onglet = {
             clickO: function(ongletName) 
@@ -233,14 +247,51 @@
                     {
                         $("#".concat(ongletName)).append(data);
                         $(document).scrollTop( $("#sampana-page").offset().top );
+                        colorBox();
                     });
                 }
             }
         }
     </script>
-{#    <script>
+{#        <script>
         $(document).ready(function () {
-                onglet.clickO("{{id}}");
+                onglet.clickO("1");
           });
     </script>#}
+    
+{#    <script>
+        (function($){
+            $(window).load(function(){
+
+                $(".inline").colorbox({
+                        inline:true,
+                        width:"80%",
+                        height:"100%"
+                });
+
+                $("#cboxLoadedContent").mCustomScrollbar({
+                        live:true,
+                        theme:"inset-dark"
+                });
+
+            });
+        })(jQuery);
+    </script>#}
+    
+    <script>
+        function colorBox()
+        {
+            $(".inline").colorbox({
+                    inline:true,
+                    width:"80%",
+                    height:"100%"
+            });
+
+            $("#cboxLoadedContent").mCustomScrollbar({
+                    live:true,
+                    theme:"inset-dark"
+            });
+        }
+    </script>
+
 {% endblock %}

@@ -21,7 +21,7 @@ class FandaharanaController extends Controller
     {
         $infoServ = $this->container->get('infoService');
         
-        $vanimpotoana = $infoServ->getLastByType("vanimpotoana");
+        $fandaharana = $infoServ->getLastByType("fandaharana ");
         $fivoriana = $infoServ->getLastByType("fivoriana");
         $filazanamanjo = $infoServ->getLastByType("filazanamanjo");
         $famangiana = $infoServ->getLastByType("famangiana");
@@ -34,7 +34,7 @@ class FandaharanaController extends Controller
             "famangiana" => $famangiana,
             "filazanaSamihafa" => $filazanasamihafa,
             "tatitra" => $tatitra,
-            "vanimpotoana" => $vanimpotoana,
+            "fandaharana" => $fandaharana,
 
         ));
     }

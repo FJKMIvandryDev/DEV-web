@@ -20,6 +20,7 @@ class IndexController extends Controller
     public function indexAction()
     {
         $infoServ = $this->container->get('infoService');
+        $articleServ = $this->container->get('articleService');
         
         $perikopa = $infoServ->getLastByType("perikopa");
         $vaovao = $infoServ->getLastNews();
@@ -27,12 +28,56 @@ class IndexController extends Controller
         $zioga = $infoServ->getLastOneInfoByType('zioga');
         $vanimpotoana = $infoServ->getLastOneInfoByType('vanimpotoana');
         
+        $toriteny = $articleServ->findAllByTypeLimit("toritenyalahady ", 0, 1);
+        if (sizeof($toriteny)>0)
+        {
+            $toriteny = $toriteny[0];
+        }
+        else
+        {
+            $toriteny = null;
+        }
+        
+        $isamBolana = $articleServ->findAllByTypeLimit("fampianaranaisambolana  ", 0, 1);
+        if (sizeof($isamBolana)>0)
+        {
+            $isamBolana = $isamBolana[0];
+        }
+        else
+        {
+            $isamBolana = null;
+        }
+        
+        $sekolyAlahady = $articleServ->findAllByTypeLimit("dimyminitra  ", 0, 1);
+        if (sizeof($sekolyAlahady)>0)
+        {
+            $sekolyAlahady = $sekolyAlahady[0];
+        }
+        else
+        {
+            $sekolyAlahady = null;
+        }
+        
+        $samihafa = $articleServ->findSamyHafaLimit(0, 1);
+        if (sizeof($samihafa)>0)
+        {
+            $samihafa = $samihafa[0];
+        }
+        else
+        {
+            $samihafa = null;
+        }
+        
         return $this->render('frontBundle:Index:index.html.twig', array(
             "vaovao" => $vaovao,
             "perikopa" => $perikopa,
             "lohahevitra" => $lohahevitra,
             "zioga" => $zioga,
             "vanimpotoana" => $vanimpotoana,
+            "toriteny" => $toriteny,
+            "isambolana" => $isamBolana,
+            "dimy" => $sekolyAlahady,
+            "samihafa" => $samihafa,
         ));
     }
 }

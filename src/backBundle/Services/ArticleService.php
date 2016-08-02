@@ -48,6 +48,15 @@ class ArticleService {
         return $article;
     }
     
+    public function findSamyHafaLimit($begin, $limit)
+    {
+        $article = $this->em->getRepository('backBundle:Article')->findSamyHafaLimit($begin, $limit);
+        
+        return $article;
+    }
+    
+    
+    
     public function findSokajyNotTsiahyLimit($begin, $limit, $idSokajy)
     {
         $article = $this->em->getRepository('backBundle:Article')->findSokajyNotTsiahyLimit($begin, $limit, $idSokajy);

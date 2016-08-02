@@ -32,9 +32,9 @@
         <div class="row slideimage">
 	        <div class="col-lg-12 hidden-xs">
                     <ul id="sm" class="sm" style="margin-bottom: 0px;">
-	                <li><div><img src="{{ asset('web/upload/images/1.jpg') }}" alt="" /></div><div class="txt_float">50 eme ALI</div></li>
-	                <li><div><img src="{{ asset('web/upload/images/2.jpg') }}" alt="" /></div><div class="txt_float"> Maintimolaly</div></li>
-	                <li><div><img src="{{ asset('web/upload/images/3.jpg') }}" alt="" /></div><div class="txt_float"> FANDRAISANTANANA NY MPITANDRINA</div></li>
+                        <a href="{{ path('front_article_index') }}?id=12&type=evenement "><li><div><img src="{{ asset('web/upload/images/1.jpg') }}" alt="" /></div><div class="txt_float">50 eme ALI</div></li></a>
+	                <a href="#"><li><div><img src="{{ asset('web/upload/images/2.jpg') }}" alt="" /></div><div class="txt_float"> Maintimolaly</div></li></a>
+	                <a href="{{ path('front_article_index') }}?id=8&type=evenement "><li><div><img src="{{ asset('web/upload/images/3.jpg') }}" alt="" /></div><div class="txt_float"> FANDRAISANTANANA NY MPITANDRINA</div></li></a>
 	               <!-- <li><img src="ivandry/images/4.jpg" alt="" /></li> -->
                </ul>
            </div>		
@@ -46,7 +46,7 @@
                         <!-- IMAGE -->
                         <div class="hidden-xs">
                                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >  
-                                <a href="http:#" class=""><img class="img_illu" src="{{ asset('web/upload/images/ivandry/fampianarana_img.png') }}" alt="Fampianarana" /></a>
+                                <img class="img_illu" src="{{ asset('web/upload/images/ivandry/fampianarana_img.png') }}" alt="Fampianarana" />
                                 </div>
                         </div>
                          <!-- COLONNE 2 -->
@@ -57,16 +57,20 @@
                                 <div class="fampianarana_ligne">
                                                 <!-- LOGO -->
                                     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" >
-                                    <div class="sary1"><a href="http:#" class=""><img class="img_logo" src="{{ asset('web/images/ivandry/logo_kate.png') }}" alt="Fampianarana" /></a></div>
+                                    <div class="sary1"><img class="img_logo" src="{{ asset('web/images/ivandry/logo_kate.png') }}" alt="Fampianarana" /></div>
                                     </div>
                                     <!-- TEXTE -->
                                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" >
                                         <div class="fampianarana_txt">
                                             <div class="fampianarana_content">
-                                            <a href="http:#" class=""><t2>KATEKOMENA</t2>
-                                            <dd></dd>
-                                            <t2a>jkhlkh lkjhljhklr uiuh jhhgkg dfsfzef fdfgerger sdfsdfsdf zerzerfg ertgfsdfg ertertert sdfsdfsdf zerzerfg ertgfsdfg ertertert sdfqfez zezezet</t2a>
-                                            </a>
+                                                {% if toriteny is not null %}
+                                                    <a href="{{ path('front_article_index') }}?id={{ toriteny.id }}&type={{ toriteny.type }}" class=""><t2>TORITENY</t2>
+                                                        <dd></dd>
+                                                        <t2a>
+                                                            {{ toriteny.description }}
+                                                        </t2a>
+                                                    </a>
+                                                {% endif%} 
                                             </div>
                                         </div>
                                     </div>
@@ -78,16 +82,20 @@
                                 <div class="fampianarana_ligne">
                                                 <!-- LOGO -->
                                     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" >
-                                    <div class="sary1"><a href="http:#" class=""><img class="img_logo" src="{{ asset('web/images/ivandry/logo_sa.png') }}" alt="Fampianarana" /></a></div>
+                                    <div class="sary1"><img class="img_logo" src="{{ asset('web/images/ivandry/logo_sa.png') }}" alt="Fampianarana" /></div>
                                     </div>
                                             <!-- TEXTE -->
                                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" >
                                         <div class="fampianarana_txt">
                                             <div class="fampianarana_content">
-                                            <a href="http:#" class=""><t2>SEKOLY ALAHADY</t2>
-                                            <dd></dd>
-                                            <t2a>jkhlkh lkjhljhklr uiuh jhhgkg dfsfzef fdfgerger sdfsdfsdf zerzerfg ertgfsdfg ertertert sdfsdfsdf zerzerfg ertgfsdfg ertertert sdfqfez zezezet</t2a>
-                                            </a>
+                                                {% if dimy is not null %}
+                                                    <a href="{{ path('front_article_index') }}?id={{ dimy.id }}&type={{ dimy.type }}" class=""><t2>5MN SEKOLY ALAHADY</t2>
+                                                        <dd></dd>
+                                                        <t2a>
+                                                            {{ dimy.description }}
+                                                        </t2a>
+                                                    </a>
+                                                {% endif%} 
                                             </div>							
                                         </div>
                                     </div>
@@ -108,16 +116,20 @@
                                     </div>
                                     <!-- LOGO -->
                                     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" >
-                                    <div class="sary1"><a href="http:#" class=""><img class="img_logo" src="{{ asset('web/images/ivandry/logo_tafika.png')}}" alt="Fampianarana" /></a></div>
+                                    <div class="sary1"><img class="img_logo" src="{{ asset('web/images/ivandry/logo_tafika.png')}}" alt="Fampianarana" /></div>
                                     </div>	
                                             <!-- TEXTE -->
                                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" >
                                         <div class="fampianarana_txt">
                                             <div class="fampianarana_content">
-                                            <a href="http:#" class=""><t2>TAFIKA MASINA</t2>
-                                            <dd></dd>
-                                            <t2a>jkhlkh lkjhljhklr uiuh jhhgkg dfsfzef fdfgerger sdfsdfsdf zerzerfg ertgfsdfg ertertert sdfsdfsdf zerzerfg ertgfsdfg ertertert sdfqfez zezezet</t2a>
-                                            </a>
+                                                {% if isambolana is not null %}
+                                                    <a href="{{ path('front_article_index') }}?id={{ isambolana.id }}&type={{ isambolana.type }}" class=""><t2>FAMPIANARANA ISAM-BOLANA</t2>
+                                                        <dd></dd>
+                                                        <t2a>
+                                                            {{ isambolana.description }}
+                                                        </t2a>
+                                                    </a>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>	
@@ -131,16 +143,20 @@
                                     </div>
                                     <!-- LOGO -->
                                     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" >
-                                    <div class="sary1"><a href="http:#" class=""><img class="img_logo" src="{{ asset('web/images/ivandry/logo_samihafa.png') }}" alt="Fampianarana" /></a></div>
+                                    <div class="sary1"><img class="img_logo" src="{{ asset('web/images/ivandry/logo_samihafa.png') }}" alt="Fampianarana" /></div>
                                     </div>	
                                             <!-- TEXTE -->
                                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" >
                                         <div class="fampianarana_txt">
                                             <div class="fampianarana_content">
-                                                <a href="http:#" class=""><t2>SAMIHAFA</t2>
-                                                    <dd></dd>
-                                                    <t2a>jkhlkh lkjhljhklr uiuh jhhgkg dfsfzef fdfgerger sdfsdfsdf zerzerfg ertgfsdfg ertertert sdfsdfsdf zerzerfg ertgfsdfg ertertert sdfqfez zezezet</t2a>
-                                                </a>
+                                                {% if samihafa is not null %}
+                                                    <a href="{{ path('front_article_index') }}?id={{ samihafa.id }}&type={{ samihafa.type }}" class=""><t2>SAMIHAFA</t2>
+                                                        <dd></dd>
+                                                        <t2a>
+                                                            {{ samihafa.description }}
+                                                        </t2a>
+                                                    </a>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>	

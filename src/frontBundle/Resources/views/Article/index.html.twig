@@ -1,0 +1,41 @@
+{% extends "frontBundle::principal.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {{ article.texte.contenu|raw }}
+        </div>
+        
+        <div class="row">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+        
+        <div class="row alahady_nom">
+            <u><b>Article similaire : </b></u>
+        </div>
+        
+        <div class="row">
+            {% for i in others %}
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="fampianarana_bloc">
+                        <div class="id" style="visibility: hidden">{{ i.id }}</div>
+                        <a class='inline' href="{{ path('front_article_index') }}?id={{ i.id }}&type={{ i.type }}"><img src="{{ asset(i.imageJacket)}}" width="100%" /></a>
+                        <p></p>
+                        <span class="petit_gras"> {{ i.date|date('Y-m-d') }} : {{ i.titre }} </span>
+                        <p></p>
+                            {{ i.description }}
+                        <p></p>
+
+                        <p></p>
+                    </div>            
+                </div>
+            {% endfor%}
+        </div>
+        
+    </div>
+       
+{% endblock %}
