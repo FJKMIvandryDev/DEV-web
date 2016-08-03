@@ -29,3 +29,7 @@ front_articlef:
 front_fifandraisana:
     resource: "@frontBundle/Controller/FifandraisanaController.php"
     type:     annotation
+    
+front_tsiahy:
+    resource: "@frontBundle/Controller/TsiahyController.php"
+    type:     annotation
