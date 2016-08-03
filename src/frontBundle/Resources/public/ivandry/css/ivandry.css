@@ -21,17 +21,17 @@ time, mark, audio, video {
 font-family: 'Mission Script';
 font-style: normal;
 font-weight: normal;
-src: local('Mission Script'), url('fonts/Mission-Script.woff') format('woff');
+src: local('Mission Script'), url('/web/bundles/front/ivandry/css/fonts/Mission-Script.woff') format('woff');
 }
 
 @font-face {
     font-family: 'heldustryftvbasic_blackRg';
-    src: url('fonts/heldftvblack-webfont.eot');
-    src: url('fonts/heldftvblack-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/heldftvblack-webfont.woff2') format('woff2'),
-         url('fonts/heldftvblack-webfont.woff') format('woff'),
-         url('fonts/heldftvblack-webfont.ttf') format('truetype'),
-         url('fonts/heldftvblack-webfont.svg#heldustryftvbasic_blackRg') format('svg');
+    src: url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.eot');
+    src: url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.woff2') format('woff2'),
+         url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.woff') format('woff'),
+         url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.ttf') format('truetype'),
+         url('/web/bundles/front/ivandry/css/fonts/heldftvblack-webfont.svg#heldustryftvbasic_blackRg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -305,7 +305,7 @@ t3b{
     padding-right: 15px;
 }
 .alahady_ico{
-    background-image: url("../img/fampianarana_ico.png");
+    background-image: url("/web/images/ivandry/fampianarana_ico.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -766,7 +766,7 @@ ts3{
     height: 150px;
     /*background-color: #1E1E1A;*/
     float: right;
-    background-image: url("../img/timeline_head_g.png"); 
+    background-image: url("/web/images/ivandry/timeline_head_g.png"); 
     background-position:right top 50px;
     background-repeat: no-repeat;
     background-size: 50px 50px;
@@ -787,7 +787,7 @@ ts3{
     height: 150px;
     /*background-color: #1E1E1A;*/
     float: right;
-    background-image: url("../img/timeline_head_d.png"); 
+    background-image: url("/web/images/ivandry/timeline_head_d.png"); 
     background-position:left top 50px;
     background-repeat: no-repeat;
     background-size: 50px 50px;
@@ -1051,7 +1051,7 @@ ts3{
      height: 40px;
      width: 180px;
      background-color: #BED13E;
-    background-image: url("../img/rsb.png");
+    background-image: url("/web/images/ivandry/rsb.png");
     background-position: left;
     background-repeat: no-repeat;
     background-size: 100px;
@@ -1131,7 +1131,7 @@ float:left;
     margin-bottom: 10px;
 }
 .sampana_bloc3{
-    background-image: url("../img/isa.png");
+    background-image: url("/web/images/ivandry/isa.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1162,7 +1162,7 @@ float:left;
      
  }
  .sampana_bloc4{
-    background-image: url("../img/tantara.png");
+    background-image: url("/web/images/ivandry/tantara.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1247,7 +1247,7 @@ float:left;
     height: 40px;
     width: 180px;
     background-color: #BED13E;
-    background-image: url("../img/rsb.png");
+    background-image: url("/web/images/ivandry/rsb.png");
     background-position: left;
     background-repeat: no-repeat;
     background-size: 100px; 

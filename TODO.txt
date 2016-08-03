@@ -1,6 +1,6 @@
 - à la une redirection (back)
 - article video et audio button to pop-up
-- isan'ny mpikanmbana rafitra (back)
+//- isan'ny mpikanmbana rafitra (back)
 //- pop up article rafitra
 7 - redirection tantaran'ny sampana
 - pagination article

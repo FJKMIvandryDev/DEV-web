@@ -131,7 +131,14 @@ class SokajinAsaService {
         $bureau->setSokajinAsa($sokajy);
         
         $this->em->persist($bureau);
+        $this->em->flush();
         
+        $isa = new \backBundle\Entity\IsaSokajy();
+        $isa->setIsa($request->request->get("isa"));
+        $isa->setSokajinAsaId($sokajy->getId());
+        $isa->setStatus(1);
+        
+        $this->em->persist($isa);
         $this->em->flush();
     }
     
@@ -227,8 +234,25 @@ class SokajinAsaService {
         $bureau->setSokajinAsa($sokajy);
         
         $this->em->merge($bureau);
-        
         $this->em->merge($sokajy);
+        
+        $isaOlds = $this->em->getRepository('backBundle:IsaSokajy')->findIsaSokajy($sokajy->getId());
+        
+        if (sizeof($isaOlds) > 0)
+        {
+            $isaOld = $isaOlds[0];
+            $isaOld->setStatus(0);
+            
+            $this->em->persist($isaOld);
+        }
+        
+
+        $isa = new \backBundle\Entity\IsaSokajy();
+        $isa->setIsa($request->request->get("isa"));
+        $isa->setSokajinAsaId($sokajy->getId());
+        $isa->setStatus(1);
+
+        $this->em->persist($isa);
         $this->em->flush();
     }
 }

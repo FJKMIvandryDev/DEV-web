@@ -71,16 +71,29 @@ class SokajinAsaController extends Controller
         
         $membreServ = $this->container->get('membreBureauService');
         
+        $isaServ = $this->container->get('isaService');
+        
         $sokajy = $sokajyServ->findById($id);
         
 //        var_dump($membreServ->findBySokajinAsaActif($id));
 //        die;
+        
+        $isas = $isaServ->findIsaSokajy($id);
+        
+        $isa = new \backBundle\Entity\IsaSokajy();
+        $isa ->setIsa(0);
+        
+        if (sizeof($isas) > 0)
+        {
+            $isa = $isas[0];
+        }
         
         return $this->render('backBundle:SokajinAsa:update.html.twig', array(
             "type" => $type,
             "sokajy" => $sokajy,
             "baseUrl" => $baseurl,
             "membreBureau" => $membreServ->findBySokajinAsaActif($id),
+            "isa" => $isa,
         ));
     }
     

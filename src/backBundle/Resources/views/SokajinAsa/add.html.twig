@@ -50,7 +50,7 @@
                         
                         <tr>
                             <td><label for="sigle">Sigle : </label></td>		
-                            <td><input type="text" id="sigle" name="sigle"></input></td>
+                            <td><input type="text" id="sigle" name="sigle"></td>
                         </tr>
 
                         <td><input type="hidden" id="type" value="{{type}}" name="type" required></input></td>
@@ -59,6 +59,12 @@
                             <td><label for="description">Description : </label></td>		
                             <td><textarea id="description" name="description"></textarea></td>
                         </tr>
+                        
+                        <tr>
+                            <td><label for="isa">Isan'ny mpikambana : </label></td>		
+                            <td><input type="number" id="isa" name="isa" value=0></td>
+                        </tr>
+                        
                         <tr>
                             <td><label for="date">Daty niforonana : </label></td>		
                             <td><input type="date" id="date" name="dateCreation" value={{ 'now'|date('Y-m-d') }}></input></td>

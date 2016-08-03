@@ -71,15 +71,29 @@ class ZanaTsampanaController extends Controller
         
         $membreServ = $this->container->get('membreBureauService');
         
+        $isaServ = $this->container->get('isaService');
+        
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
         
         $zanaTsampana = $zanaTsampanaServ->findById($id);
+        
+        
+        $isas = $isaServ->findIsaZanany($id);
+        
+        $isa = new \backBundle\Entity\IsaSokajy();
+        $isa->setIsa(0);
+        
+        if (sizeof($isas) > 0)
+        {
+            $isa = $isas[0];
+        }
         
         return $this->render('backBundle:ZanaTsampana:update.html.twig', array(
             "zanaTsampana" => $zanaTsampana,
             "baseUrl" => $baseurl,
             "reninys" => $reninys,
             "membreBureau" => $membreServ->findByZanaTsampanaActif($id),
+            "isa" => $isa,
         ));
     }
     

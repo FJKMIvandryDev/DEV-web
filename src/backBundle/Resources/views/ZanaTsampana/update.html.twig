@@ -50,6 +50,12 @@
                                     <td><label for="description">Description : </label></td>		
                                     <td><textarea id="description" name="description">{{ zanaTsampana.description }}</textarea></td>
                                 </tr>
+                                
+                                <tr>
+                                    <td><label for="isa">Isan'ny mpikambana : </label></td>		
+                                    <td><input type="number" id="isa" name="isa" value="{{ isa.isa }}"></td>
+                                </tr>
+                                
                                 <tr>
                                     <td><label for="date">Daty niforonana : </label></td>		
                                     <td><input type="date" id="date" name="dateCreation" value={{ zanaTsampana.dateCreation|date('Y-m-d') }}></input></td>

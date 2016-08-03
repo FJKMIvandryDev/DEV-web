@@ -128,6 +128,14 @@ class ZanaTsampanaService {
         $this->em->persist($bureau);
         
         $this->em->flush();
+        
+        $isa = new \backBundle\Entity\IsaSokajy();
+        $isa->setIsa($request->request->get("isa"));
+        $isa->setZanaTsampanaId($sokajy->getId());
+        $isa->setStatus(1);
+        
+        $this->em->persist($isa);
+        $this->em->flush();
     }
     
     public function update(Request $request)
@@ -218,7 +226,24 @@ class ZanaTsampanaService {
         $bureau->setZanaTsampana($sokajy);
         
         $this->em->merge($bureau);
- 
+        
+        $isaOlds = $this->em->getRepository('backBundle:IsaSokajy')->findIsaZanany($sokajy->getId());
+        
+        if (sizeof($isaOlds) > 0)
+        {
+            $isaOld = $isaOlds[0];
+            $isaOld->setStatus(0);
+            
+            $this->em->persist($isaOld);
+        }
+        
+        $isa = new \backBundle\Entity\IsaSokajy();
+        $isa->setIsa($request->request->get("isa"));
+        $isa->setZanaTsampanaId($sokajy->getId());
+        $isa->setStatus(1);
+
+        $this->em->persist($isa);
+        
         $this->em->flush();
     }
 

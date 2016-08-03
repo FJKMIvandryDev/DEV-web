@@ -56,16 +56,27 @@ class RafitraController extends Controller
         $sokajyServ = $this->container->get('sokajinAsaService');
         $membreServ = $this->container->get('membreBureauService');
         $articleServ = $this->container->get('articleService');
+        $isaServ = $this->container->get('isaService');
         
         $sampana = $sokajyServ->findById($idSampana);
         $sampanaM = $membreServ->findBySokajinAsaActif($idSampana);
         $articles = $articleServ->findSokajyNotTsiahyLimit(0, 4, $idSampana);
         
+        $isas = $isaServ->findIsaSokajy($idSampana);
+        
+        $isa = new \backBundle\Entity\IsaSokajy();
+        $isa ->setIsa(0);
+        
+        if (sizeof($isas) > 0)
+        {
+            $isa = $isas[0];
+        }
+        
         return $this->render('frontBundle:Rafitra:sampanaOnglet.html.twig', array(
             "sampana" => $sampana,
             "sampanaM" => $sampanaM,
             "articles" => $articles,
-            
+            "isa" => $isa,
         ));
     }
 }
