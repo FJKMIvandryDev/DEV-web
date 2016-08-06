@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Article controller.
  *
- * @Route("/front")
+ * @Route("")
  */
 class RafitraController extends Controller
 {
@@ -112,6 +112,7 @@ class RafitraController extends Controller
             "sampanaM" => $sampanaM,
             "articles" => $articles,
             "isa" => $isa,
+            "idSampana" => $idSampana,
         ));
     }
     
@@ -145,6 +146,7 @@ class RafitraController extends Controller
             "sampanaM" => $sampanaM,
             "articles" => $articles,
             "isa" => $isa,
+            "idSampana" => $idSampana,
         ));
     }
 }

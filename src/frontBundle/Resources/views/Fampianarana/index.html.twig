@@ -57,12 +57,12 @@
                                     <p></p>
                                         {{ i.description }}
                                     <p></p>
-                                    <span class="petit_gras">Tohiny <a href="#"><img src="{{ asset('web/images/ivandry/suite.png')}}" class="picto" /></a></span>
+                                    <span class="petit_gras">Tohiny <a class='inline' href="#toritenyAlahady{{ indexArtcleActu }}"><img src="{{ asset('web/images/ivandry/suite.png')}}" class="picto" /></a></span>
 
                                     <span class="pull-right">
-                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto1.png')}}" class="picto" /></a>
-                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto2.png')}}" class="picto" /></a>
-                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto3.png')}}" class="picto" /></a>
+                                    {#<a href="#">#}<img src="{{ asset('web/images/ivandry/picto1.png')}}" class="picto" />{#</a>#}
+                                    {#<a href="#">#}<img src="{{ asset('web/images/ivandry/picto2.png')}}" class="picto" />{#</a>#}
+                                    {#<a href="#">#}<img src="{{ asset('web/images/ivandry/picto3.png')}}" class="picto" />{#</a>#}
                                     </span>
 
                                     <p></p>
@@ -78,7 +78,7 @@
                 </div><!-- fin topic fampianarana -->
 
                 <!-- pagination -->
-                <div class="row">
+                {#<div class="row">
                     <div class="col-md-12 text-center">
                         <ul class = "pagination pagination-lg">
                             <li><a href = "#">&laquo;</a></li>
@@ -90,7 +90,7 @@
                             <li><a href = "#">&raquo;</a></li>
                         </ul>
                     </div>
-                </div><!-- fin pagination -->                            
+                </div>#}<!-- fin pagination -->                            
 	    </div>
 	</div>
 	<!-- FIN DIV HAUT -->
@@ -115,7 +115,14 @@
     <div class="samihafa"> 
 	<div class="allign">    
             <div class="row">		
-                <div class="col-lg-12">            
+                <div class="col-lg-12">     
+                    
+                    <!-- titre alahady -->
+                    <div class="row"><div class="col-lg-12">
+                        <t3>SAMIHAFA</t3>
+                    </div></div>
+                    <!-- fin titre alahady -->
+                    
                     {% set indexArtcleActu = 0 %}
                     {% for count in samihafaCount %}
                         <div id="totalSamihafa" style="visibility: hidden">{{ count }}</div>
@@ -138,12 +145,12 @@
                                     <p></p>
                                         {{ i.description }}
                                     <p></p>
-                                    <span class="petit_gras">Tohiny <a href="#"><img src="{{ asset('web/images/ivandry/suite.png')}}" class="picto" /></a></span>
+                                    <span class="petit_gras">Tohiny <a class="inline" href="#samihafa{{ indexArtcleActu }}"><img src="{{ asset('web/images/ivandry/suite.png')}}" class="picto" /></a></span>
 
                                     <span class="pull-right">
-                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto1.png')}}" class="picto" /></a>
-                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto2.png')}}" class="picto" /></a>
-                                    <a href="#"><img src="{{ asset('web/images/ivandry/picto3.png')}}" class="picto" /></a>
+                                    {#<a href="#">#}<img src="{{ asset('web/images/ivandry/picto1.png')}}" class="picto" />{#</a>#}
+                                    {#<a href="#">#}<img src="{{ asset('web/images/ivandry/picto2.png')}}" class="picto" />{#</a>#}
+                                    {#<a href="#">#}<img src="{{ asset('web/images/ivandry/picto3.png')}}" class="picto" />{#</a>#}
                                     </span>
 
                                     <p></p>
@@ -157,7 +164,7 @@
                         {% endfor %}
                     </div>           
                     <!-- pagination -->
-                    <div class="row">
+                    {#<div class="row">
                         <div class="col-md-12 text-center">
                             <ul class = "pagination pagination-lg">
                                 <li class="deux"><a href = "#">&laquo;</a></li>
@@ -169,7 +176,7 @@
                                 <li class="deux"><a href = "#">&raquo;</a></li>
                             </ul>
                         </div>
-                    </div><!-- fin pagination -->             
+                    </div>#}<!-- fin pagination -->             
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Article controller.
  *
- * @Route("/front")
+ * @Route("")
  */
 class ArticleController extends Controller
 {

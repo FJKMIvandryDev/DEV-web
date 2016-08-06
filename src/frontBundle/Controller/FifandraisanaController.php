@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 /**
  * Article controller.
  *
- * @Route("/front")
+ * @Route("")
  */
 class FifandraisanaController extends Controller
 {
