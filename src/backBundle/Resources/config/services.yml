@@ -42,6 +42,11 @@ services:
         arguments: 
             entityManager: "@doctrine.orm.entity_manager"
             
+    visiteService:
+        class: backBundle\Services\VisiteService
+        arguments: 
+            entityManager: "@doctrine.orm.entity_manager"
+            
     imageUploader:
         class: backBundle\Services\UploadImages
         arguments: ['%uploadImageDirectory%']

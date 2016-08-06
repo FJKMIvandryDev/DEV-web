@@ -5,7 +5,7 @@ namespace frontBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-
+use Symfony\Component\HttpFoundation\Session\Session;
 /**
  * Article controller.
  *
@@ -21,6 +21,20 @@ class FampianaranaController extends Controller
     {
         $infoServ = $this->container->get('articleService');
         
+        $visiteServ = $this->container->get('visiteService');
+        $session = new Session();
+        $session->start();
+        
+        $sess =$session->get('sess');
+        $isSess = 1;
+        
+        if ($sess == null)
+        {
+            $session->set("sess", "sess");
+            $visiteServ->addVisite();
+            $isSess = 0;
+        }
+        
         $isakAlahady = $infoServ->findAllByTypeLimit("toritenyalahady", 0, 8);
         $samihafa = $infoServ->findAllByTypeLimit("fampianarana", 0, 8);
         $toritenyAlahadyCount = $infoServ->getCountByType("toritenyalahady");
@@ -31,6 +45,7 @@ class FampianaranaController extends Controller
             "samihafa" => $samihafa,
             "toritenyAlahadyCount" => $toritenyAlahadyCount,
             "samihafaCount" => $samihafaCount,
+            "isSess" => $isSess,
         ));
     }
 }

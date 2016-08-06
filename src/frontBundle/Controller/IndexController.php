@@ -5,6 +5,7 @@ namespace frontBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Article controller.
@@ -13,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
  */
 class IndexController extends Controller
 {
+    
     /**
      * @Route("/", name="index_index")
      * @Method("GET")
@@ -22,6 +24,20 @@ class IndexController extends Controller
         $infoServ = $this->container->get('infoService');
         $articleServ = $this->container->get('articleService');
         
+        $visiteServ = $this->container->get('visiteService');
+        $session = new Session();
+        $session->start();
+        
+        $sess =$session->get('sess');
+        $isSess = 1;
+        
+        if ($sess == null)
+        {
+            $session->set("sess", "sess");
+            $visiteServ->addVisite();
+            $isSess = 0;
+        }
+
         $perikopa = $infoServ->getLastByType("perikopa");
         $vaovao = $infoServ->getLastNews();
         $lohahevitra = $infoServ->getLohahevitra();
@@ -78,6 +94,7 @@ class IndexController extends Controller
             "isambolana" => $isamBolana,
             "dimy" => $sekolyAlahady,
             "samihafa" => $samihafa,
+            "isSess" => $isSess,
         ));
     }
 }

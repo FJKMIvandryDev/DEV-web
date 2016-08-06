@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\HttpFoundation\Session\Session;
 /**
  * Article controller.
  *
@@ -20,6 +20,19 @@ class RafitraController extends Controller
      */
     public function indexAction(Request $request, $type)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $session = new Session();
+        $session->start();
+        
+        $sess =$session->get('sess');
+        $isSess = 1;
+        if ($sess == null)
+        {
+            $session->set("sess", "sess");
+            $visiteServ->addVisite();
+            $isSess = 0;
+        }
+        
         $sokajyServ = $this->container->get('sokajinAsaService');
         $membreServ = $this->container->get('membreBureauService');
         
@@ -45,6 +58,7 @@ class RafitraController extends Controller
             "sampanas" => $sampanas,
             "baseUrl" => $baseurl,
             "type" => strtoupper($type),
+            "isSess" => $isSess,
         ));
     }
     
@@ -54,6 +68,19 @@ class RafitraController extends Controller
      */
     public function indexZananyAction(Request $request)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $session = new Session();
+        $session->start();
+        
+        $sess =$session->get('sess');
+        $isSess = 1;
+        if ($sess == null)
+        {
+            $session->set("sess", "sess");
+            $visiteServ->addVisite();
+            $isSess = 0;
+        }
+        
         $sokajyServ = $this->container->get('sokajinAsaService');
         $zananyServ = $this->container->get('zanaTsampanaService');
         $membreServ = $this->container->get('membreBureauService');
@@ -79,6 +106,7 @@ class RafitraController extends Controller
             "sampanas" => $sampanas,
             "baseUrl" => $baseurl,
             "type" => "ZANA-TSAMPANA",
+            "isSess" => $isSess,
         ));
     }
     
