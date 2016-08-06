@@ -69,6 +69,12 @@ class MembreBureau
     */
     private $mpanoloTsaina2;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $mpanoloTsaina3;
+    
         /**
      * @ORM\ManyToOne(targetEntity="Personne", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(nullable=true)
@@ -670,5 +676,29 @@ class MembreBureau
     public function getTeknisiana2()
     {
         return $this->teknisiana2;
+    }
+
+    /**
+     * Set mpanoloTsaina3
+     *
+     * @param \backBundle\Entity\Personne $mpanoloTsaina3
+     *
+     * @return MembreBureau
+     */
+    public function setMpanoloTsaina3(\backBundle\Entity\Personne $mpanoloTsaina3 = null)
+    {
+        $this->mpanoloTsaina3 = $mpanoloTsaina3;
+
+        return $this;
+    }
+
+    /**
+     * Get mpanoloTsaina3
+     *
+     * @return \backBundle\Entity\Personne
+     */
+    public function getMpanoloTsaina3()
+    {
+        return $this->mpanoloTsaina3;
     }
 }

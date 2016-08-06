@@ -46,6 +46,11 @@ class ZanaTsampana
     private $description;
     
     /**
+     * @ORM\Column(name="sigle", type="string", length=100, nullable=true)
+     */
+    private $sigle;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="imdageJacket", type="string", length=500)

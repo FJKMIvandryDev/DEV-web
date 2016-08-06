@@ -64,6 +64,13 @@ class ArticleService {
         return $article;
     }
     
+    public function findZananyNotTsiahyLimit($begin, $limit, $idZanany)
+    {
+        $article = $this->em->getRepository('backBundle:Article')->findZananyNotTsiahyLimit($begin, $limit, $idZanany);
+        
+        return $article;
+    }
+    
     public function getCountByType($type)
     {
         $article = $this->em->getRepository('backBundle:Article')->getCountByType($type);  

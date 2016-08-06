@@ -73,6 +73,7 @@ class SokajinAsaService {
         $idMpitanTsoratraVola = $request->request->get("mpitantsoratra_vola");
         $idMpanolonTsaina = $request->request->get("mpanolo_tsaina");
         $idMpanolonTsaina2 = $request->request->get("mpanolo_tsaina2");
+        $idMpanolonTsaina3 = $request->request->get("mpanolo_tsaina3");
         $idMpiandraikitra = $request->request->get("mpiandraikitra");
         $idMpiandraikitra2 = $request->request->get("mpiandraikitra2");
         $idTeknisiana = $request->request->get("teknisiana");
@@ -109,6 +110,10 @@ class SokajinAsaService {
         if ($idMpanolonTsaina2 != 0)
         {
             $bureau->setMpanoloTsaina2($emBureau->find($idMpanolonTsaina2));
+        }
+        if ($idMpanolonTsaina3 != 0)
+        {
+            $bureau->setMpanoloTsaina3($emBureau->find($idMpanolonTsaina3));
         }
         if ($idMpiandraikitra != 0)
         {
@@ -176,6 +181,7 @@ class SokajinAsaService {
         $idMpitanTsoratraVola = $request->request->get("mpitantsoratra_vola");
         $idMpanolonTsaina = $request->request->get("mpanolo_tsaina");
         $idMpanolonTsaina2 = $request->request->get("mpanolo_tsaina2");
+        $idMpanolonTsaina3 = $request->request->get("mpanolo_tsaina3");
         $idMpiandraikitra = $request->request->get("mpiandraikitra");
         $idMpiandraikitra2 = $request->request->get("mpiandraikitra2");
         $idTeknisiana = $request->request->get("teknisiana");
@@ -212,6 +218,10 @@ class SokajinAsaService {
         if ($idMpanolonTsaina2 != 0)
         {
             $bureau->setMpanoloTsaina2($emBureau->find($idMpanolonTsaina2));
+        }
+        if ($idMpanolonTsaina3 != 0)
+        {
+            $bureau->setMpanoloTsaina3($emBureau->find($idMpanolonTsaina3));
         }
         if ($idMpiandraikitra != 0)
         {

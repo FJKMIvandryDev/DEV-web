@@ -69,6 +69,13 @@
                                     </span></div>
                             {% else %}
                             {% endif%} 
+                            
+                            {% if sampanaM.mpanoloTsaina3 is not null %}
+                            <p></p><div class="sampana_descr"><li class="petit_gras titre">Mpannolotsaina 3:</li> &nbsp;<span class="nom_sampana">                                    
+                                        {{ sampanaM.mpanoloTsaina3.nom }} {{ sampanaM.mpanoloTsaina3.prenom }}                                    
+                                    </span></div>
+                            {% else %}
+                            {% endif%}
                                     
                             {% if sampanaM.mpiandraikitra is not null %}
                             <p></p><div class="sampana_descr"><li class="petit_gras titre">Mpiandraikitra :</li> &nbsp;<span class="nom_sampana">                                    
@@ -124,12 +131,16 @@
                         </div>
                             
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                            
                             <div class="rafitra_bloc2" style="height: 250px; width: 190px">
-                            <a class='inline' href="#{{ sampana.sigle }}{{ nb }}"><img src="{{ i.imageJacket }}" width="100%" /></a>
-                            <p></p>
-                            <span class="ariane2">{{ i.titre }} </span>
-                            <p class="nom_rafitra">{{ i.description}}</p> 
-                            </div>            
+                                <a class='inline' href="#{{ sampana.sigle }}{{ nb }}">
+                                    <img src="{{ i.imageJacket }}" width="100%" />
+                                    <p></p>
+                                    <span class="ariane2">{{ i.titre }} </span>
+                                </a>
+                                <p class="nom_rafitra">{{ i.description}}</p> 
+                            </div> 
+                            
                         </div>
                         {% set nb = nb+1 %}
                     {% endfor %}

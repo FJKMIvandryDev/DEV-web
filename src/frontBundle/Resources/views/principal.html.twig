@@ -102,60 +102,36 @@
 
 
                                             <li class="dropdown dropdown-large">
-                                                <a href="{{ path('rafitra_index',{ 'idSampana': '3' }) }}" class="dropdown-toggle" >Rafitra  </a>
-                                                            <ul class="dropdown-menu dropdown-menu-large row">
-                                                            <li class="col-sm-2">
-                                                                    <ul>
-                                                                            <li class="dropdown-header">BIRAO</li>
-                                                                    </ul>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                    <ul>
-                                                                            <li class="dropdown-header">SAMPANA</li>
-                                                                            <div style="text-align: left; font-weight: normal; padding-left: 30px">
-                                                                            <li><a href="#"> STK</a></li>
-                                                                            <li><a href="#"> SAFIF</a></li>
-                                                                            <li><a href="#"> SA</a></li>
-                                                                            <li><a href="#"> DORKASY</a></li>
-                                                                            <li><a href="#"> SVM</a></li>
-                                                                            </div>
-                                                                    </ul>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                    <ul>
-                                                                            <li class="dropdown-header">FIKAMBANANA</li>
-                                                                            <div style="text-align: left; font-weight: normal; padding-left: 30px">
-                                                                            <li><a href="#"> STK</a></li>
-                                                                            <li><a href="#"> SAFIF</a></li>
-                                                                            <li><a href="#"> SA</a></li>
-                                                                            <li><a href="#"> DORKASY</a></li>
-                                                                            <li><a href="#"> SVM</a></li>
-                                                                            </div>
-                                                                    </ul>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                    <ul>
-                                                                            <li class="dropdown-header">VAOMIERA</li>
-                                                                            <div style="text-align: left; font-weight: normal; padding-left: 30px">
-                                                                            <li><a href="#"> STK</a></li>
-                                                                            <li><a href="#"> SAFIF</a></li>
-                                                                            <li><a href="#"> SA</a></li>
-                                                                            <li><a href="#"> DORKASY</a></li>
-                                                                            <li><a href="#"> SVM</a></li>
-                                                                            </div>
-                                                                    </ul>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                    <ul>
-                                                                            <li class="dropdown-header">FIKAMBANANA</li>
-                                                                            <div style="text-align: left; font-weight: normal; padding-left: 30px">
-                                                                            <li><a href="#"> STK</a></li>
-                                                                            <li><a href="#"> SAFIF</a></li>
+                                                {#<a href="{{ path('rafitra_index',{ 'idSampana': '3' }) }}" class="dropdown-toggle" >Rafitra  </a>#}
+                                                <a href="rafitra.php" class="dropdown-toggle" data-toggle="dropdown">Rafitra  </a>
+                                                <ul class="dropdown-menu dropdown-menu-large row haut" style="background-color: #BED13E;">
+                                                    <li class="col-sm-2">
+                                                            <ul>
+                                                                <li class="dropdown-header"><a href="{{ path('rafitra_index',{ 'type': 'sampana' }) }}" class="dropdown-toggle" >SAMPANA</a></li>
+                                                            </ul>
+                                                    </li>
+                                                    <li class="col-sm-2">
+                                                            <ul>
+                                                                    <li class="dropdown-header"><a href="{{ path('rafitra_zanany_index') }}" class="dropdown-toggle" >ZANA-TSAMPANA</a></li>
+                                                            </ul>
+                                                    </li>
+                                                    <li class="col-sm-2">
+                                                            <ul>
+                                                                    <li class="dropdown-header"><a href="{{ path('rafitra_index',{ 'type': 'fikambanana' }) }}" class="dropdown-toggle" >FIKAMBANANA</a></li>
+                                                            </ul>
+                                                    </li>
+                                                    <li class="col-sm-2">
+                                                            <ul>
+                                                                    <li class="dropdown-header"><a href="{{ path('rafitra_index',{ 'type': 'vaomiera' }) }}" class="dropdown-toggle" >VAOMIERA</a></li>
+                                                            </ul>
+                                                    </li>
+                                                    <li class="col-sm-2">
+                                                            <ul>
+                                                                    <li class="dropdown-header"><a href="{{ path('rafitra_index',{ 'type': 'komity' }) }}" class="dropdown-toggle" >KOMITY</a></li>
 
-                                                                            </div>
-                                                                    </ul>
-                                                            </li>
-                                                    </ul>
+                                                            </ul>
+                                                    </li>
+                                                </ul>
 
                                             </li>
                                             <ul class="dropdown-menu dropdown-menu-large row">
@@ -174,8 +150,8 @@
                                             <a href="{{ path('tetik_asa_index') }}" class="dropdown-toggle">Tetik'asa</a></li>
                                         <li class="dropdown dropdown-large">
                                             <a href="{{ path('tsiahy_index') }}" class="dropdown-toggle">Tsiahy</a></li>
-                                        <li class="dropdown dropdown-large">
-                                            <a href="#" class="dropdown-toggle">Sary</a></li>
+                                        {#<li class="dropdown dropdown-large">
+                                            <a href="#" class="dropdown-toggle">Sary</a></li>#}
                                         <li class="dropdown dropdown-large">
                                             <a href="{{ path('fifandraisana_index') }}" class="dropdown-toggle">Fifandraisana</a></li>                    
                                     </ul>

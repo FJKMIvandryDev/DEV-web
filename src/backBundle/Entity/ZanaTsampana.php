@@ -46,6 +46,11 @@ class ZanaTsampana
     private $description;
     
     /**
+     * @ORM\Column(name="sigle", type="string", length=100, nullable=true)
+     */
+    private $sigle;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="imdageJacket", type="string", length=500)
@@ -366,5 +371,29 @@ class ZanaTsampana
     public function getSampana()
     {
         return $this->sampana;
+    }
+
+    /**
+     * Set sigle
+     *
+     * @param string $sigle
+     *
+     * @return ZanaTsampana
+     */
+    public function setSigle($sigle)
+    {
+        $this->sigle = $sigle;
+
+        return $this;
+    }
+
+    /**
+     * Get sigle
+     *
+     * @return string
+     */
+    public function getSigle()
+    {
+        return $this->sigle;
     }
 }

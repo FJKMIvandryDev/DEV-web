@@ -45,6 +45,7 @@ class ZanaTsampanaService {
         $sokajy = new ZanaTsampana();
         
         $sokajy->setNom($request->request->get("nom"));
+        $sokajy->setSigle($request->request->get("sigle"));
         $sokajy->setImageJacket($request->request->get("imageJacket"));
         $sokajy->setDescription($request->request->get("description"));
         $sokajy->setDateCreation(new \DateTime($request->request->get("dateCreation")));
@@ -68,6 +69,7 @@ class ZanaTsampanaService {
         $idMpitanTsoratraVola = $request->request->get("mpitantsoratra_vola");
         $idMpanolonTsaina = $request->request->get("mpanolo_tsaina");
         $idMpanolonTsaina2 = $request->request->get("mpanolo_tsaina2");
+        $idMpanolonTsaina3 = $request->request->get("mpanolo_tsaina3");
         $idMpiandraikitra = $request->request->get("mpiandraikitra");
         $idMpiandraikitra2 = $request->request->get("mpiandraikitra2");
         $idTeknisiana = $request->request->get("teknisiana");
@@ -104,6 +106,10 @@ class ZanaTsampanaService {
         if ($idMpanolonTsaina2 != 0)
         {
             $bureau->setMpanoloTsaina2($emBureau->find($idMpanolonTsaina2));
+        }
+        if ($idMpanolonTsaina3 != 0)
+        {
+            $bureau->setMpanoloTsaina3($emBureau->find($idMpanolonTsaina3));
         }
         if ($idMpiandraikitra != 0)
         {
@@ -144,6 +150,7 @@ class ZanaTsampanaService {
         
         $sokajy->setId($request->request->get("id"));
         $sokajy->setNom($request->request->get("nom"));
+        $sokajy->setSigle($request->request->get("sigle"));
         $sokajy->setImageJacket($request->request->get("imageJacket"));
         $sokajy->setDescription($request->request->get("description"));
         $sokajy->setDateCreation(new \DateTime($request->request->get("dateCreation")));
@@ -168,6 +175,7 @@ class ZanaTsampanaService {
         $idMpitanTsoratraVola = $request->request->get("mpitantsoratra_vola");
         $idMpanolonTsaina = $request->request->get("mpanolo_tsaina");
         $idMpanolonTsaina2 = $request->request->get("mpanolo_tsaina2");
+        $idMpanolonTsaina3 = $request->request->get("mpanolo_tsaina3");
         $idMpiandraikitra = $request->request->get("mpiandraikitra");
         $idMpiandraikitra2 = $request->request->get("mpiandraikitra2");
         $idTeknisiana = $request->request->get("teknisiana");
@@ -204,6 +212,10 @@ class ZanaTsampanaService {
         if ($idMpanolonTsaina2 != 0)
         {
             $bureau->setMpanoloTsaina2($emBureau->find($idMpanolonTsaina2));
+        }
+        if ($idMpanolonTsaina3 != 0)
+        {
+            $bureau->setMpanoloTsaina3($emBureau->find($idMpanolonTsaina3));
         }
         if ($idMpiandraikitra != 0)
         {

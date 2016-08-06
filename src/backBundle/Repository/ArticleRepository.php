@@ -59,6 +59,23 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
         return $article;
     }
     
+    public function findZananyNotTsiahyLimit($begin, $limit, $idZanany)
+    {
+        $em = $this->_em;
+        $dql = "SELECT article
+                FROM backBundle:Article article
+            WHERE article.type != 'tsiahy' and article.zanaTsampanaId=$idZanany
+                order by DATE_DIFF( article.date, CURRENT_DATE()) asc
+            ";
+        $query = $em->createQuery($dql)
+                        ->setFirstResult($begin)
+                        ->setMaxResults($limit);
+
+        $article = $query->getResult();
+        
+        return $article;
+    }
+    
     public function findSamyHafaLimit($begin, $limit)
     {
         $em = $this->_em;

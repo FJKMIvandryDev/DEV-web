@@ -167,6 +167,16 @@
                             {% endif%}
                         </tr>
                         <tr>
+                            <td><label>Mpanolo-tsaina 3 : </label></td>
+                            {% if membreBureau.mpanoloTsaina3 is not null %}  
+                                <td><label class="toUpdate">{{ membreBureau.mpanoloTsaina3.nom }} {{ membreBureau.mpanoloTsaina3.prenom }}</label></td>
+                                <td><input type="hidden" id="mpanolo_tsaina3" name="mpanolo_tsaina3" value={{ membreBureau.mpanoloTsaina3.id }}></input></td>
+                            {% else %}
+                                <td><label class="toUpdate">cliquez pour attribué</label></td>
+                                <td><input type="hidden" id="mpanolo_tsaina3" name="mpanolo_tsaina3" value=0></input></td>
+                            {% endif%}
+                        </tr>
+                        <tr>
                             <td><label>Mpiandraikitra : </label></td>
                             {% if membreBureau.mpiandraikitra is not null %}  
                                 <td><label class="toUpdate">{{ membreBureau.mpiandraikitra.nom }} {{ membreBureau.mpiandraikitra.prenom }}</label></td>
