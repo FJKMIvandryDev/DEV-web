@@ -21,7 +21,8 @@ class InfoController extends Controller
      */
     public function indexAction($type)
     {      
-        
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $infoServ = $this->container->get('infoService');
 
         $infos = $infoServ->findAllByType($type);
@@ -29,6 +30,7 @@ class InfoController extends Controller
         return $this->render('backBundle:Info:index.html.twig', array(
             'infos' => $infos,
             "type" => $type,
+            "visite" => $visite,
         ));
     }
     
@@ -38,18 +40,8 @@ class InfoController extends Controller
      */
     public function saveAction(Request $request, $type)
     {
-//        ajouter dans me form : enctype="multipart/form-data"
-//        
-//        if ($request->getMethod() == 'POST')
-//        {
-//            $image = $request->files->get("fileToUpload");
-//            
-//            $fileName = $this->container->get('imageUploader')->upload($image);
-//            
-////            $image->move($this->container->getParameter('uploadDirectory'), "test.jpg");
-//            
-//        }
-
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         if ($request->isMethod('POST')) 
         {
             $infoServ = $this->container->get('infoService');
@@ -58,11 +50,13 @@ class InfoController extends Controller
             
             return $this->redirectToRoute('info_index', array(
                 "type" => $type,
+                "visite" => $visite,
             ));
         }
 
         return $this->render('backBundle:Info:add1.html.twig', array(
             "type" => $type,
+            "visite" => $visite,
         ));
     }
 
@@ -73,12 +67,15 @@ class InfoController extends Controller
      */
     public function deleteAction($type, $id)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $infoServ = $this->container->get('infoService');
         
         $infoServ->delete($id);
         
         return $this->redirectToRoute('info_index', array(
             "type" => $type,
+            "visite" => $visite,
         ));
     }
 
@@ -89,6 +86,8 @@ class InfoController extends Controller
      */
     public function updateViewAction($type, $id)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $infoServ = $this->container->get('infoService');
         $info = $infoServ->findById($id);   
         
@@ -96,6 +95,7 @@ class InfoController extends Controller
         return $this->render('backBundle:Info:update.html.twig', array(
             "info" => $info,
             "type" => $type,
+            "visite" => $visite,
         ));
     }
     
@@ -106,12 +106,15 @@ class InfoController extends Controller
      */
     public function updateAction(Request $request, $type)
     {
-         $infoServ = $this->container->get('infoService');
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
+        $infoServ = $this->container->get('infoService');
         
         $infoServ->update($request);
         
         return $this->redirectToRoute('info_index', array(
             "type" => $type,
+            "visite" => $visite,
         ));
     }
     

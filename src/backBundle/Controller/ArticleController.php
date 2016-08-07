@@ -23,11 +23,15 @@ class ArticleController extends Controller
     {
         $articleServ = $this->container->get('articleService');
         
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
+        
         $articles = $articleServ->findAllByType($type);
         
         return $this->render('backBundle:Article:index.html.twig', array(
             "type" => $type,
             "articles" => $articles,
+            "visite" => $visite,
         ));
     }
 
@@ -37,6 +41,8 @@ class ArticleController extends Controller
      */
     public function addAction(Request $request, $type)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         if ($request->isMethod('POST'))
         {
             $articleServ = $this->container->get('articleService');
@@ -45,6 +51,7 @@ class ArticleController extends Controller
             
             return $this->redirectToRoute('article_index', array(
                 "type" => $type,
+                "visite" => $visite,
             ));
         }
         
@@ -58,6 +65,7 @@ class ArticleController extends Controller
             "baseUrl" => $baseurl,
             "sokajy" => $sokajyServ->findAll(),
             "zanaTsampana" => $zanaTsampanaServ->findAll(),
+            "visite" => $visite,
         ));
     }
 
@@ -67,6 +75,8 @@ class ArticleController extends Controller
      */
     public function updateViewAction(Request $request, $type, $id)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $articleServ = $this->container->get('articleService');
         
         $article = $articleServ->findById($id);
@@ -82,6 +92,7 @@ class ArticleController extends Controller
             "baseUrl" => $baseurl,
             "sokajy" => $sokajyServ->findAll(),
             "zanaTsampana" => $zanaTsampanaServ->findAll(),
+            "visite" => $visite,
         ));
     }
 
@@ -91,12 +102,15 @@ class ArticleController extends Controller
      */
     public function updateAction(Request $request, $type)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $articleServ = $this->container->get('articleService');
         
         $articleServ->update($request);
         
         return $this->redirectToRoute('article_index', array(
             "type" => $type,
+            "visite" => $visite,
         ));
     }
 
@@ -106,12 +120,15 @@ class ArticleController extends Controller
      */
     public function deleteAction($type, $id)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $articleServ = $this->container->get('articleService');
         
         $articleServ->delete($id);
         
         return $this->redirectToRoute('article_index', array(
             "type" => $type,
+            "visite" => $visite,
         ));
     }
     
@@ -121,6 +138,8 @@ class ArticleController extends Controller
      */
     public function showAction($type, $id)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $articleServ = $this->container->get('articleService');
         
         $article = $articleServ->findById($id);
@@ -128,6 +147,7 @@ class ArticleController extends Controller
         return $this->render('backBundle:Article:show.html.twig', array(
             "type" => $type,
             "article" => $article,
+            "visite" => $visite,
         ));
     }
 }

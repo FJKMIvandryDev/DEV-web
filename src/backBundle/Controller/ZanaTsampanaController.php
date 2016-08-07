@@ -20,12 +20,15 @@ class ZanaTsampanaController extends Controller
     */
     public function indexAction()
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $zanaTsampanaServ = $this->container->get('zanaTsampanaService');
         
         $list = $zanaTsampanaServ->findAll();
         
         return $this->render('backBundle:ZanaTsampana:index.html.twig', array(
             "list" => $list,
+            "visite" => $visite,
         ));
     }
     
@@ -35,6 +38,8 @@ class ZanaTsampanaController extends Controller
     */
     public function addAction(Request $request)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         if ($request->isMethod('POST'))
         {
             $zanaTsampanaServ = $this->container->get('zanaTsampanaService');
@@ -55,6 +60,7 @@ class ZanaTsampanaController extends Controller
         return $this->render('backBundle:ZanaTsampana:add.html.twig', array(
             "baseUrl" => $baseurl,
             "reninys" => $reninys,
+            "visite" => $visite,
         ));
     }
     
@@ -64,6 +70,8 @@ class ZanaTsampanaController extends Controller
     */
     public function updateViewAction(Request $request, $id)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $sokajinAsaServ = $this->container->get('SokajinAsaService');
         $reninys = $sokajinAsaServ->findAll("sampana");
         
@@ -94,6 +102,7 @@ class ZanaTsampanaController extends Controller
             "reninys" => $reninys,
             "membreBureau" => $membreServ->findByZanaTsampanaActif($id),
             "isa" => $isa,
+            "visite" => $visite,
         ));
     }
     
@@ -103,12 +112,14 @@ class ZanaTsampanaController extends Controller
     */
     public function updateAction(Request $request)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $zanaTsampanaServ = $this->container->get('zanaTsampanaService');
         
         $zanaTsampanaServ->update($request);
         
         return $this->redirectToRoute('zana_tsampana_index', array(
-            
+            "visite" => $visite,
        ));
     }
     
@@ -118,11 +129,14 @@ class ZanaTsampanaController extends Controller
     */
     public function deleteAction($id)
     {
+       $visiteServ = $this->container->get('visiteService');
+       $visite = $visiteServ->findAll();
        $zanaTsampanaServ = $this->container->get('zanaTsampanaService');
         
        $zanaTsampanaServ->delete($id);
         
        return $this->redirectToRoute('zana_tsampana_index', array(
+           "visite" => $visite,
        ));
     }
 }

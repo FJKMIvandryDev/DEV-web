@@ -24,12 +24,15 @@ class PersonneController extends Controller
      */
     public function indexModalAction()
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $personneServ = $this->container->get('personneService');
 
         $personnes = $personneServ->findAll(); 
 
         return $this->render('backBundle:Personne:modal.html.twig', array(
             'personnes' => $personnes,
+            "visite" => $visite,
         ));
     }
     
@@ -40,6 +43,8 @@ class PersonneController extends Controller
      */
     public function searchModalAction($name)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $personneServ = $this->container->get('personneService');
         
         $personnes = null;
@@ -72,12 +77,15 @@ class PersonneController extends Controller
      */
     public function indexAction()
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $personneServ = $this->container->get('personneService');
         
         $list = $personneServ->findAll();
         
         return $this->render('backBundle:Personne:index.html.twig', array(
             "list" => $list,
+            "visite" => $visite,
         ));
     }
 
@@ -89,6 +97,8 @@ class PersonneController extends Controller
      */
     public function newAction(Request $request)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         if ($request->isMethod('POST')) 
         {
             $personneServ = $this->container->get('personneService');
@@ -102,6 +112,7 @@ class PersonneController extends Controller
 
         return $this->render('backBundle:Personne:new.html.twig', array(
             "baseUrl" => $baseurl,
+            "visite" => $visite,
         ));
     }
 
@@ -113,11 +124,14 @@ class PersonneController extends Controller
      */
     public function showAction(Personne $personne)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $deleteForm = $this->createDeleteForm($personne);
 
         return $this->render('backBundle:Personne:show.html.twig', array(
             'personne' => $personne,
             'delete_form' => $deleteForm->createView(),
+            "visite" => $visite,
         ));
     }
 
@@ -129,6 +143,8 @@ class PersonneController extends Controller
      */
     public function editAction(Request $request, $id)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $personneServ = $this->container->get('personneService');
         
         if ($request->isMethod('POST')) 
@@ -143,6 +159,7 @@ class PersonneController extends Controller
         return $this->render('backBundle:Personne:edit.html.twig', array(
             "baseUrl" => $baseurl,
             "personne" => $personneServ->findById($id),
+            "visite" => $visite,
         ));
 
     }

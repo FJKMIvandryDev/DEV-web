@@ -23,6 +23,8 @@ class SokajinAsaController extends Controller
      */
     public function indexAction($type)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $sokajyServ = $this->container->get('sokajinAsaService');
         
         $list = $sokajyServ->findAllByType($type);
@@ -30,6 +32,7 @@ class SokajinAsaController extends Controller
         return $this->render('backBundle:SokajinAsa:index.html.twig', array(
             "type" => $type,
             "list" => $list,
+            "visite" => $visite,
         ));
     }
     
@@ -39,6 +42,8 @@ class SokajinAsaController extends Controller
      */
     public function addAction(Request $request, $type)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
         
         if ($request->isMethod('POST'))
@@ -49,13 +54,14 @@ class SokajinAsaController extends Controller
             
             return $this->redirectToRoute('sokajy_index', array(
                 "type" => $type,
-                
+                "visite" => $visite,
             ));
         }
         
         return $this->render('backBundle:SokajinAsa:add.html.twig', array(
             "type" => $type,
             "baseUrl" => $baseurl,
+            "visite" => $visite,
         ));
     }
     
@@ -65,6 +71,8 @@ class SokajinAsaController extends Controller
      */
     public function updateViewAction(Request $request, $type, $id)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
          
         $sokajyServ = $this->container->get('sokajinAsaService');
@@ -94,6 +102,7 @@ class SokajinAsaController extends Controller
             "baseUrl" => $baseurl,
             "membreBureau" => $membreServ->findBySokajinAsaActif($id),
             "isa" => $isa,
+            "visite" => $visite,
         ));
     }
     
@@ -104,12 +113,15 @@ class SokajinAsaController extends Controller
      */
     public function updateAction(Request $request, $type)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $sokajyServ = $this->container->get('sokajinAsaService');
         
         $sokajyServ->update($request);
         
         return $this->redirectToRoute('sokajy_index', array(
-                "type" => $type,     
+                "type" => $type,  
+                "visite" => $visite,
         ));
     }
     
@@ -120,12 +132,15 @@ class SokajinAsaController extends Controller
      */
     public function deleteAction($type, $id)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $sokajyServ = $this->container->get('sokajinAsaService');
         
         $sokajyServ->delete($id);
         
         return $this->redirectToRoute('sokajy_index', array(
-                "type" => $type,
+            "type" => $type,
+            "visite" => $visite,
         ));
     }
     

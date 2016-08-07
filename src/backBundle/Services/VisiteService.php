@@ -30,7 +30,7 @@ class VisiteService {
         
         if (sizeof($visites)>0)
         {
-            return visites[0];
+            return $visites[0];
         }
         
         $visite = new \backBundle\Entity\Visite();

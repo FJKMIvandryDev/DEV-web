@@ -24,12 +24,15 @@ class MembreBureauController extends Controller
      */
     public function indexAction()
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $em = $this->getDoctrine()->getManager();
 
         $membreBureaus = $em->getRepository('backBundle:MembreBureau')->findAll();
 
         return $this->render('membrebureau/index.html.twig', array(
             'membreBureaus' => $membreBureaus,
+            "visite" => $visite,
         ));
     }
 
@@ -41,6 +44,8 @@ class MembreBureauController extends Controller
      */
     public function newAction(Request $request)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $membreBureau = new MembreBureau();
         $form = $this->createForm('backBundle\Form\MembreBureauType', $membreBureau);
         $form->handleRequest($request);
@@ -50,12 +55,16 @@ class MembreBureauController extends Controller
             $em->persist($membreBureau);
             $em->flush();
 
-            return $this->redirectToRoute('membrebureau_show', array('id' => $membreBureau->getId()));
+            return $this->redirectToRoute('membrebureau_show', array(
+                'id' => $membreBureau->getId(),
+                "visite" => $visite,)
+            );
         }
 
         return $this->render('membrebureau/new.html.twig', array(
             'membreBureau' => $membreBureau,
             'form' => $form->createView(),
+            "visite" => $visite,
         ));
     }
 
@@ -67,11 +76,14 @@ class MembreBureauController extends Controller
      */
     public function showAction(MembreBureau $membreBureau)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $deleteForm = $this->createDeleteForm($membreBureau);
 
         return $this->render('membrebureau/show.html.twig', array(
             'membreBureau' => $membreBureau,
             'delete_form' => $deleteForm->createView(),
+            "visite" => $visite,
         ));
     }
 
@@ -83,6 +95,8 @@ class MembreBureauController extends Controller
      */
     public function editAction(Request $request, MembreBureau $membreBureau)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $deleteForm = $this->createDeleteForm($membreBureau);
         $editForm = $this->createForm('backBundle\Form\MembreBureauType', $membreBureau);
         $editForm->handleRequest($request);
@@ -92,13 +106,18 @@ class MembreBureauController extends Controller
             $em->persist($membreBureau);
             $em->flush();
 
-            return $this->redirectToRoute('membrebureau_edit', array('id' => $membreBureau->getId()));
+            return $this->redirectToRoute('membrebureau_edit', array(
+                'id' => $membreBureau->getId(),
+                "visite" => $visite,
+               )
+            );
         }
 
         return $this->render('membrebureau/edit.html.twig', array(
             'membreBureau' => $membreBureau,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            "visite" => $visite,
         ));
     }
 
@@ -110,6 +129,8 @@ class MembreBureauController extends Controller
      */
     public function deleteAction(Request $request, MembreBureau $membreBureau)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
         $form = $this->createDeleteForm($membreBureau);
         $form->handleRequest($request);
 
@@ -131,6 +152,9 @@ class MembreBureauController extends Controller
      */
     private function createDeleteForm(MembreBureau $membreBureau)
     {
+        $visiteServ = $this->container->get('visiteService');
+        $visite = $visiteServ->findAll();
+        
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('membrebureau_delete', array('id' => $membreBureau->getId())))
             ->setMethod('DELETE')
