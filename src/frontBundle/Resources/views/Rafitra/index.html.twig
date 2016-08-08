@@ -211,7 +211,33 @@
                 <div class="row"><t3b>{{ type }}</t3b></div>
         <!--MENU -->
                 <div class="row">
-                    <nav class="navbar2 navbar-default navbar-static">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8" >
+                        <nav class="navbar navbar-default navbar-static">
+                            <div class="navbar-header">
+                                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#menu-sampana">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#"></a>
+
+
+
+                                <div id="menu-sampana" class="collapse navbar-collapse js-navbar-collapse">
+                                        <ul class="nav navbar-nav">
+                                            {% for i in sampanas %}
+                                                <li class="dropdown dropdown-large">
+                                                    <a class="dropdown-toggle" data-toggle="tab" href="#{{ i.id }}" onclick="return onglet.clickO('{{ i.id }}')">{{ i.sigle }}</a></li>
+                                            {% endfor %}
+
+                                        </ul>
+
+                                </div><!-- /.nav-collapse -->
+                            </div>
+                        </nav>
+                    </div>
+                    {#<nav class="navbar2 navbar-default navbar-static">
                         <div class="navbar-header">
                             <div class="collapse navbar-collapse js-navbar-collapse" style="padding-left: 0px;">
                                 <ul class="nav3 navbar-nav">
@@ -223,7 +249,7 @@
 
                             </div>
                         </div> 
-                    </nav>
+                    </nav>#}
                 </div>
 <!-- fin menu -->
             </div>
@@ -288,6 +314,15 @@
                     theme:"inset-dark"
             });
         }
+    </script>
+    
+    <script>
+        $(document).on('click','.navbar-collapse',function(e) {
+            if( $(e.target).is('a') ) 
+            {
+                $(this).collapse('hide');
+            }
+        });
     </script>
 
 {% endblock %}
