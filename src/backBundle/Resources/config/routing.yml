@@ -25,3 +25,7 @@ back_article:
 back_zana_tsampana:
     resource: "@backBundle/Controller/ZanaTsampanaController.php"
     type:     annotation
+    
+back_album:
+    resource: "@backBundle/Controller/AlbumController.php"
+    type:     annotation

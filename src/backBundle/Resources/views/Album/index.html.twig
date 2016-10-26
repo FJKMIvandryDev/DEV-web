@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+        
+        <link href="{{ asset('css/jquery.filer.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('css/themes/jquery.filer-dragdropbox-theme.css') }}" type="text/css" rel="stylesheet" />
+        
+</head>
+<body>
+	<h1>Upload sary</h1>
+	
+	{#<form id="myform" method="post" action="{{ path('album_upload_file') }}" enctype="multipart/form-data">
+		<h5>Fichier image:</h5>
+		<input type="file" name="fileImage" id="fileImage" />
+		
+		<input type="submit" value="Envoyer" />
+	</form>#}
+                
+        <form action="{{ path('album_upload_file') }}" method="post" enctype="multipart/form-data">
+              <input type="file" name="fileImage" id="filer_input"{# multiple="multiple"#}>
+              <input type="submit" value="Submit">
+        </form>
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="{{ asset('js/jquery.filer.min.js') }}"></script>
+        <script src="{{ asset('js/prettify.js') }}"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
+{#        <script src="{{ asset('js/jquery.form.min.js') }}" charset="utf-8"></script>#}
+	{#<script type="text/javascript">
+		$('#myform').ajaxForm({
+			dataType: 'json',
+			beforeSubmit: function(arr, form, options) {
+				//var formId = $(form).attr('id');
+				//$('#' + formId + ' img').attr('src', 'ajax-loader.gif');
+			},
+			success: function(data) {
+				if(data.fileUploaded) {
+					console.log('Success...');
+				} else {
+					alert(data.message);
+				}
+			}
+		});
+	</script>#}
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var body = $(document.body),
+                filer_default_opts = {
+                    changeInput2: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag&Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn btn-custom blue-light">Browse Files</a></div></div>',
+                    templates: {
+                        box: '<ul class="jFiler-items-list jFiler-items-grid"></ul>',
+                        item: '<li class="jFiler-item" style="width:49%">\
+                                    <div class="jFiler-item-container">\
+                                        <div class="jFiler-item-inner">\
+                                            <div class="jFiler-item-thumb">\
+                                                <div class="jFiler-item-status"></div>\
+                                                <div class="jFiler-item-thumb-overlay">\
+                                                                                        <div class="jFiler-item-info">\
+                                                                                                <div style="display:table-cell;vertical-align: middle;">\
+                                                                                                        <span class="jFiler-item-title"><b title="\{\{fi-name}}">\{\{fi-name}}</b></span>\
+                                                                                                        <span class="jFiler-item-others">\{\{fi-size2}}</span>\
+                                                                                                </div>\
+                                                                                        </div>\
+                                                                                </div>\
+                                                \{\{fi-image}}\
+                                            </div>\
+                                            <div class="jFiler-item-assets jFiler-row">\
+                                                <ul class="list-inline pull-left">\
+                                                    <li>\{\{fi-progressBar}}</li>\
+                                                </ul>\
+                                                <ul class="list-inline pull-right">\
+                                                    <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                                </ul>\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                </li>',
+                        itemAppend: '<li class="jFiler-item" style="width:49%">\
+                                        <div class="jFiler-item-container">\
+                                            <div class="jFiler-item-inner">\
+                                                <div class="jFiler-item-thumb">\
+                                                    <div class="jFiler-item-status"></div>\
+                                                    <div class="jFiler-item-thumb-overlay">\
+                                                                                                <div class="jFiler-item-info">\
+                                                                                                        <div style="display:table-cell;vertical-align: middle;">\
+                                                                                                                <span class="jFiler-item-title"><b title="\{\{fi-name}}">\{\{fi-name}}</b></span>\
+                                                                                                                <span class="jFiler-item-others">\{\{fi-size2}}</span>\
+                                                                                                        </div>\
+                                                                                                </div>\
+                                                                                        </div>\
+                                                    \{\{fi-image}}\
+                                                </div>\
+                                                <div class="jFiler-item-assets jFiler-row">\
+                                                    <ul class="list-inline pull-left">\
+                                                        <li><span class="jFiler-item-others">\{\{fi-icon}}</span></li>\
+                                                    </ul>\
+                                                    <ul class="list-inline pull-right">\
+                                                        <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                                    </ul>\
+                                                </div>\
+                                            </div>\
+                                        </div>\
+                                    </li>',
+                        progressBar: '<div class="bar"></div>',
+                        itemAppendToEnd: false,
+                        removeConfirmation: true,
+                        _selectors: {
+                            list: '.jFiler-items-list',
+                            item: '.jFiler-item',
+                            progressBar: '.bar',
+                            remove: '.jFiler-item-trash-action'
+                        }
+                    },
+                    dragDrop: {},
+                    uploadFile: {
+                        url: "{{ path('album_upload_file') }}",
+                        data: {},
+                        type: 'POST',
+                        enctype: 'multipart/form-data',
+                        beforeSend: function(){},
+                        success: function(data, el){
+                            var parent = el.find(".jFiler-jProgressBar").parent();
+                            el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
+                                $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
+                                $("<div class=\"path-file\">"+data.path+"</div>").hide().appendTo(parent.parent().parent());
+                            });
+                            
+                            console.log(data);
+                        },
+                        error: function(el){
+                            var parent = el.find(".jFiler-jProgressBar").parent();
+                            el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
+                                $("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Error</div>").hide().appendTo(parent).fadeIn("slow");
+                            });
+                        },
+                        statusCode: null,
+                        onProgress: null,
+                        onComplete: null
+                    }
+                };
+                
+                prettyPrint();
+                
+                $('.pre-collapse').on("click", function(e){
+                        var title = ["<i class=\"fa fa-code pull-left\"></i> + Show the source code", "<i class=\"fa fa-code pull-left\"></i> - Hide the source code"],
+                            $button = $(this),
+                            $parent = $(this).closest('.pre-box'),
+                            $pre = $parent.find('pre'),
+                            isCollapsed = !$pre.is(':visible');
+
+                        if(isCollapsed){
+                            $pre.slideDown(200);
+                            $button.html(title[1]);
+                        }else{
+                            $pre.slideUp(200);
+                            $button.html(title[0]);
+                        }
+                    });
+                
+                obj = {
+                        showThumbs: true,
+                        templates: filer_default_opts.templates,
+                        addMore: true,
+                        dragDrop: filer_default_opts.dragDrop,
+                        uploadFile: filer_default_opts.uploadFile,
+                        onRemove: function(parent){
+                            var path_file = parent.find(".path-file").text();
+                            
+                            if (path_file=="")
+                            {
+                                path_file = parent.children().children().children().find(".jFiler-item-thumb-image").children().attr("src");
+                            }
+                            
+                            console.log("path file = "+path_file);
+                            
+                            $.post("{{ path('album_delete_file') }}",
+                                {
+                                    filepath: path_file
+                                },
+                                function(data, status){
+                                    alert("Data: " + data + "\nStatus: " + status);
+                                });
+                        },
+                        {#files: [
+                                {
+                                    name: "appended_file.jpg",
+                                    size: 5453,
+                                    type: "image/jpg",
+                                    file: "http://localhost/web/upload/test/58109a2f07e76.png"
+                                },
+                                {
+                                    name: "appended_file_2.jpg",
+                                    size: 9453,
+                                    type: "image/jpg",
+                                    file: "http://localhost/web/upload/test/58109a2f07e76.png"
+                                }
+                            ]#}
+                    };
+                
+                $('#filer_input').filer(obj);
+           });
+        </script>
+</body>
+</html>
