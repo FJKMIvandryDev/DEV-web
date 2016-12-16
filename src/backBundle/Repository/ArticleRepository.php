@@ -31,7 +31,7 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
         $dql = "SELECT article
                 FROM backBundle:Article article
             WHERE article.type = '$type'
-                order by DATE_DIFF( article.date, CURRENT_DATE()) asc
+                order by DATE_DIFF( CURRENT_DATE(), article.date ) asc  
             ";
         $query = $em->createQuery($dql)
                         ->setFirstResult($begin)
@@ -101,7 +101,7 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
             WHERE article.type = '$type'";
         $query = $em->createQuery($dql);
 
-        $count = $query->getOneOrNullResult();
+        $count = $query->getResult();
         
         return $count;
     }

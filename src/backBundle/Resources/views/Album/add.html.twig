@@ -1,0 +1,151 @@
+{% extends "backBundle::principal.html.twig" %}
+
+{% block title %} Album {% endblock %}
+
+{% block headPerso %}
+    <style type="text/css">
+        #image {
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #000;
+            color: #fff;
+        }
+        #image img {
+            visibility: hidden;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    
+    <form action="{{ path('album_add') }}" method="POST">
+        
+        <div class="container">
+            <!-- header row -->
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="titre">Titre : </label>
+                <input class="col-lg-5" id="titre" type="text" name="name"/>
+            </div>
+{#            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="jacket">Jacket : </label>
+                <input class="col-lg-5" id="jacket" type="text" name="jacket"/>
+            </div>#}
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="description">Description : </label>
+                <textarea class="col-lg-5" id="description" name="description"></textarea>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="date">Date : </label>
+                <input class="col-lg-5" id="date" type="date" name="date" value="{{ 'now'|date('Y-m-d') }}"/>
+            </div>
+ 
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="sokajy">sokajin'Asa : </label>
+                <select class="col-lg-4" id="sokajy" name="sokajy">
+                    <option value= 0 >--selection sokajin'asa--</option>
+                    {% for s in sokajy %}
+                        <option value={{ s.id }}>{{ s.nom }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+                
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="zanany">zana-tsampana : </label>
+                <select class="col-lg-4" id="zanany" name="zanaTsampana">
+                    <option value= 0 >--selection zana-tsampana--</option>
+                    {% for z in zanaTsampana %}
+                        <option value={{ z.id }}>{{ z.nom }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="row">
+                </br>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                        <div id="image" style="text-align: center" onclick="openKCFinder(this);">
+                        <div style="margin:5px">Click here to choose an image for jacket</div>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+                
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <label class="col-lg-2" for="sary">Jacket : </label>
+                <input class="col-lg-5" id="sary" type="text" name="jacket"/>
+            </div>
+            
+            <div class="row">
+                <br/>
+                <br/>
+            </div>
+            
+            <div class="row">
+                <input type="submit" value="Enregistrer"/>
+            </div>
+            
+            
+        </div>
+
+    </form>    
+        
+{% endblock %}
+
+        
+{% block JSPerso %}
+    <script src="{{ asset("bundles/back/ckeditor/ckeditor.js") }}"></script>
+
+    <script type="text/javascript">
+        function openKCFinder(elmt) {
+            window.KCFinder = {
+                callBack: function(url) {
+                    window.KCFinder = null;                        
+                    elmt.innerHTML = '<div style="margin:5px">Loading...</div>';
+                    var texte = document.getElementById('sary');
+                    texte.value = url;
+                    var img = new Image();
+                    img.src = url;
+                    img.onload = function() {
+                        elmt.innerHTML = '<img id="img" src="' + url + '" />';
+                        var img = document.getElementById('img');
+                        var o_w = img.offsetWidth;
+                        var o_h = img.offsetHeight;
+                        var f_w = elmt.offsetWidth;
+                        var f_h = elmt.offsetHeight;
+                        if ((o_w > f_w) || (o_h > f_h)) {
+                            if ((f_w / f_h) > (o_w / o_h))
+                                f_w = parseInt((o_w * f_h) / o_h);
+                            else if ((f_w / f_h) < (o_w / o_h))
+                                f_h = parseInt((o_h * f_w) / o_w);
+                            img.style.width = f_w + "px";
+                            img.style.height = f_h + "px";
+                        } else {
+                            f_w = o_w;
+                            f_h = o_h;
+                        }
+                        img.style.marginLeft = parseInt((elmt.offsetWidth - f_w) / 2) + 'px';
+                        img.style.marginTop = parseInt((elmt.offsetHeight - f_h) / 2) + 'px';
+                        img.style.visibility = "visible";
+                    }
+                }
+            };
+            window.open('{{ baseUrl }}/bundles/back/kcfinder/browse.php?type=images&dir=images/public', 'kcfinder_image',
+                    'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
+                    'resizable=1, scrollbars=0, width=800, height=600'
+            );
+        }
+    </script>
+
+{% endblock %}

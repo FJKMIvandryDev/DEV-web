@@ -2,8 +2,9 @@
 
 namespace backBundle\Services;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-
+use Doctrine\ORM\EntityManager;
+use \backBundle\Entity\ImageAlbum;
+use \backBundle\Entity\Album;
 /**
  * Description of test
  *
@@ -11,20 +12,30 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class UploadImages {
     
-    private $targetDir;
+    protected $em;
 
-    public function __construct($targetDir)
+    public function __construct(EntityManager $entityManager)
     {
-        $this->targetDir = $targetDir;
+        $this->em = $entityManager;
     }
     
-    public function upload($file, $albumName)
+    public function upload($file, $idAlbum)
     {
         if(!is_null($file)) {
             $filename = uniqid() . "." . $file->getClientOriginalExtension();
-            //$path = "/path/where/we/want-to-save-the-file";
-            $path = "upload/" . $albumName;
+//            $path = "/path/where/we/want-to-save-the-file";
+            $albumDAO = $this->em->getRepository("backBundle:Album");
+            $currentAlbum = $albumDAO->find($idAlbum);
+            $path = "upload/" . $currentAlbum->getName();
             $file->move($path, $filename); // move the file to a path
+
+            $img = new ImageAlbum();
+            $img->setAlbum($currentAlbum);
+            $img->setUrl($path . "/" . $filename);
+            $img->setOriginalName($file->getClientOriginalName());
+            
+            $this->em->persist($img);
+            $this->em->flush();
             
             return $path . "/" . $filename;
         }
@@ -34,15 +45,22 @@ class UploadImages {
     
     public function delete($path, $baseUrl)
     {
-        $path_replace = str_replace($baseUrl . "/web/","",$path);
-        
-        if (file_exists($path_replace)) {
-            unlink($path_replace);
+        $path_partiel = str_replace($baseUrl . "/web/","",$path);
+        $images = $this->em->getRepository('backBundle:ImageAlbum')->findByUrl($path_partiel);
+
+        if (file_exists($path_partiel)) {
+            unlink($path_partiel);
+            
+            foreach ($images as $image)
+            {
+                $this->em->remove($image);
+                $this->em->flush();
+            }
             
             return "success";
         }
         
-        return "file not exist";
+        return $path_partiel;
     }
     
 }

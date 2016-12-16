@@ -78,19 +78,53 @@
                 </div><!-- fin topic fampianarana -->
 
                 <!-- pagination -->
-                {#<div class="row">
+                <div class="row">
                     <div class="col-md-12 text-center">
                         <ul class = "pagination pagination-lg">
-                            <li><a href = "#">&laquo;</a></li>
-                            <li><a href = "#">1</a></li>
-                            <li><a href = "#">2</a></li>
-                            <li><a href = "#">3</a></li>
-                            <li><a href = "#">4</a></li>
-                            <li><a href = "#">5</a></li>
-                            <li><a href = "#">&raquo;</a></li>
+                            {% if toritenyCP - 1 >=1 %}
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP - 1 }}&samyhafaCP={{ samihafaCP }}">&laquo;</a></li>
+                            {% else %}
+                                <li><a href = "#">&laquo;</a></li>
+                            {% endif %}
+                            
+                            {% if totalPageToriteny <= 5 %}
+                                {% for i in 1..totalPageToriteny %}
+                                    {% if i == toritenyCP%}
+                                        <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ i }}&samyhafaCP={{ samihafaCP }}" style="background-color:powderblue;">{{ i }}</a></li>
+                                    {% else %}
+                                        <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ i }}&samyhafaCP={{ samihafaCP }}">{{ i }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% elseif toritenyCP>2%}
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP - 2 }}&samyhafaCP={{ samihafaCP }}">{{ toritenyCP - 2 }}</a></li>
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP - 1 }}&samyhafaCP={{ samihafaCP }}">{{ toritenyCP - 1 }}</a></li>
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ samihafaCP }}" style="background-color:powderblue;">{{ toritenyCP}}</a></li>
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP + 1 }}&samyhafaCP={{ samihafaCP }}">{{ toritenyCP + 1 }}</a></li>
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP + 2 }}&samyhafaCP={{ samihafaCP }}">{{ toritenyCP + 2 }}</a></li>
+                            {% else %}
+                                {% for i in 1..5 %}
+                                    {% if i == toritenyCP%}
+                                        <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ i }}&samyhafaCP={{ samihafaCP }}" style="background-color:powderblue;">{{ i }}</a></li>
+                                    {% else %}
+                                        <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ i }}&samyhafaCP={{ samihafaCP }}">{{ i }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                                {#<li><a href = "{{ path('fampianarana_index') }}?toritenyCP=1&samyhafaCP={{ samihafaCP }}">1</a></li>
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP=2&samyhafaCP={{ samihafaCP }}">2</a></li>
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ samihafaCP }}">{{ toritenyCP}}</a></li>
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP + 1 }}&samyhafaCP={{ samihafaCP }}">{{ toritenyCP + 1 }}</a></li>
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP + 2 }}&samyhafaCP={{ samihafaCP }}">{{ toritenyCP + 2 }}</a></li>#}
+                            {% endif %}
+                            
+                            {% if toritenyCP+1<=totalPageToriteny %}
+                                <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP + 1 }}&samyhafaCP={{ samihafaCP }}">&raquo;</a></li>
+                            {% else%}
+                                <li><a href = "#">&raquo;</a></li>
+                            {% endif %}
                         </ul>
                     </div>
-                </div>#}<!-- fin pagination -->                            
+                </div>
+                <!-- fin pagination -->                            
 	    </div>
 	</div>
 	<!-- FIN DIV HAUT -->
@@ -164,19 +198,53 @@
                         {% endfor %}
                     </div>           
                     <!-- pagination -->
-                    {#<div class="row">
+                    <div class="row">
                         <div class="col-md-12 text-center">
                             <ul class = "pagination pagination-lg">
-                                <li class="deux"><a href = "#">&laquo;</a></li>
-                                <li class="deux"><a href = "#">1</a></li>
-                                <li class="deux"><a href = "#">2</a></li>
-                                <li class="deux"><a href = "#">3</a></li>
-                                <li class="deux"><a href = "#">4</a></li>
-                                <li class="deux"><a href = "#">5</a></li>
-                                <li class="deux"><a href = "#">&raquo;</a></li>
+                                {% if samihafaCP - 1 >=1 %}
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ samihafaCP - 1}}">&laquo;</a></li>
+                                {% else %}
+                                    <li><a href = "#">&laquo;</a></li>
+                                {% endif %}
+
+                                {% if totalPageSamihafa <= 5 %}
+                                    {% for i in 1..totalPageSamihafa %}
+                                        {% if i == samihafaCP%}
+                                            <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ i }}" style="background-color:powderblue;">{{ i }}</a></li>
+                                        {% else %}
+                                            <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ i }}">{{ i }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% elseif samihafaCP>2%}
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ samihafaCP - 2 }}">{{ samihafaCP - 2 }}</a></li>
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ samihafaCP - 1 }}">{{ samihafaCP - 1 }}</a></li>
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ samihafaCP }}" style="background-color:powderblue;">{{ samihafaCP }}</a></li>
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ samihafaCP + 1 }}">{{ samihafaCP + 1 }}</a></li>
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ samihafaCP + 2 }}">{{ samihafaCP + 2 }}</a></li>
+                                {% else %}
+                                    {% for i in 1..5 %}
+                                        {% if i == samihafaCP%}
+                                            <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ i }}" style="background-color:powderblue;">{{ i }}</a></li>
+                                        {% else %}
+                                            <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ i }}">{{ i }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {#<li><a href = "{{ path('fampianarana_index') }}?toritenyCP=1&samyhafaCP={{ samihafaCP }}">1</a></li>
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP=2&samyhafaCP={{ samihafaCP }}">2</a></li>
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ samihafaCP }}">{{ toritenyCP}}</a></li>
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP + 1 }}&samyhafaCP={{ samihafaCP }}">{{ toritenyCP + 1 }}</a></li>
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP + 2 }}&samyhafaCP={{ samihafaCP }}">{{ toritenyCP + 2 }}</a></li>#}
+                                {% endif %}
+
+                                {% if samihafaCP+1<=totalPageSamihafa %}
+                                    <li><a href = "{{ path('fampianarana_index') }}?toritenyCP={{ toritenyCP }}&samyhafaCP={{ samihafaCP + 1 }}">&raquo;</a></li>
+                                {% else%}
+                                    <li><a href = "#">&raquo;</a></li>
+                                {% endif %}
                             </ul>
                         </div>
-                    </div>#}<!-- fin pagination -->             
+                    </div>
+                    <!-- fin pagination -->             
                 </div>
             </div>
         </div>

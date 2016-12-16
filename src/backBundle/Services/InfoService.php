@@ -50,12 +50,22 @@ class InfoService {
     {
         $article = $this->em->getRepository('backBundle:Info')->getLastByType($type);  
         
+        if (sizeof($article)<10)
+        {
+            $article = $this->em->getRepository('backBundle:Info')->getLastTenByType($type);
+        }
+        
         return $article;
     }
     
     public function getLastNews()
     {
         $info = $this->em->getRepository('backBundle:Info')->getLastNews();  
+        
+        if (sizeof($info)<10)
+        {
+            $info = $this->em->getRepository('backBundle:Info')->getLastTenNews();
+        }
         
         return $info;
     }

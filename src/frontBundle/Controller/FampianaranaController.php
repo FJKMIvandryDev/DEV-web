@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Request;
 /**
  * Article controller.
  *
@@ -17,9 +18,12 @@ class FampianaranaController extends Controller
      * @Route("/fampianarana", name="fampianarana_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $infoServ = $this->container->get('articleService');
+        $articleServ = $this->container->get('articleService');
+        
+        $toritenyCP = $request->query->get('toritenyCP');
+        $samyhafaCP = $request->query->get('samyhafaCP');
         
         $visiteServ = $this->container->get('visiteService');
         $session = new Session();
@@ -35,16 +39,23 @@ class FampianaranaController extends Controller
             $isSess = 0;
         }
         
-        $isakAlahady = $infoServ->findAllByTypeLimit("toritenyalahady", 0, 8);
-        $samihafa = $infoServ->findAllByTypeLimit("fampianarana", 0, 8);
-        $toritenyAlahadyCount = $infoServ->getCountByType("toritenyalahady");
-        $samihafaCount = $infoServ->getCountByType("fampianarana");
+        $isakAlahady = $articleServ->findAllByTypeLimit("toritenyalahady", ($toritenyCP-1)*8, 8);
+        $samihafa = $articleServ->findAllByTypeLimit("fampianarana", ($samyhafaCP-1)*8, 8);
+        $toritenyAlahadyCount = $articleServ->getCountByType("toritenyalahady");
+        $samihafaCount = $articleServ->getCountByType("fampianarana");
+        
+        $pageToriteny = $toritenyAlahadyCount[0][1]/8;
+        $pageSamihafa = $samihafaCount[0][1]/8;
         
         return $this->render('frontBundle:Fampianarana:index.html.twig', array(
             "isakAlahady" => $isakAlahady,
             "samihafa" => $samihafa,
-            "toritenyAlahadyCount" => $toritenyAlahadyCount,
-            "samihafaCount" => $samihafaCount,
+            "toritenyAlahadyCount" => sizeof($isakAlahady) ,
+            "samihafaCount" => sizeof($samihafa),
+            "totalPageToriteny" => ceil($pageToriteny),
+            "totalPageSamihafa" => ceil($pageSamihafa),
+            "toritenyCP" => $toritenyCP,
+            "samihafaCP" => $samyhafaCP,
             "isSess" => $isSess,
         ));
     }

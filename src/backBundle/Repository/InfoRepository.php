@@ -43,6 +43,23 @@ class InfoRepository extends \Doctrine\ORM\EntityRepository
         return $info;
     }
     
+    public function getLastTenByType($type)
+    {
+        $em = $this->_em;
+        $dql = "SELECT info
+            FROM backBundle:Info info
+            WHERE info.type = '$type'
+                order by info.date desc";
+
+        $query = $em->createQuery($dql)
+                        ->setFirstResult(0)
+                        ->setMaxResults(10);
+        
+        $info = $query->getResult();
+        
+        return $info;
+    }
+    
     public function getLastNews()
     {
         $em = $this->_em;
@@ -61,6 +78,23 @@ class InfoRepository extends \Doctrine\ORM\EntityRepository
         return $info;
     }
     
+    public function getLastTenNews()
+    {
+        $em = $this->_em;
+        $query = $em->createQuery(
+            "SELECT info
+            FROM backBundle:Info info
+            WHERE info.type != 'lohahevitra' and info.type != 'vanimpotoana'
+                and info.type != 'zioga' and info.type != 'perikopa' 
+                order by info.date desc
+            "
+        )->setFirstResult(0)
+         ->setMaxResults(10);
+
+        $info = $query->getResult();
+        
+        return $info;
+    }
     
     public function getLohahevitra()
     {
