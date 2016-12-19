@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Site-web FJKM Ivandry</title>
-
+        
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 {#        {% stylesheets output="css/compiled/frontOffice.css" filter="cssrewrite"
@@ -19,6 +19,8 @@
         {% endstylesheets %}#}
 
 {#        <link rel="stylesheet" href="{{ asset('css/compiled/frontOffice.css') }}"/>#}
+
+        <script src="{{ asset('bundles/front/ivandry/js/jquery.min.js') }}" charset="utf-8"></script>
 
         <link rel="stylesheet" href="{{ asset('bundles/front/ivandry/css/bootstrap.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('bundles/front/ivandry/css/jquery.mCustomScrollbar.css') }}"/>
@@ -150,8 +152,8 @@
                                             <a href="{{ path('tetik_asa_index') }}" class="dropdown-toggle">Tetik'asa</a></li>
                                         <li class="dropdown dropdown-large">
                                             <a href="{{ path('tsiahy_index') }}" class="dropdown-toggle">Tsiahy</a></li>
-                                        {#<li class="dropdown dropdown-large">
-                                            <a href="#" class="dropdown-toggle">Sary</a></li>#}
+                                        <li class="dropdown dropdown-large">
+                                            <a href="{{ path('front_album_index') }}" class="dropdown-toggle">Sary</a></li>
                                         <li class="dropdown dropdown-large">
                                             <a href="{{ path('fifandraisana_index') }}" class="dropdown-toggle">Fifandraisana</a></li>                    
                                     </ul>
@@ -243,8 +245,8 @@
                                             <a href="{{ path('tetik_asa_index') }}" class="dropdown-toggle">Tetik'asa</a></li>
                                         <li class="dropdown dropdown-large">
                                             <a href="{{ path('tsiahy_index') }}" class="dropdown-toggle">Tsiahy</a></li>
-                                        {#<li class="dropdown dropdown-large">
-                                            <a href="#" class="dropdown-toggle">Sary</a></li>#}
+                                        <li class="dropdown dropdown-large">
+                                            <a href="{{ path('front_album_index') }}" class="dropdown-toggle">Sary</a></li>
                                         <li class="dropdown dropdown-large">
                                             <a href="{{ path('fifandraisana_index') }}" class="dropdown-toggle">Fifandraisana</a></li>
                                         </ul>
@@ -281,7 +283,7 @@
             
 {#        <script src="{{ asset('js/compiled/frontOffice.js') }}" charset="utf-8"></script>#}
 
-        <script src="{{ asset('bundles/front/ivandry/js/jquery.min.js') }}" charset="utf-8"></script>
+        {#<script src="{{ asset('bundles/front/ivandry/js/jquery.min.js') }}" charset="utf-8"></script>#}
         <script src="{{ asset('bundles/front/ivandry/js/bootstrap.min.js') }}" charset="utf-8"></script>
         <script src="{{ asset('bundles/front/ivandry/js/jquery.mCustomScrollbar.concat.min.js') }}" charset="utf-8"></script>
 

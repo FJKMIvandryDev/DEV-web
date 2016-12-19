@@ -14,20 +14,20 @@
 	<![endif]-->
 	
 	<!-- MaxCDN Bootstrap stylesheet -->
-        <link rel="stylesheet" href="../ressources/css/bootstrap.min.css">
+        <link rel="stylesheet" href="ivandry/css/bootstrap.min.css">
 	<!-- custom scrollbar stylesheet -->
-	<link rel="stylesheet" href="../ressources/css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" href="../ressources/css/style.css">
-	<link rel="stylesheet" href="../ressources/css/ivandry.css">
+	<link rel="stylesheet" href="ivandry/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="ivandry/css/style.css">
+	<link rel="stylesheet" href="ivandry/css/ivandry.css">
 		<!-- Google CDN jQuery with fallback to local -->
-	<script src="../ressources/js/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="../ressources/js/minified/jquery-1.11.0.min.js"><\/script>')</script>
+	<script src="ivandry/js/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="ivandry/js/minified/jquery-1.11.0.min.js"><\/script>')</script>
 	
 	<!-- MaxCDN Bootstrap plugins -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	
 	<!-- custom scrollbar plugin -->
-	<script src="../ressources/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="ivandry/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
     
 </head>
@@ -55,7 +55,7 @@
        
         <div class="row">
 	        <div class="col-lg-12">	
-                <img class="highlight" src="../ressources/images/equipe.png" />
+                <img class="highlight" src="ivandry/ressources/images/equipe.png" />
 	        </div>
 	    </div>   	       
       
@@ -65,15 +65,15 @@
          
             <div class="row">
             <div class="hidden-sm">
-	            <div class="col-lg-1 col-md-2 icone"><img src="../ressources/img/icone_suivant.jpg" height="180" /></div>
-	            <div class="col-lg-2 col-md-4 thumbnail"><img src="../ressources/images/equipe.png" /></div>
-	            <div class="col-lg-2 col-md-4 thumbnail"><img src="../ressources/images/equipe.png" /></div>
+	            <div class="col-lg-1 col-md-2 icone"><img src="ivandry/img/icone_suivant.jpg" height="180" /></div>
+	            <div class="col-lg-2 col-md-4 thumbnail"><img src="ivandry/images/equipe.png" /></div>
+	            <div class="col-lg-2 col-md-4 thumbnail"><img src="ivandry/images/equipe.png" /></div>
 	            <div class="hidden-md">
-       	            <div class="col-lg-2 thumbnail"><img src="../ressources/images/equipe.png" /></div>
-	                <div class="col-lg-2 thumbnail"><img src="../ressources/images/equipe.png" /></div>
-	                <div class="col-lg-2 thumbnail"><img src="../ressources/images/equipe.png" /></div>
+       	            <div class="col-lg-2 thumbnail"><img src="ivandry/images/equipe.png" /></div>
+	                <div class="col-lg-2 thumbnail"><img src="ivandry/images/equipe.png" /></div>
+	                <div class="col-lg-2 thumbnail"><img src="ivandry/images/equipe.png" /></div>
 	            </div>    
-	            <div class="col-lg-1 col-md-2 icone"><img src="../ressources/img/icone_suivant.jpg" height="180" /></div>     
+	            <div class="col-lg-1 col-md-2 icone"><img src="ivandry/img/icone_suivant.jpg" height="180" /></div>     
 	        </div>
 	    </div>   	   
    

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 /**
  * Article controller.
  *
- * @Route("/album")
+ * @Route("/admin/album")
  */
 class AlbumController extends Controller
 {
@@ -53,7 +53,7 @@ class AlbumController extends Controller
         if (sizeof($files)==1)
         {
             foreach ($files as $value){
-                $path = $albumServ->upload($value, $albumId);
+                $path = $albumServ->upload($value, $albumId, $baseurl);
             }
             
             $status = array(

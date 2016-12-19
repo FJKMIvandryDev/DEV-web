@@ -1,0 +1,40 @@
+        modified:   src/backBundle/Controller/AlbumController.php
+        modified:   src/backBundle/Repository/ArticleRepository.php
+        modified:   src/backBundle/Repository/InfoRepository.php
+        modified:   src/backBundle/Resources/config/services.yml
+        modified:   src/backBundle/Resources/views/Album/index.html.twig
+        modified:   src/backBundle/Services/InfoService.php
+        modified:   src/backBundle/Services/UploadImages.php
+        modified:   src/frontBundle/Controller/FampianaranaController.php
+        modified:   src/frontBundle/Resources/views/Fampianarana/index.html.twig
+        modified:   src/frontBundle/Resources/views/principal.html.twig
+        modified:   web/app_dev.php
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        src/backBundle/Entity/Album.php
+        src/backBundle/Entity/Album.php~
+        src/backBundle/Entity/ImageAlbum.php
+        src/backBundle/Repository/AlbumRepository.php
+        src/backBundle/Repository/ImageAlbumRepository.php
+        src/backBundle/Resources/views/Album/add.html.twig
+        src/backBundle/Resources/views/Album/show.html.twig
+        src/backBundle/Resources/views/Album/update.html.twig
+        src/backBundle/Services/AlbumService.php
+
+        modified:   ivandry3/popup_gallery.php
+        modified:   src/backBundle/Controller/AlbumController.php
+        modified:   src/backBundle/Resources/views/Album/show.html.twig
+        modified:   src/backBundle/Resources/views/principal.html.twig
+        modified:   src/backBundle/Services/UploadImages.php
+        modified:   src/frontBundle/Resources/config/routing.yml
+        modified:   src/frontBundle/Resources/views/principal.html.twig
+
+        ai-cache/1382/web/upload/feint/
+        ai-cache/1382/web/upload/pop/
+        src/frontBundle/Controller/AlbumController.php
+        src/frontBundle/Resources/public/ug/
+        src/frontBundle/Resources/views/Album/
+        src/frontBundle/Tests/Controller/AlbumControllerTest.php
+        to update site fjkm.txt

@@ -19,7 +19,7 @@ class UploadImages {
         $this->em = $entityManager;
     }
     
-    public function upload($file, $idAlbum)
+    public function upload($file, $idAlbum, $rootPath)
     {
         if(!is_null($file)) {
             $filename = uniqid() . "." . $file->getClientOriginalExtension();
@@ -27,11 +27,12 @@ class UploadImages {
             $albumDAO = $this->em->getRepository("backBundle:Album");
             $currentAlbum = $albumDAO->find($idAlbum);
             $path = "upload/" . $currentAlbum->getName();
+            
             $file->move($path, $filename); // move the file to a path
 
             $img = new ImageAlbum();
             $img->setAlbum($currentAlbum);
-            $img->setUrl($path . "/" . $filename);
+            $img->setUrl($rootPath . "/web/" . $path . "/" . $filename);
             $img->setOriginalName($file->getClientOriginalName());
             
             $this->em->persist($img);

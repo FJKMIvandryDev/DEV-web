@@ -1,0 +1,72 @@
+{% extends "frontBundle::principal.html.twig" %}
+
+{% block headPerso %}
+    
+{#    <script src="{{ asset('bundles/front/ug/js/ug-common-libraries.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-functions.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-thumbsgeneral.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-thumbsstrip.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-touchthumbs.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-panelsbase.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-strippanel.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-gridpanel.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-thumbsgrid.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-tiles.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-tiledesign.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-avia.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-slider.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-sliderassets.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-touchslider.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-zoomslider.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-video.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-gallery.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-lightbox.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-carousel.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/front/ug/js/ug-api.js') }}" charset="utf-8"></script>#}
+    
+    <script src="{{ asset('bundles/front/ug/js/unitegallery.js') }}" charset="utf-8"></script>
+    <link rel="stylesheet" href="{{ asset('bundles/front/ug/css/unite-gallery.css') }}" />
+    <script src="{{ asset('bundles/front/ug/themes/default/ug-theme-default.js') }}" charset="utf-8"></script>
+    <link rel="stylesheet" href="{{ asset('bundles/front/ug/themes/default/ug-theme-default.css') }}" />
+
+    
+    <link rel="stylesheet" href="{{ asset('bundles/front/ivandry/css/colorbox.css') }}" />
+	
+    <style>
+        #cboxLoadedContent{ overflow-y: hidden; }
+        #inline_content hr{ border-top-color: rgba(0,0,0,0.2); }
+        #inline_content h2{ color: inherit; }
+        #cboxContent .mCSB_scrollTools{ margin-right: 5px; }
+    </style>
+    
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div id="gallery" style="display:none;align-content: center">
+
+                    {% for image in images %}
+                        <img alt="{{ image.originalName }}"
+                        src="{{ asset(image.url)}}"
+                        data-image="{{ asset(image.url)}}"
+                        data-description="{{ image.originalName }}">
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block JSPerso %}
+    <script>
+        jQuery(document).ready(function(){
+            jQuery("#gallery").unitegallery();
+	});
+    </script>
+{% endblock %}
