@@ -45,6 +45,7 @@ class IndexController extends Controller
         $vanimpotoana = $infoServ->getLastOneInfoByType('vanimpotoana');
         
         $toriteny = $articleServ->findAllByTypeLimit("toritenyalahady ", 0, 1);
+        
         if (sizeof($toriteny)>0)
         {
             $toriteny = $toriteny[0];
@@ -83,7 +84,8 @@ class IndexController extends Controller
         {
             $samihafa = null;
         }
-        
+//        var_dump($toriteny);
+//        die;
         return $this->render('frontBundle:Index:index.html.twig', array(
             "vaovao" => $vaovao,
             "perikopa" => $perikopa,

@@ -24,7 +24,7 @@ class FampianaranaController extends Controller
         
         $toritenyCP = $request->query->get('toritenyCP');
         $samyhafaCP = $request->query->get('samyhafaCP');
-        
+
         $visiteServ = $this->container->get('visiteService');
         $session = new Session();
         $session->start();

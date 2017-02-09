@@ -107,7 +107,7 @@ class InfoRepository extends \Doctrine\ORM\EntityRepository
         
         $sql = "SELECT info.id as id, info.texte as texte, info.titre as titre, info.date as date "
                 . "FROM info as info WHERE info.type = 'lohahevitra' "
-                . "and (MONTH(info.date) - MONTH(CURRENT_DATE))=0";
+                . "and (MONTH(info.date) - MONTH(CURRENT_DATE))=0 and (year(date) - year(CURRENT_DATE))=0";
         
         $query = $this->_em->createNativeQuery($sql, $rsm);
 

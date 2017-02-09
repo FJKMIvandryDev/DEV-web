@@ -22,7 +22,7 @@ class ArticleController extends Controller
     {
         $idArticle = $request->query->get('id');
         $typeArticle = $request->query->get('type');
-
+        
         $articleServ = $this->container->get('articleService');
         
         $visiteServ = $this->container->get('visiteService');
