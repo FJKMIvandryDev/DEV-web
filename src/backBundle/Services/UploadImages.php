@@ -47,7 +47,7 @@ class UploadImages {
     public function delete($path, $baseUrl)
     {
         $path_partiel = str_replace($baseUrl . "/web/","",$path);
-        $images = $this->em->getRepository('backBundle:ImageAlbum')->findByUrl($path_partiel);
+        $images = $this->em->getRepository('backBundle:ImageAlbum')->findByUrl($path);
 
         if (file_exists($path_partiel)) {
             unlink($path_partiel);

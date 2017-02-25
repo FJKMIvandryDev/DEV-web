@@ -25,9 +25,11 @@ class AlbumController extends Controller
         $albumServ = $this->container->get('albumService');
         
         $visiteServ = $this->container->get('visiteService');
+        
         $visite = $visiteServ->findAll();
         
         $album = $albumServ->findAll();
+        
         
         return $this->render('backBundle:Album:index.html.twig', array(
             "visite" => $visite,
@@ -80,13 +82,13 @@ class AlbumController extends Controller
      */
     public function deleteImageAction(Request $request)
     {
-        $albumServ = $this->container->get('imageUploader');
+        $imageUpServ = $this->container->get('imageUploader');
         
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
         
         $filepath = $request->request->get("filepath");
-                
-        $result = $albumServ->delete($filepath, $baseurl);
+        
+        $result = $imageUpServ->delete($filepath, $baseurl);
         
         $status = array(
             'status' => $result,

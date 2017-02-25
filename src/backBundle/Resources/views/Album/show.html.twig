@@ -195,7 +195,8 @@
                                         name: "{{ image.originalName }}",
                                         size: 0,
                                         type: "image/jpg",
-                                        file: "http://localhost/web/{{ image.url }}"
+                                        file: "{{ image.url }}"
+{#                                        file: "http://localhost/web/{{ image.url }}"#}
                                     },
                                 {% endfor %}
 {#                                {
